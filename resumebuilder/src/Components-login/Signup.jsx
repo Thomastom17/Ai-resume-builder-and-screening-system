@@ -275,7 +275,7 @@ const Signup = () => {
             </button>
           </form>
 
-          <div className="divider"><span> Or Continue with </span></div>
+          <div className="divider">Or Continue with</div>
 
           <div className="socialContainer">
             <button type="button" className="socialBtn">

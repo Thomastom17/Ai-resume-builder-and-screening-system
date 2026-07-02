@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import {
   FaArrowLeft,
   FaLock,
@@ -9,8 +9,10 @@ import forgotImage from "../assets/forgot-image.png";
 import "./ForgotPassword.css";
 import linkedinIcon from '../assets/linkedin.png';
 import loginImage from '../assets/login-image.png';
+import googleIcon from '../assets/google.png';
 
 const ForgotPassword = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -35,20 +37,17 @@ const ForgotPassword = () => {
     <div className="forgot-container">
 
       {/* Left Side */}
-
       <div className="forgot-left">
         <img src={forgotImage} alt="Forgot Password" />
       </div>
 
       {/* Right Side */}
-
       <div className="forgot-card">
 
         <div className="back-btn">
-          <Link to="/Ai-resume/login">
-            <FaArrowLeft />
-            Back to Login
-          </Link>
+          <button className="back-to-login" onClick={() => navigate(-1)}>
+            Back to login
+          </button>
         </div>
 
         <div className="icon-circle">
@@ -64,7 +63,7 @@ const ForgotPassword = () => {
         </p>
 
         <form onSubmit={handleSubmit}>
-          <label>Email Address (or) Mobile Number</label>
+          <label>Email Address</label>
 
           <input
             type="text"
@@ -83,15 +82,13 @@ const ForgotPassword = () => {
         </div>
 
         <div className="social-login">
+          <button type="button" className="socialBtn">
+            <img src={googleIcon} alt="Google" />
+          </button>
 
-      <button type="button" className="socialBtn">
-        <img src={googleIcon} alt="Google" />
-      </button>
-
-      <button type="button" className="socialBtn">
-        <img src={linkedinIcon} alt="LinkedIn" /> 
-      </button>
-
+          <button type="button" className="socialBtn">
+            <img src={linkedinIcon} alt="LinkedIn" /> 
+          </button>
         </div>
 
         <p className="help-text">
