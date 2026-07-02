@@ -9,7 +9,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import { IoEyeOffOutline } from "react-icons/io5";
 
 
-const Login = () => {
+  const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
