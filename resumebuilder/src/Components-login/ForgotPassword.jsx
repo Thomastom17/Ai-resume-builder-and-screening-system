@@ -20,7 +20,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     if (!email.trim()) {
-      alert("Please enter your email or mobile number.");
+      alert("Please enter your email.");
       return;
     }
 
@@ -45,9 +45,7 @@ const ForgotPassword = () => {
       <div className="forgot-card">
 
         <div className="back-btn">
-          <button className="back-to-login" onClick={() => navigate(-1)}>
-            Back to login
-          </button>
+          <span onClick={() => navigate("/Ai-resume/login")}> Back to login</span>
         </div>
 
         <div className="icon-circle">

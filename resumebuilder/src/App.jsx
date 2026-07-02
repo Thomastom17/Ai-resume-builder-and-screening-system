@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Login from './Components-login/Login';
 import ForgotPassword from './Components-login/Forgotpassword';
 import Signup from './Components-login/Signup';
+import CreatePassword from './Components-login/CreatePassword';
 
 
 const router = createBrowserRouter(
@@ -19,6 +20,10 @@ const router = createBrowserRouter(
     {
       path: '/Ai-resume/signup',
       element: <Signup />,
+    }
+    ,
+    {path: '/Ai-resume/login/createpassword',
+      element: <CreatePassword />
     }
   ],
 );
