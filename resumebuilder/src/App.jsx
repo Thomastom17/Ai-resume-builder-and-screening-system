@@ -1,23 +1,33 @@
 import { useState } from 'react'
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom' 
-import Loginpage from './components-login/Loginpage'
+import Login from './Components-login/Login'
+import ForgotPassword from './Components-login/Forgotpassword'
+import Signup from './Components-login/Signup'
 
-function App() {
-  const [count, setCount] = useState(0)
+ const router = createBrowserRouter([
+  {
+   path: '/Ai-resume/login',
+   element: <Login />,
+  },
+  {
+    path: '/Ai-resume/login/forgotpassword',
+    element: <ForgotPassword />
+  },
+  {
+    path: '/Ai-resume/signup',
+    element: <Signup />
+  }
 
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Loginpage />,
-    },
   ])
 
+
+function App() {
+  
   return (
     <>
-  
-      <RouterProvider router={router} />
-    </>
+        <RouterProvider router={router} />
+   </>
   )
 }
 

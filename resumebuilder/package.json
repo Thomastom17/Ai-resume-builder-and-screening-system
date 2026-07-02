@@ -1,5 +1,6 @@
 {
   "name": "resumebuilder",
+  "homepage": "https://Thomastom17.github.io/Ai-resume-builder-and-screening-system",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,6 +13,7 @@
   "dependencies": {
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-icons": "^5.7.0",
     "react-router-dom": "^7.18.1"
   },
   "devDependencies": {

@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+.login-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* ================= LEFT ================= */
+
+.left-section {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  /* overflow: hidden; */
+}
+.login-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.welcome-content {
+  position: absolute;
+  top: 80px;
+  left: 70px;
+  z-index: 2;
+}
+
+.welcome-content h1 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.welcome-content p {
+  font-size: 24px;
+  line-height: 40px;
+}
+
+/* ================= RIGHT ================= */
+
+.right-section {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.login-form {
+  width: min(70%, 520px);
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* ================= INPUT ================= */
+
+.input-group {
+  margin-bottom: 40px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.input-box,
+.password-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-box input {
+  width: 100%;
+  padding-right: 40px; /* icon space */
+}
+
+.eye-left {
+  position: absolute;
+  left: 12px;
+  color: #777;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.eye-right {
+  position: absolute;
+  right: 12px;
+  color: #777;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.input-box input,
+.password-box input {
+  width: 100%;
+  height: 52px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  padding-left: 42px;
+  padding-right: 45px;
+  font-size: 15px;
+  outline: none;
+}
+
+.input-box input:focus,
+.password-box input:focus {
+  border-color: #3366ff;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7d7d7d;
+  font-size: 18px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7d7d7d;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ================= ERROR ================= */
+
+.error-input {
+  border: 1px solid #ff4d4f !important;
+}
+
+.error-text {
+  display: block;
+  color: #ff4d4f;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* ================= OPTIONS ================= */
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.remember input[type="checkbox"] {
+  width: 18px !important;      
+  height: 18px !important;    
+  margin: 0;                    
+  cursor: pointer;
+  accent-color: #3366ff;      
+  border-radius: 4px;
+}  
+
+.remember label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0 !important;
+}
+
+.options a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+.options a:hover {
+  color: #3366ff; 
+}
+
+/* ================= BUTTON ================= */
+
+.continue-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 8px;
+  background: #3366ff;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 3px 8px rgba(51, 102, 255, 0.3);
+}
+
+.continue-btn:hover {
+  background: #2958e6;
+}
+
+/* ================= DIVIDER ================= */
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 30px 0 20px;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: #d9d9d9;
+}
+
+.divider p {
+  margin: 0 12px;
+  font-size: 14px;
+}
+
+/* ================= SOCIAL ================= */
+
+.continue-text {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.social-login a {
+  width: 44px;
+  height: 44px;
+  background:rgb(228, 224, 224);
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.social-login a:hover {
+  transform: translateY(-2px);
+}
+
+.social-login img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+/* ================= CONTACT ================= */
+
+.contact-admin {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.contact-admin a {
+  text-decoration: none;
+  color: #3366ff;
+  font-weight: 500;
+}
+
+.login-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+@media screen and (max-width: 992px) {
+  .welcome-content h1 {
+    font-size: 34px;
+  }
+
+  .welcome-content p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .login-form {
+    max-width: 380px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    width: 100%;
+    height: 250px;
+  }
+
+  .right-section {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .login-form {
+    max-width: 100%;
+  }
+
+  .welcome-content {
+    top: 30px;
+    left: 25px;
+  }
+
+  .welcome-content h1 {
+    font-size: 28px;
+  }
+
+  .welcome-content p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .left-section {
+    height: 200px;
+  }
+
+  .welcome-content h1 {
+    font-size: 22px;
+  }
+
+  .welcome-content p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .login-form h2 {
+    font-size: 22px;
+  }
+
+  .continue-btn {
+    height: 48px;
+  }
+}
+ 
