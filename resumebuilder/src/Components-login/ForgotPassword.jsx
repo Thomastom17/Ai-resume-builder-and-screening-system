@@ -4,16 +4,14 @@ import { FaLock } from "react-icons/fa";
 import forgotImage from "../assets/forgot-image.png";
 import "./ForgotPassword.css";
 import linkedinIcon from '../assets/linkedin.png';
-import loginImage from '../assets/login-image.png';
 import googleIcon from '../assets/google.png';
 import backIcon from '../assets/arrw.png';
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
- 
+  const [emailError, setEmailError] = useState(""); 
 
-  
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
@@ -21,21 +19,21 @@ const ForgotPassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setEmailError(""); 
 
-   
+    // 1. Empty Check
     if (!email.trim()) {
-      alert("Please enter your email.");
+      setEmailError("Please enter your email.");
       return;
     }
 
-    
+    // 2. Format Check
     if (!validateEmail(email)) {
-      alert("Please enter a valid email address (e.g., name@example.com).");
+      setEmailError("Please enter a valid email address (e.g., name@example.com).");
       return; 
     }
 
-    alert("Reset Link Sent Successfully!");
-    
+   
     setEmail("");
     navigate("/Ai-resume/login/createpassword"); 
   };
@@ -74,26 +72,39 @@ const ForgotPassword = () => {
             type="email" 
             placeholder="example@gmail.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setEmailError(""); 
+            }}
+            className={emailError ? "error-input" : ""} 
           />
 
-          <button type="submit" onClick={() => navigate("/Ai-resume/login/createpassword")}>
+          
+          {emailError && (
+            <span className="error-text" style={{ color: "red", fontSize: "13px", display: "block", marginTop: "5px", textAlign: "left" }}>
+              {emailError}
+            </span>
+          )}
+
+          <button type="submit" style={{ marginTop: "15px" }}>
             Send Reset Link
           </button>
         </form>
 
-        <div className="divider">
-          <span>Or Continue with</span>
-        </div>
-
+         <div className="divider"><span></span><p>OR</p><span></span></div>
+ 
+          <p className="continue-text"> Or Continue with</p>
+ 
         <div className="social-login">
-          <button type="button" className="socialBtn">
-            <img src={googleIcon} alt="Google" />
-          </button>
-
-          <button type="button" className="socialBtn">
-            <img src={linkedinIcon} alt="LinkedIn" /> 
-          </button>
+ 
+         <button type="button" className="socialBtn">
+          <img src={googleIcon} alt="Google" />
+         </button>
+ 
+         <button type="button" className="socialBtn">
+           <img src={linkedinIcon} alt="LinkedIn" />
+         </button>
+ 
         </div>
 
         <p className="help-text">

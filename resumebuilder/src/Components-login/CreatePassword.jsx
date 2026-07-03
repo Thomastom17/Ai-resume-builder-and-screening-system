@@ -16,6 +16,7 @@ const CreatePassword = () => {
   const initialValues = { newPassword: "", confirmPassword: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
+  const [showPopup, setShowPopup] = useState(false); // Popup-க்கான State
 
   const togglePasswordView = () => { setPasswordShow((prev) => !prev); };
   const toggleConfirmPasswordView = () => { setconfirmPasswordShow((prev) => !prev); };
@@ -42,7 +43,18 @@ const CreatePassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); 
     if (!validateForm()) return false;
+
     console.log("Password reset successfully", formValues);
+    
+  
+    setShowPopup(true);
+
+    
+    setTimeout(() => {
+      setShowPopup(false);
+      setFormValues(initialValues); 
+      navigate("/Ai-resume/login");
+    }, 3000);
   };
 
   return (
@@ -91,7 +103,6 @@ const CreatePassword = () => {
           <button type="submit">Reset Password</button>
         </form>
 
-        
         <div className="cr-login-text">
           Remember your password?
           <span onClick={() => navigate("/Ai-resume/login")}> Login</span>
@@ -112,6 +123,17 @@ const CreatePassword = () => {
 
         <p className="cr-contact">Need help & <span>Contact admin</span></p>
       </div>
+
+      
+      {showPopup && (
+        <div className="cr-popup-overlay">
+          <div className="cr-popup-box">
+            {/* <div className="cr-success-icon">✓</div> */}
+            <h3>Success!</h3>
+            <p>Password reset successfully.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

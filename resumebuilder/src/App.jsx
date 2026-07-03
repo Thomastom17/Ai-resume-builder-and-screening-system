@@ -18,13 +18,12 @@ const router = createBrowserRouter(
     },
     {
       path: '/Ai-resume/login/forgotpassword',
-      element: <ForgotPassword />,
+      element: <ForgotPassword />,  
     },
     {
       path: '/Ai-resume/signup',
       element: <Signup />,
-    }
-    ,
+    },
     {
       path: '/Ai-resume/login/createpassword',
       element: <CreatePassword />
@@ -38,7 +37,7 @@ const router = createBrowserRouter(
       element: <OtpVerification /> 
     },
     {
-      path: '/Ai-resume/login/emailverification/otpverification/loginsuccess',
+      path: '/Ai-resume/login/loginsuccess',
       element: <LoginSuccess /> 
     }
 

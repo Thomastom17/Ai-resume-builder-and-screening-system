@@ -57,10 +57,12 @@ const EmailVerification = () => {
       return;
     }
 
+    
     if (enteredOtp === DEFAULT_OTP) {
-      navigate("/");
+      setError("");
+      navigate("/Ai-resume/login/loginsuccess"); 
     } else {
-      setError("Invalid OTP");
+      setError("❗ Invalid OTP. Please check and try again.");
       navigate("/Ai-resume/login/emailverification/otpverification");
     }
   };
@@ -83,7 +85,7 @@ const EmailVerification = () => {
       <div className="em-otp-container">
         
         {/* Back to Login Button */}
-        <div className="em-back-container" onClick={() => navigate("/Ai-resume/login")}>
+        <div className="em-back-container" onClick={() => navigate("/Ai-resume/login")} style={{ cursor: 'pointer' }}>
           <img src={backIcon} alt="back" className="em-back-icon" /> 
           <span>Back to Login</span>
         </div>
@@ -107,7 +109,7 @@ const EmailVerification = () => {
                   type="text"
                   maxLength="1"
                   value={digit}
-                  className="em-otp-box"
+                  className={`em-otp-box ${error ? "em-input-error" : ""}`}
                   onChange={(e) => handleChange(e.target, index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   ref={(el) => (inputRefs.current[index] = el)}
@@ -115,14 +117,14 @@ const EmailVerification = () => {
               ))}
             </div>
 
-            {error && <p className="em-error-msg">{error}</p>}
+            {error && <p className="em-error-msg" style={{ color: "#ef4444", fontWeight: "500", marginTop: "10px", textAlign: "center" }}>{error}</p>}
 
             <p className="em-resend-text">
               Didn't receive the code?{" "}
               {seconds > 0 ? (
                 <span className="em-timer-highlight">resend OTP({formatTime(seconds)})</span>
               ) : (
-                <button type="button" className="em-resend-link" onClick={handleResend}>
+                <button type="button" className="em-resend-link" onClick={handleResend} style={{ background: 'none', border: 'none', color: '#2563eb', cursor: 'pointer', fontWeight: '600' }}>
                   resend OTP
                 </button>
               )}

@@ -275,7 +275,9 @@ const Signup = () => {
             </button>
           </form>
 
-          <div className="divider">Or Continue with</div>
+         < div className="divider"><span></span><p>OR</p><span></span></div>
+
+            <p className="continue-text"> Or Continue with</p>
 
           <div className="socialContainer">
             <button type="button" className="socialBtn">
