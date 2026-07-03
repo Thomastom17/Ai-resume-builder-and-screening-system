@@ -53,40 +53,44 @@
 .rightPanel {
   flex: 1;
   min-width: 0;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #ffffff;
-  padding: 40px 30px;
+  padding: clamp(12px, 3vh, 40px) 30px;
+  overflow: hidden;
 }
 
 .formContainer {
   width: 100%;
   max-width: 480px; 
+  max-height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .formTitle {
-  font-size: 26px;
+  font-size: clamp(18px, 2.6vh, 26px);
   font-weight: 700;
   color: #000000;
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: clamp(10px, 2.2vh, 28px);
 }
 
 /* ── INPUT BOX FORM LAYOUTS ── */
 .fieldWrapper {
-  margin-bottom: 18px;
+  margin-bottom: clamp(8px, 1.6vh, 18px);
   width: 100%;
 }
 
 .fieldLabel {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #111111;
-  margin-bottom: 8px;
+  margin-bottom: clamp(3px, 0.8vh, 8px);
 }
 
 .inputWrapper {
@@ -98,7 +102,7 @@
 
 .inputField {
   width: 100%;
-  height: 48px;
+  height: clamp(36px, 6vh, 48px);
   padding: 0 16px;
   font-size: 14px;
   color: #333333;
@@ -162,7 +166,7 @@
   align-items: center;
   gap: 4px;
   padding: 0 14px;
-  height: 46px;
+  height: clamp(34px, 5.8vh, 46px);
   border-right: 1px solid #d1d5db;
   cursor: pointer;
   background: #f9fafb;
@@ -194,7 +198,7 @@
 
 .phoneInput {
   flex: 1;
-  height: 46px;
+  height: clamp(34px, 5.8vh, 46px);
   padding: 0 16px;
   font-size: 14px;
   color: #333333;
@@ -212,15 +216,15 @@
 /* ── SUBMIT BUTTON ── */
 .submitBtn {
   width: 100%;
-  height: 48px;
+  height: clamp(36px, 6vh, 48px);
   background-color: #2563eb;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: clamp(4px, 1vh, 10px);
   transition: background-color 0.2s ease, transform 0.1s ease;
   box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
 }
@@ -237,20 +241,31 @@
 .divider {
   display: flex;
   align-items: center;
-  margin: 30px 0 20px;
+  margin: clamp(10px, 2.4vh, 30px) 0 clamp(8px, 1.6vh, 20px);
+}
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: #d9d9d9;
 }
 
+.continue-text {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: clamp(4px, 1vh, 10px);
+}
 
 .socialContainer {
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-top: 18px;
+  margin-top: clamp(6px, 1.4vh, 18px);
 }
 
 .socialBtn {
-  width: 44px;
-  height: 44px;
+  width: clamp(36px, 5.6vh, 44px);
+  height: clamp(36px, 5.6vh, 44px);
   background:rgb(228, 224, 224);
   border: 1px solid #d9d9d9;
   border-radius: 8px;
@@ -264,3 +279,171 @@
  transform: translateY(-2px);
 }
 
+/* Laptop */
+@media screen and (max-width: 992px) {
+
+  .leftTextContainer {
+    top: 8%;
+    left: 6%;
+  }
+
+  .leftTextContainer h1 {
+    font-size: 34px;
+  }
+
+  .leftTextContainer p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .formContainer {
+    max-width: 400px;
+  }
+
+  .rightPanel {
+    padding: 30px 25px;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+
+  .pageContainer {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  html, body {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .leftPanel {
+    width: 100%;
+    height: 220px;
+    min-height: 220px;
+    flex: none;
+  }
+
+  .login-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .leftTextContainer {
+    top: 25px;
+    left: 25px;
+  }
+
+  .leftTextContainer h1 {
+    font-size: 26px;
+  }
+
+  .leftTextContainer p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .rightPanel {
+    width: 100%;
+    height: auto;
+    padding: 24px 20px;
+    align-items: flex-start;
+    overflow: visible;
+  }
+
+  .formContainer {
+    max-width: 100%;
+    max-height: none;
+  }
+
+  .fieldWrapper {
+    margin-bottom: 16px;
+  }
+
+  .inputField {
+    height: 46px;
+  }
+
+  .countryDropdown {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+
+  .leftPanel {
+    height: 160px;
+    min-height: 160px;
+  }
+
+  .leftTextContainer {
+    top: 16px;
+    left: 16px;
+  }
+
+  .leftTextContainer h1 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .leftTextContainer p {
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .rightPanel {
+    padding: 18px 16px;
+  }
+
+  .formTitle {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .fieldWrapper {
+    margin-bottom: 14px;
+  }
+
+  .fieldLabel {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .inputField,
+  .phoneInput,
+  .submitBtn,
+  .countrySelector {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .countrySelector {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .divider {
+    margin: 18px 0 14px;
+  }
+
+  .socialContainer {
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .socialBtn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .continue-text {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+}

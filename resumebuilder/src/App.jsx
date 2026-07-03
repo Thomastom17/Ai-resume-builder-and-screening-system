@@ -5,6 +5,9 @@ import Login from './Components-login/Login';
 import ForgotPassword from './Components-login/Forgotpassword';
 import Signup from './Components-login/Signup';
 import CreatePassword from './Components-login/CreatePassword';
+import EmailVerification from './Components-login/EmailVerification';
+import OtpVerification from './Components-login/OtpVerification';
+import LoginSuccess from './Components-login/LoginSuccess';
 
 
 const router = createBrowserRouter(
@@ -22,9 +25,23 @@ const router = createBrowserRouter(
       element: <Signup />,
     }
     ,
-    {path: '/Ai-resume/login/createpassword',
+    {
+      path: '/Ai-resume/login/createpassword',
       element: <CreatePassword />
+    },
+    {
+      path: '/Ai-resume/login/emailverification',
+      element: <EmailVerification /> 
+    },
+    {
+      path: '/Ai-resume/login/emailverification/otpverification',
+      element: <OtpVerification /> 
+    },
+    {
+      path: '/Ai-resume/login/emailverification/otpverification/loginsuccess',
+      element: <LoginSuccess /> 
     }
+
   ],
 );
 

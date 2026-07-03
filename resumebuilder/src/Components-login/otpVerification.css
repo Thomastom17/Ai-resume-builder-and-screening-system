@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+.otp-container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    gap:70px;
+}
+
+.otp-left img{
+    width:480px;
+    max-width:100%;
+}
+
+.otp-right{
+    width:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.back-btn{
+    width:100%;
+    text-align:right;
+    font-size:14px;
+    cursor:pointer;
+    margin-bottom:35px;
+}
+
+.lock-circle{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#2563eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+    box-shadow:0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+.lock-icon{
+    font-size:24px;
+    color:#fff;
+}
+
+
+.otp-right h4{
+    font-size:15px;
+    font-weight:600;
+}
+
+.otp-right p{
+    font-size:13px;
+    margin-top:5px;
+    color:#555;
+}
+
+.otp-inputs{
+    display:flex;
+    gap:12px;
+    margin:30px 0 15px;
+}
+
+.otp-inputs input{
+    width:48px;
+    height:48px;
+    border:1px solid;
+    border-radius:8px;
+    text-align:center;
+    font-size:22px;
+    outline:none;
+}
+
+.otp-inputs input:focus{
+    border-color:#2563eb;
+}
+
+.error-text{
+    width:100%;
+    color:#ff4d4d;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.resend{
+    width:100%;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.resend span{
+    color:#2563eb;
+    cursor:pointer;
+    font-weight:500;
+}
+
+.verify-btn{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.verify-btn:hover{
+    background:#184cc8;
+}
+
+@media(max-width:900px){
+
+.otp-container{
+    flex-direction:column;
+    gap:30px;
+}
+
+.otp-left img{
+    width:320px;
+}
+
+.otp-right{
+    width:100%;
+    max-width:400px;
+}
+
+}
