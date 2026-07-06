@@ -12,6 +12,10 @@ import LoginSuccess from './Components-login/LoginSuccess';
 
 const router = createBrowserRouter(
   [
+     {
+      path: '/',
+      element: <Signup />,
+    },
     {
       path: '/Ai-resume/login', 
       element: <Login />,
@@ -20,10 +24,7 @@ const router = createBrowserRouter(
       path: '/Ai-resume/login/forgotpassword',
       element: <ForgotPassword />,  
     },
-    {
-      path: '/Ai-resume/signup',
-      element: <Signup />,
-    },
+   
     {
       path: '/Ai-resume/login/createpassword',
       element: <CreatePassword />
