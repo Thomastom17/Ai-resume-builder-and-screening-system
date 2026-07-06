@@ -26,14 +26,15 @@ const Signup = () => {
     const newErrors = {};
     const regexOfMail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const regexofMobile = /^[6-9]\d{9}$/;
+    
 
     if (!userName.trim()) newErrors.userName = "Username is required";
     
-    if (!email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!regexOfMail.test(email)) {
-      newErrors.email = "Invalid email format";
-    }
+   if (!email.trim()) {
+  newErrors.email = "Enter your email address";
+} else if (!regexOfMail.test(email)) {
+  newErrors.email = "Invalid email format";
+}
 
     if (!mobileNumber.trim()) {
       newErrors.mobileNumber = "Mobile number is required";
@@ -73,7 +74,7 @@ const Signup = () => {
         <div className="formContainer">
           <h2 className="formTitle">Create an account</h2>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             {/* User Name */}
             <div className="fieldWrapper">
               <label className="fieldLabel" htmlFor="userName">User Name</label>
@@ -81,7 +82,7 @@ const Signup = () => {
                 <input 
                   id="userName" 
                   type="text" 
-                  placeholder="Create your Username" 
+                  placeholder="Enter your Username" 
                   className={errors.userName ? "inputField input-error" : "inputField"} 
                   value={userName} 
                   onChange={(e) => { setUserName(e.target.value); setErrors({...errors, userName:""}); }} 
@@ -94,14 +95,17 @@ const Signup = () => {
             <div className="fieldWrapper">
               <label className="fieldLabel" htmlFor="email">Email ID</label>
               <div className="inputWrapper">
-                <input 
-                  id="email" 
-                  type="email" 
-                  placeholder="Enter Email" 
-                  className={errors.email ? "inputField input-error" : "inputField"} 
-                  value={email} 
-                  onChange={(e) => { setEmail(e.target.value); setErrors({...errors, email:""}); }} 
-                />
+               <input
+              id="email"
+              type="text"
+              placeholder="Enter Email"
+               className={errors.email ? "inputField input-error" : "inputField"}
+                  value={email}
+                 onChange={(e) => {
+          setEmail(e.target.value);
+             setErrors({ ...errors, email: "" });
+            }}
+            />
               </div>
               {errors.email && <span className="error-msg">{errors.email}</span>}
             </div>

@@ -13,6 +13,7 @@ body {
   display: flex;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 /* ================= LEFT ================= */
@@ -21,7 +22,7 @@ body {
   flex: 1;
   min-width: 0;
   position: relative;
-  /* overflow: hidden; */
+  height: 100%;
 }
 .login-image {
   width: 100%;
@@ -36,14 +37,14 @@ body {
 }
 
 .welcome-content h1 {
-  font-size: 44px;
+  font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 .welcome-content p {
-  font-size: 24px;
-  line-height: 40px;
+  font-size: clamp(16px, 1.8vw, 24px);
+  line-height: 1.5;
 }
 
 /* ================= RIGHT ================= */
@@ -51,34 +52,38 @@ body {
 .right-section {
   flex: 1;
   min-width: 0;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #fff;
+  overflow: hidden;
+  padding: clamp(12px, 3vh, 40px) 20px;
 }
 
 .login-form {
   width: min(70%, 520px);
+  max-height: 100%;
 }
 
 .login-form h2 {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 30px;
+  margin-bottom: clamp(14px, 3vh, 40px);
+  font-size: clamp(20px, 2.6vh, 30px);
   font-weight: 700;
 }
 
 /* ================= INPUT ================= */
 
 .input-group {
-  margin-bottom: 40px;
+  margin-bottom: clamp(12px, 3vh, 40px);
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: clamp(4px, 0.8vh, 8px);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .input-box,
@@ -113,12 +118,12 @@ body {
 .input-box input,
 .password-box input {
   width: 100%;
-  height: 52px;
+  height: clamp(38px, 6vh, 52px);
   border: 1px solid #d8d8d8;
   border-radius: 8px;
   padding-left: 42px;
   padding-right: 45px;
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
 }
 
@@ -154,9 +159,19 @@ body {
 
 .error-text {
   display: block;
+  width: 100%;
   color: #ff4d4f;
   font-size: 13px;
   margin-top: 6px;
+  text-align: left !important;
+  padding-left: 2px;
+  font-weight: 500;
+}
+
+.input-group{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
 }
 
 /* ================= OPTIONS ================= */
@@ -165,7 +180,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: clamp(10px, 2vh, 25px);
   width: 100%;
 }
 
@@ -206,12 +221,12 @@ body {
 
 .continue-btn {
   width: 100%;
-  height: 52px;
+  height: clamp(38px, 6vh, 52px);
   border: none;
   border-radius: 8px;
   background: #3366ff;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
@@ -227,7 +242,7 @@ body {
 .divider {
   display: flex;
   align-items: center;
-  margin: 30px 0 20px;
+  margin: clamp(10px, 2.4vh, 30px) 0 clamp(8px, 1.6vh, 20px);
 }
 
 .divider span {
@@ -245,19 +260,19 @@ body {
 
 .continue-text {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: clamp(8px, 1.6vh, 20px);
   font-size: 14px;
 }
 .social-login {
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-top: 18px;
+  margin-top: clamp(6px, 1.4vh, 18px);
 }
 
 .social-login a {
-  width: 44px;
-  height: 44px;
+  width: clamp(36px, 5.6vh, 44px);
+  height: clamp(36px, 5.6vh, 44px);
   background:rgb(228, 224, 224);
   border: 1px solid #d9d9d9;
   border-radius: 8px;
@@ -279,9 +294,9 @@ body {
 /* ================= CONTACT ================= */
 
 .contact-admin {
-  margin-top: 30px;
+  margin-top: clamp(10px, 2vh, 30px);
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .contact-admin a {
@@ -290,80 +305,133 @@ body {
   font-weight: 500;
 }
 
-.login-container {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-}
 @media screen and (max-width: 992px) {
-  .welcome-content h1 {
-    font-size: 34px;
-  }
-
-  .welcome-content p {
-    font-size: 18px;
-    line-height: 28px;
-  }
-
   .login-form {
     max-width: 380px;
   }
 }
 
+/* ================= TABLET ================= */
 @media screen and (max-width: 768px) {
+
   .login-container {
     flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  html, body {
+    height: auto;
+    overflow-y: auto;
   }
 
   .left-section {
     width: 100%;
-    height: 250px;
+    height: 220px;
+    flex: none;
   }
 
   .right-section {
     width: 100%;
-    padding: 30px 20px;
+    height: auto;
+    flex: 1;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
   }
 
   .login-form {
-    max-width: 100%;
-  }
-
-  .welcome-content {
-    top: 30px;
-    left: 25px;
-  }
-
-  .welcome-content h1 {
-    font-size: 28px;
-  }
-
-  .welcome-content p {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .left-section {
-    height: 200px;
-  }
-
-  .welcome-content h1 {
-    font-size: 22px;
-  }
-
-  .welcome-content p {
-    font-size: 14px;
-    line-height: 22px;
+    width: 100%;
+    max-width: 420px;
+    max-height: none;
   }
 
   .login-form h2 {
-    font-size: 22px;
+    font-size: 26px;
+    margin-bottom: 26px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-box input,
+  .password-box input {
+    width: 100%;
+    height: 48px;
   }
 
   .continue-btn {
+    width: 100%;
     height: 48px;
   }
+
+  .welcome-content {
+    top: 20px;
+    left: 20px;
+  }
 }
- 
+
+
+/* ================= MOBILE ================= */
+@media screen and (max-width: 480px) {
+
+  .left-section {
+    height: 150px;
+  }
+
+  .right-section {
+    padding: 18px 14px;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .login-form h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .input-group {
+    margin-bottom: 16px;
+  }
+
+  .input-box input,
+  .password-box input,
+  .continue-btn {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .options {
+    font-size: 13px;
+  }
+
+  .divider {
+    margin: 18px 0 14px;
+  }
+
+  .continue-text {
+    margin-bottom: 12px;
+  }
+
+  .contact-admin {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .social-login {
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .social-login a {
+    width: 38px;
+    height: 38px;
+  }
+}

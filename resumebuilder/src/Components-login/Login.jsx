@@ -64,7 +64,7 @@ const Login = () => {
 
     if (!valid) return;
 
-    navigate("/");
+    navigate("/Ai-resume/login/emailverification");
   };
 
 
