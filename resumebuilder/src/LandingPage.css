@@ -1,5 +1,4 @@
- 
-.landing-container {
+.lp-landing-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,9 +9,8 @@
   padding: 0;
   gap: 20px;
 }
- 
- 
-.landing-card {
+
+.lp-landing-card {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
@@ -25,32 +23,29 @@
   max-height: 450px;
   text-align: center;
 }
- 
- 
- 
-.landing-title {
+
+.lp-landing-title {
   margin: 0 0 12px 0;
   font-size: 32px;
   color: #1f2937;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
- 
-.landing-subtitle {
+
+.lp-landing-subtitle {
   margin: 0 0 35px 0;
   font-size: 15px;
   color: #6b7280;
   line-height: 1.5;
 }
- 
- 
-.landing-btn-group {
+
+.lp-landing-btn-group {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
- 
-.landing-button {
+
+.lp-landing-button {
   width: 100%;
   padding: 14px;
   border-radius: 8px;
@@ -60,30 +55,28 @@
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
 }
- 
- 
-.landing-btn-login {
+
+.lp-landing-btn-login {
   background-color: #8D61D7;
   color: #ffffff;
   border: none;
 }
- 
-.landing-btn-login:hover {
+
+.lp-landing-btn-login:hover {
   background-color: #754bbd;
   box-shadow: 0 4px 12px rgba(141, 97, 215, 0.3);
 }
- 
-.landing-btn-signup {
+
+.lp-landing-btn-signup {
   background-color: transparent;
   color: #8D61D7;
   border: 2px solid #8D61D7;
 }
- 
-.landing-btn-signup:hover {
+
+.lp-landing-btn-signup:hover {
   background-color: rgba(141, 97, 215, 0.08);
 }
- 
-.landing-button:active {
+
+.lp-landing-button:active {
   transform: scale(0.98);
 }
- 

@@ -1,28 +1,27 @@
 import React from 'react';
 import './LandingPage.css';
 import { useNavigate } from 'react-router-dom';
- 
-const LandingPage=()=> {
- 
+
+const LandingPage = () => {
   const navigate = useNavigate();
- 
+
   return (
-    <div className="landing-container">  
-      <div className="landing-card">
-        <h1 className="landing-title">Welcome to {"EduHire".toUpperCase()}</h1>
-        <p className="landing-subtitle">Please choose an option to continue to your account.</p>
- 
-        <div className="landing-btn-group">
+    <div className="lp-landing-container">  
+      <div className="lp-landing-card">
+        <h1 className="lp-landing-title">Welcome to {"EduHire".toUpperCase()}</h1>
+        <p className="lp-landing-subtitle">Please choose an option to continue to your account.</p>
+
+        <div className="lp-landing-btn-group">
           <button
-            className="landing-button landing-btn-login"
-            onClick={() => handleNavigation('/login')}
+            className="lp-landing-button lp-landing-btn-login"
+            onClick={() => navigate('/Ai-resume/login')} 
           >
             Log In
           </button>
-         
+          
           <button
-            className="landing-button landing-btn-signup"
-            onClick={() => navigate('/PRP/UserRegistration')}
+            className="lp-landing-button lp-landing-btn-signup"
+            onClick={() => navigate('/Ai-resume/signup')}
           >
             Sign Up
           </button>
@@ -31,5 +30,5 @@ const LandingPage=()=> {
     </div>
   );
 }
- 
+
 export default LandingPage;
