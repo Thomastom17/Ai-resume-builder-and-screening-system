@@ -62,7 +62,7 @@ const OtpVerification = () => {
     if (enteredOtp === DEFAULT_OTP) {
       setError("");
      
-      navigate("/Ai-resume/login/loginsuccess"); 
+      navigate("/Resume-builder/login/loginsuccess"); 
     } else {
       setError("❗ Invalid OTP. Please check and try again.");
     }

@@ -35,7 +35,7 @@ const ForgotPassword = () => {
 
    
     setEmail("");
-    navigate("/Ai-resume/login/createpassword"); 
+    navigate("/Resume-builder/login/createpassword"); 
   };
 
   return (
@@ -48,7 +48,7 @@ const ForgotPassword = () => {
       {/* Right Side */}
       <div className="forgot-card">
         <div className="back-btn">
-          <span onClick={() => navigate("/Ai-resume/login")}>
+          <span onClick={() => navigate("/Resume-builder/login")}>
             <img src={backIcon} alt="back" className="btn-icon-img" style={{ width: "18px", height: "18px", objectFit: "contain" }} /> Back to login
           </span>
         </div>

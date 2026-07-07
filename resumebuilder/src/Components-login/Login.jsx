@@ -64,7 +64,7 @@ const Login = () => {
 
     if (!valid) return;
 
-    navigate("/Ai-resume/login/emailverification");
+    navigate("/Resume-builder/login/emailverification");
   };
 
 
@@ -163,7 +163,7 @@ const Login = () => {
                   <input type="checkbox" id="remember" />
                   <label htmlFor="remember">Remember me</label>
                 </div>
-                <Link to="/Ai-resume/login/forgotpassword" className='forgot-password'>Forgot Password?</Link>
+                <Link to="/Resume-builder/login/forgotpassword" className='forgot-password'>Forgot Password?</Link>
               </div>
 
               <button type="submit" className="continue-btn">Continue</button>

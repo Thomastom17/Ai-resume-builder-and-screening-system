@@ -18,32 +18,32 @@ const router = createBrowserRouter(
       element: <LandingPage />,
     },
      {
-      path: '/Ai-resume/signup',
+      path: '/Resume-builder/signup',
       element: <Signup />,
     },
     {
-      path: '/Ai-resume/login', 
+      path: '/Resume-builder/login', 
       element: <Login />,
     },
     {
-      path: '/Ai-resume/login/forgotpassword',
+      path: '/Resume-builder/login/forgotpassword',
       element: <ForgotPassword />,  
     },
    
     {
-      path: '/Ai-resume/login/createpassword',
+      path: '/Resume-builder/login/createpassword',
       element: <CreatePassword />
     },
     {
-      path: '/Ai-resume/login/emailverification',
+      path: '/Resume-builder/login/emailverification',
       element: <EmailVerification /> 
     },
     {
-      path: '/Ai-resume/login/emailverification/otpverification',
+      path: '/Resume-builder/login/emailverification/otpverification',
       element: <OtpVerification /> 
     },
     {
-      path: '/Ai-resume/login/loginsuccess',
+      path: '/Resume-builder/login/loginsuccess',
       element: <LoginSuccess /> 
     }
 

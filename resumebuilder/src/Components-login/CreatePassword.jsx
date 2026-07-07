@@ -105,7 +105,7 @@ const CreatePassword = () => {
 
         <div className="cr-login-text">
           Remember your password?
-          <span onClick={() => navigate("/Ai-resume/login")}> Login</span>
+          <span onClick={() => navigate("/Resume-builder/login")}> Login</span>
         </div>
 
         <div className="cr-divider">

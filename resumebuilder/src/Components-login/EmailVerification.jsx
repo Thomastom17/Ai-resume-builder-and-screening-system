@@ -60,10 +60,10 @@ const EmailVerification = () => {
     
     if (enteredOtp === DEFAULT_OTP) {
       setError("");
-      navigate("/Ai-resume/login/loginsuccess"); 
+      navigate("/Resume-builder/login/loginsuccess"); 
     } else {
       setError("❗ Invalid OTP. Please check and try again.");
-      navigate("/Ai-resume/login/emailverification/otpverification");
+      navigate("/Resume-builder/login/emailverification/otpverification");
     }
   };
 
@@ -85,7 +85,7 @@ const EmailVerification = () => {
       <div className="em-otp-container">
         
         {/* Back to Login Button */}
-        <div className="em-back-container" onClick={() => navigate("/Ai-resume/login")} style={{ cursor: 'pointer' }}>
+        <div className="em-back-container" onClick={() => navigate("/Resume-builder/login")} style={{ cursor: 'pointer' }}>
           <img src={backIcon} alt="back" className="em-back-icon" /> 
           <span>Back to Login</span>
         </div>
