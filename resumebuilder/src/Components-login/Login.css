@@ -98,23 +98,42 @@ body {
   padding-right: 40px; /* icon space */
 }
 
-.eye-left {
+.eye-left,
+.eye-right {
   position: absolute;
-  left: 12px;
-  color: #777;
-  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.eye-left {
+  left: 14px;
 }
 
 .eye-right {
-  position: absolute;
-  right: 12px;
-  color: #777;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+  right: 14px;
 }
+
+.password-toggle-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  opacity: 0.8; 
+  filter: brightness(0.6) contrast(1.2); 
+  transition: all 0.2s ease;
+}
+
+.password-toggle-icon:hover {
+  opacity: 1;
+  filter: brightness(0.4) contrast(1.2);
+}
+
 .input-box input,
 .password-box input {
   width: 100%;
@@ -137,18 +156,11 @@ body {
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #7d7d7d;
-  font-size: 18px;
-}
-
-.eye-icon {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #7d7d7d;
-  font-size: 20px;
-  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* ================= ERROR ================= */

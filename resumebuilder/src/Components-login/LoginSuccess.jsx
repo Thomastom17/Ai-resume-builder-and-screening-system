@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./LoginSuccess.css";
-import { FaCheck, FaShieldAlt } from "react-icons/fa";
 import loginImage from "../assets/login-success.png";
+import tickImage from "../assets/tick.png";
 import securityImage from "../assets/security.png";
+import security2Image from "../assets/login-sucess-2.png";
 
 const LoginSuccess = () => {
   const [loginTime, setLoginTime] = useState("");
@@ -36,8 +37,13 @@ const LoginSuccess = () => {
         {/* Right Section */}
         <div className="ls-content-section">
 
-          <div className="ls-success-icon">
-            <FaCheck />
+          {/* Success Tick Image */}
+          <div className="ls-success-image-box">
+            <img
+              src={tickImage}
+              alt="Success"
+              className="ls-success-image"
+            />
           </div>
 
           <h1>Login Successful</h1>
@@ -56,8 +62,19 @@ const LoginSuccess = () => {
           <div className="ls-security-card">
 
             <div className="ls-security-icon-box">
-              <FaShieldAlt className="ls-security-icon" />
-                <img src={securityImage} alt="Security"className="ls-security-image"/>
+              {/* Circle Image */}
+              <img
+                src={securityImage}
+                alt="Security"
+                className="ls-security-image"
+              />
+
+              {/* Icon inside Circle */}
+              <img
+                src={security2Image}
+                alt="Security Icon"
+                className="ls-security-image-inner"
+              />
             </div>
 
             <div className="ls-security-info">

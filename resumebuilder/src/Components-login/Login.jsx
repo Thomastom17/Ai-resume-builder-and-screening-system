@@ -4,9 +4,9 @@ import "./Login.css";
 import loginImage from "../assets/login-image.png";
 import googleIcon from "../assets/google.png";
 import linkedinIcon from "../assets/linkedin.png";
-import { MdEmail } from "react-icons/md";
-import { FaEye, FaEyeSlash, FaPhoneAlt } from "react-icons/fa";
-import { IoChevronBack } from "react-icons/io5";
+import emailIcon from "../assets/login-email.png";
+import showPasswordIcon from "../assets/show_password.png";
+import hidePasswordIcon from "../assets/eye-hide.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -99,7 +99,7 @@ const Login = () => {
                 setView('default');
               }}
             >
-              <IoChevronBack /> Back
+               Back
             </button>
           )}
 
@@ -114,7 +114,13 @@ const Login = () => {
               <div className="input-group">
                 <label>Email Address</label>
                 <div className="input-box">
-                  {email === "" && <MdEmail className="input-icon" />}
+                  {email === "" && (
+                    <img 
+                      src={emailIcon} 
+                      alt="Email" 
+                      className="input-icon" 
+                    />
+                  )}
                   <input
                     type="email"
                     placeholder="Enter your email address"
@@ -135,7 +141,11 @@ const Login = () => {
                 <div className="password-box">
                   {password === "" && (
                     <span className="eye-left" onClick={() => setShowPassword(!showPassword)}>
-                      {showPassword ? <FaEyeSlash /> : <FaEye />}
+                      <img
+                        src={showPassword ? hidePasswordIcon : showPasswordIcon}
+                        alt="Toggle Password"
+                        className="password-toggle-icon"
+                      />
                     </span>
                   )}
                   <input
@@ -150,7 +160,11 @@ const Login = () => {
                   />
                   {password !== "" && (
                     <span className="eye-right" onClick={() => setShowPassword(!showPassword)}>
-                      {showPassword ? <FaEye /> : <FaEyeSlash />}
+                      <img
+                        src={showPassword ? hidePasswordIcon : showPasswordIcon}
+                        alt="Toggle Password"
+                        className="password-toggle-icon"
+                      />
                     </span>
                   )}
                 </div>
