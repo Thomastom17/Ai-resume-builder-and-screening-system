@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div className="lp-landing-container">  
       <div className="lp-landing-card">
-        <h1 className="lp-landing-title">Welcome to {"EduHire".toUpperCase()}</h1>
+        <h1 className="lp-landing-title">Welcome to {"Resume Builder".toUpperCase()}</h1>
         <p className="lp-landing-subtitle">Please choose an option to continue to your account.</p>
 
         <div className="lp-landing-btn-group">
