@@ -6,195 +6,228 @@
 }
 
 body {
-  background: #ffffff;
+  background: #fff;
 }
 
+/* Container */
+
 .ls-success-container {
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
-  background: #ffffff;
 }
 
-/* Main Card */
+/* Card */
+
 .ls-success-card {
   width: 100%;
-  max-width: 1100px;
-  min-height: 600px;
-  border-radius: 25px;
+  max-width: 1150px;
   display: flex;
-  /* align-items: stretch; */
   justify-content: space-between;
-  gap: 50px;
-  padding: 20px;
+  align-items: center;
+  gap: 60px;
 }
 
-/* Left Image */
+/* Left */
+
+.ls-image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .ls-login-image {
-  width: 52%;
-  min-height: 500px;
-  height: 100%;
+  width: 100%;
+  max-width: 520px;
   object-fit: contain;
 }
 
-/* Right Content */
+/* Right */
+
 .ls-content-section {
-  width: 40%;
-  min-height: 450px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 /* Success Icon */
+
 .ls-success-icon {
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 25px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
-  background: #2563eb;
+  background: #2f66f5;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   font-size: 50px;
+  margin-bottom: 25px;
 }
 
-/* Headings */
-.ls-success-card h1 {
-  font-size: 28px;
+/* Heading */
+
+.ls-content-section h1 {
+  font-size: 32px;
   font-weight: 700;
   color: #111827;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.ls-success-card h2 {
+.ls-content-section h2 {
   font-size: 18px;
   font-weight: 600;
   color: #111827;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 /* Description */
+
 .ls-subtitle {
-  font-size: 15px;
   color: #6b7280;
+  font-size: 16px;
   line-height: 1.6;
   margin-bottom: 35px;
 }
 
-/* Security Card */
+/* Blue Card */
+
 .ls-security-card {
-  width: 95%;
-  background: #2563eb;
-  border-radius: 16px;
-  padding: 14px 16px;
+  width: 100%;
+  max-width: 390px;
+  background: #2f66f5;
+  border-radius: 12px;
+  padding: 16px;
   display: flex;
   align-items: center;
-  gap: 15px;
-  text-align: left;
+  gap: 18px;
+  box-shadow: 0 10px 25px rgba(47, 102, 245, 0.25);
 }
 
-/* Protection Icon */
-.ls-shield {
+/* White Box */
+.ls-security-card {
+  width: 100%;
+  max-width: 390px;
+  background: #2f66f5;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* White Box */
+.ls-security-icon-box {
   width: 60px;
   height: 60px;
+  background: #fff;
   border-radius: 12px;
+  position: relative;   /* IMPORTANT */
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #2563eb;
-  font-size: 28px;
+  overflow: hidden;
   flex-shrink: 0;
 }
 
-/* Security Text */
-.ls-security-info {
-  margin-left: 5px;
+/* Shield Icon */
+.ls-security-icon {
+  position: absolute;
+  font-size: 30px;
+  color: #2563eb;
+  z-index: 1;
 }
 
+/* Image */
+.ls-security-image {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* Text */
 .ls-security-info h3 {
-  color: white;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 6px;
 }
 
 .ls-security-info p {
-  color: white;
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 3px 0;
+  color: #fff;
+  font-size: 15px;
+  margin: 2px 0;
 }
+/* Text */
 
-/* Remove Button */
-.ls-dashboard-btn {
-  display: none;
-}
+
 
 /* Tablet */
+
 @media (max-width: 900px) {
   .ls-success-card {
     flex-direction: column;
-    min-height: auto;
-    padding: 30px 20px;
+    gap: 40px;
   }
 
   .ls-login-image {
-    width: 80%;
-    min-height: auto;
+    max-width: 420px;
   }
 
   .ls-content-section {
     width: 100%;
-    min-height: auto;
   }
 }
 
 /* Mobile */
-@media (max-width: 480px) {
-  .ls-success-container {
-    padding: 15px;
-  }
 
-  .ls-success-card {
-    padding: 25px 15px;
+@media (max-width: 480px) {
+
+  .ls-success-container {
+    padding: 20px;
   }
 
   .ls-login-image {
-    width: 90%;
+    max-width: 300px;
   }
 
   .ls-success-icon {
     width: 75px;
     height: 75px;
-    font-size: 38px;
+    font-size: 36px;
   }
 
-  .ls-success-card h1 {
+  .ls-content-section h1 {
     font-size: 24px;
   }
 
-  .ls-success-card h2 {
+  .ls-content-section h2 {
     font-size: 17px;
   }
 
   .ls-subtitle {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .ls-security-card {
+    max-width: 100%;
     padding: 14px;
+    gap: 12px;
   }
 
-  .ls-shield {
+  .ls-security-icon-box {
     width: 50px;
     height: 50px;
-    font-size: 22px;
+  }
+
+  .ls-security-icon {
+    font-size: 24px;
   }
 
   .ls-security-info h3 {
@@ -202,6 +235,6 @@ body {
   }
 
   .ls-security-info p {
-    font-size: 12px;
+    font-size: 13px;
   }
 }

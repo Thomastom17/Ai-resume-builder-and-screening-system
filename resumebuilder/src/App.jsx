@@ -8,12 +8,17 @@ import CreatePassword from './Components-login/CreatePassword';
 import EmailVerification from './Components-login/EmailVerification';
 import OtpVerification from './Components-login/OtpVerification';
 import LoginSuccess from './Components-login/LoginSuccess';
+import LandingPage from './LandingPage';
 
 
 const router = createBrowserRouter(
   [
+    {
+      path: '/Resume-builder',
+      element: <LandingPage />,
+    },
      {
-      path: '/',
+      path: '/Ai-resume/signup',
       element: <Signup />,
     },
     {
