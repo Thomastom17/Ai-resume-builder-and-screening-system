@@ -12,7 +12,9 @@ const OtpVerification = () => {
   const [error, setError] = useState(""); 
   const inputRefs = useRef([]);
 
-  const DEFAULT_OTP = "508213"; 
+  const DEFAULT_OTP = "508213";
+  console.log();
+  
 
   useEffect(() => {
     if (seconds > 0) {
