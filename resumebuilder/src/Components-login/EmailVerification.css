@@ -9,8 +9,8 @@
   width: 100%;
   max-width: 1200px;
   min-height: 100vh;
-  margin: 0 auto;
-  padding: 30px 60px;
+  margin: auto;
+  padding: 20px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,22 +20,23 @@
 
 /* Left (STANDARDIZED) */
 .em-login-illustration {
-  flex: 0 0 480px;
-  width: 480px;
+  flex: 0 0 500px;
+  width: 600px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .em-login-illustration img {
-  width: 480px;
-  height: 480px;
+  width: 600px;
+  height: 600px;
   object-fit: contain;
 }
 
 /* Right (STANDARDIZED) */
 .em-otp-container {
-  flex: 0 0 420px;
+  flex: 0 0 500px;
   width: 420px;
   max-width: 100%;
   display: flex;
@@ -200,4 +201,4 @@
   .em-otp-box {
     height: 34px;
   }
-}
+} 
