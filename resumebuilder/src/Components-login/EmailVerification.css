@@ -9,8 +9,8 @@
   width: 100%;
   max-width: 1200px;
   min-height: 100vh;
-  margin: auto;
-  padding: 20px 20px;
+  margin: 0 auto;
+  padding: 30px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,23 +20,22 @@
 
 /* Left (STANDARDIZED) */
 .em-login-illustration {
-  flex: 0 0 500px;
-  width: 600px;
-  height: 600px;
+  flex: 0 0 480px;
+  width: 480px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .em-login-illustration img {
-  width: 600px;
-  height: 600px;
+  width: 480px;
+  height: 480px;
   object-fit: contain;
 }
 
 /* Right (STANDARDIZED) */
 .em-otp-container {
-  flex: 0 0 500px;
+  flex: 0 0 420px;
   width: 420px;
   max-width: 100%;
   display: flex;
@@ -149,24 +148,50 @@
   opacity: 0.9;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
+/* Laptop / 1024px range fix */
+@media (max-width: 1100px) {
   .em-login-body {
     gap: 30px;
     padding: 25px 40px;
   }
 
   .em-login-illustration {
-    flex: 0 0 420px;
-    width: 420px;
+    flex: 0 0 400px;
+    width: 400px;
   }
 
   .em-login-illustration img {
-    width: 420px;
-    height: 420px;
+    width: 400px;
+    height: 400px;
   }
 
   .em-otp-container {
+    flex: 0 0 380px;
+    width: 380px;
+    margin-top: 0;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .em-login-body {
+    gap: 25px;
+    padding: 25px 30px;
+  }
+
+  .em-login-illustration {
+    flex: 0 0 320px;
+    width: 320px;
+  }
+
+  .em-login-illustration img {
+    width: 320px;
+    height: 320px;
+  }
+
+  .em-otp-container {
+    flex: 0 0 340px;
+    width: 340px;
     margin-top: 0;
   }
 }
@@ -175,17 +200,15 @@
 @media (max-width: 768px) {
   .em-login-body {
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
     padding: 20px;
+    height: auto;
+    min-height: 100vh;
+    justify-content: center;
   }
 
   .em-login-illustration {
-    width: 100%;
-  }
-
-  .em-login-illustration img {
-    width: 260px;
-    height: 260px;
+    display: none;
   }
 
   .em-otp-container {
@@ -201,4 +224,28 @@
   .em-otp-box {
     height: 34px;
   }
-} 
+}
+
+@media (max-width: 480px) {
+  .em-otp-input-group {
+    gap: 6px;   /* 12px la irundhu kammi */
+  }
+
+  .em-otp-box {
+    width: 42px;   /* container ku match aaga adjust */
+    height: 42px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .em-otp-input-group {
+    gap: 5px;
+  }
+
+  .em-otp-box {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+  }
+}

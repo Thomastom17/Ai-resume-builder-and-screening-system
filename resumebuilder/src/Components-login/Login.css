@@ -4,20 +4,20 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
+ 
 body {
   background: #f5f5f5;
 }
-
+ 
 .login-container {
   display: flex;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
-
+ 
 /* ================= LEFT ================= */
-
+ 
 .left-section {
   flex: 1;
   min-width: 0;
@@ -35,20 +35,20 @@ body {
   left: 70px;
   z-index: 2;
 }
-
+ 
 .welcome-content h1 {
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 700;
   margin-bottom: 15px;
 }
-
+ 
 .welcome-content p {
   font-size: clamp(16px, 1.8vw, 24px);
   line-height: 1.5;
 }
-
+ 
 /* ================= RIGHT ================= */
-
+ 
 .right-section {
   flex: 1;
   min-width: 0;
@@ -60,44 +60,44 @@ body {
   overflow: hidden;
   padding: clamp(12px, 3vh, 40px) 20px;
 }
-
+ 
 .login-form {
   width: min(70%, 520px);
   max-height: 100%;
 }
-
+ 
 .login-form h2 {
   text-align: center;
   margin-bottom: clamp(14px, 3vh, 40px);
   font-size: clamp(20px, 2.6vh, 30px);
   font-weight: 700;
 }
-
+ 
 /* ================= INPUT ================= */
-
+ 
 .input-group {
   margin-bottom: clamp(12px, 3vh, 40px);
 }
-
+ 
 .input-group label {
   display: block;
   margin-bottom: clamp(4px, 0.8vh, 8px);
   font-weight: 600;
   font-size: 14px;
 }
-
+ 
 .input-box,
 .password-box {
   position: relative;
   display: flex;
   align-items: center;
 }
-
+ 
 .password-box input {
   width: 100%;
   padding-right: 40px; /* icon space */
 }
-
+ 
 .eye-left,
 .eye-right {
   position: absolute;
@@ -109,31 +109,31 @@ body {
   cursor: pointer;
   z-index: 2;
 }
-
+ 
 .eye-left {
   left: 14px;
 }
-
+ 
 .eye-right {
   right: 14px;
 }
-
+ 
 .password-toggle-icon {
   width: 20px;
   height: 20px;
   object-fit: contain;
   display: block;
   user-select: none;
-  opacity: 0.8; 
-  filter: brightness(0.6) contrast(1.2); 
+  opacity: 0.8;
+  filter: brightness(0.6) contrast(1.2);
   transition: all 0.2s ease;
 }
-
+ 
 .password-toggle-icon:hover {
   opacity: 1;
   filter: brightness(0.4) contrast(1.2);
 }
-
+ 
 .input-box input,
 .password-box input {
   width: 100%;
@@ -145,30 +145,30 @@ body {
   font-size: 14px;
   outline: none;
 }
-
+ 
 .input-box input:focus,
 .password-box input:focus {
   border-color: #3366ff;
 }
-
+ 
 .input-icon {
   position: absolute;
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   object-fit: contain;
   pointer-events: none;
   user-select: none;
 }
-
+ 
 /* ================= ERROR ================= */
-
+ 
 .error-input {
   border: 1px solid #ff4d4f !important;
 }
-
+ 
 .error-text {
   display: block;
   width: 100%;
@@ -179,15 +179,15 @@ body {
   padding-left: 2px;
   font-weight: 500;
 }
-
+ 
 .input-group{
   display:flex;
   flex-direction:column;
   align-items:stretch;
 }
-
+ 
 /* ================= OPTIONS ================= */
-
+ 
 .options {
   display: flex;
   justify-content: space-between;
@@ -195,7 +195,7 @@ body {
   margin-bottom: clamp(10px, 2vh, 25px);
   width: 100%;
 }
-
+ 
 .remember {
   display: flex;
   align-items: center;
@@ -210,7 +210,7 @@ body {
   accent-color: #3366ff;      
   border-radius: 4px;
 }  
-
+ 
 .remember label {
   font-size: 14px;
   font-weight: 500;
@@ -219,18 +219,18 @@ body {
   user-select: none;
   margin-bottom: 0 !important;
 }
-
+ 
 .options a {
   text-decoration: none;
   color: #333;
   font-size: 14px;
 }
 .options a:hover {
-  color: #3366ff; 
+  color: #3366ff;
 }
-
+ 
 /* ================= BUTTON ================= */
-
+ 
 .continue-btn {
   width: 100%;
   height: clamp(38px, 6vh, 52px);
@@ -244,32 +244,32 @@ body {
   transition: 0.3s;
   box-shadow: 0 3px 8px rgba(51, 102, 255, 0.3);
 }
-
+ 
 .continue-btn:hover {
   background: #2958e6;
 }
-
+ 
 /* ================= DIVIDER ================= */
-
+ 
 .divider {
   display: flex;
   align-items: center;
   margin: clamp(10px, 2.4vh, 30px) 0 clamp(8px, 1.6vh, 20px);
 }
-
+ 
 .divider span {
   flex: 1;
   height: 1px;
   background: #d9d9d9;
 }
-
+ 
 .divider p {
   margin: 0 12px;
   font-size: 14px;
 }
-
+ 
 /* ================= SOCIAL ================= */
-
+ 
 .continue-text {
   text-align: center;
   margin-bottom: clamp(8px, 1.6vh, 20px);
@@ -281,7 +281,7 @@ body {
   gap: 16px;
   margin-top: clamp(6px, 1.4vh, 18px);
 }
-
+ 
 .social-login a {
   width: clamp(36px, 5.6vh, 44px);
   height: clamp(36px, 5.6vh, 44px);
@@ -293,157 +293,151 @@ body {
   align-items: center;
   transition: 0.3s ease;
 }
-
+ 
 .social-login a:hover {
   transform: translateY(-2px);
 }
-
+ 
 .social-login img {
   width: 22px;
   height: 22px;
   object-fit: contain;
 }
 /* ================= CONTACT ================= */
-
+ 
 .contact-admin {
   margin-top: clamp(10px, 2vh, 30px);
   text-align: center;
   font-size: 15px;
 }
-
+ 
 .contact-admin a {
   text-decoration: none;
   color: #3366ff;
   font-weight: 500;
 }
-
+ 
 @media screen and (max-width: 992px) {
   .login-form {
     max-width: 380px;
   }
 }
-
-/* ================= TABLET ================= */
-@media screen and (max-width: 768px) {
-
+ 
+/* ================= BELOW 768px ================= */
+@media screen and (max-width: 767px) {
+ 
   .login-container {
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-    overflow: visible;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
   }
-
+ 
   html, body {
-    height: auto;
-    overflow-y: auto;
+    height: 100vh;
+    overflow: hidden;
   }
-
+ 
   .left-section {
-    width: 100%;
-    height: 220px;
-    flex: none;
+    display: none; /* Hides image strictly below 768px */
   }
-
+ 
   .right-section {
     width: 100%;
-    height: auto;
+    height: 100%;
     flex: 1;
     padding: 24px 16px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     overflow: visible;
   }
-
+ 
   .login-form {
     width: 100%;
     max-width: 420px;
     max-height: none;
   }
-
+ 
   .login-form h2 {
     font-size: 26px;
     margin-bottom: 26px;
   }
-
+ 
   .input-group {
     margin-bottom: 20px;
   }
-
+ 
   .input-box input,
   .password-box input {
     width: 100%;
     height: 48px;
   }
-
+ 
   .continue-btn {
     width: 100%;
     height: 48px;
   }
-
+ 
   .welcome-content {
     top: 20px;
     left: 20px;
   }
 }
-
-
+ 
+ 
 /* ================= MOBILE ================= */
 @media screen and (max-width: 480px) {
-
-  .left-section {
-    height: 150px;
-  }
-
+ 
   .right-section {
     padding: 18px 14px;
   }
-
+ 
   .login-form {
     width: 100%;
     max-width: 100%;
   }
-
+ 
   .login-form h2 {
     font-size: 20px;
     margin-bottom: 18px;
   }
-
+ 
   .input-group {
     margin-bottom: 16px;
   }
-
+ 
   .input-box input,
   .password-box input,
   .continue-btn {
     height: 44px;
     font-size: 14px;
   }
-
+ 
   .options {
     font-size: 13px;
   }
-
+ 
   .divider {
     margin: 18px 0 14px;
   }
-
+ 
   .continue-text {
     margin-bottom: 12px;
   }
-
+ 
   .contact-admin {
     font-size: 14px;
     margin-top: 16px;
   }
-
+ 
   .social-login {
     gap: 12px;
     margin-top: 10px;
   }
-
+ 
   .social-login a {
     width: 38px;
     height: 38px;
   }
 }
+ 

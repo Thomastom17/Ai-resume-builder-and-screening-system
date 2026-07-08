@@ -1,0 +1,372 @@
+.urr-container {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: nowrap; 
+  padding: 2rem;
+  justify-content: center;
+  align-items: stretch; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f8fafc; 
+  height: 100vh; 
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+
+.urr-info {
+  flex: 1 1 50%; 
+  max-width: 50%;
+  padding: 20px;
+  color: #1f2937;
+  background: #ffffff;
+  border: 2px solid #2563eb; 
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* overflow-y: auto;  */
+}
+
+.urr-info__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0 0 20px;
+}
+
+.urr-info__checklist {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  font-size: 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+}
+
+.urr-info__checklist-item {
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.urr-info__check-icon {
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.urr-info__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.urr-feature-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.urr-feature-card__icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.urr-feature-card__title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px;
+}
+
+.urr-feature-card__desc {
+  font-size: 11px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.urr-info__illustration {
+  width: 100%; 
+  max-width: 500px;
+  height: 400px;
+  border-radius: 0;
+  display: block;
+  margin: 8px auto 0; 
+}
+
+
+.urr-page {
+  flex: 1 1 50%; 
+  max-width: 50%;
+  height: 85vh; 
+  padding: 10px;
+  color: #1f2937;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-self: center; 
+}
+
+.urr-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #111827;
+  text-align: center;
+}
+
+.urr-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.urr-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.urr-label--top {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.urr-role-toggle {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.urr-role-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  width: 20%;
+  height: 130px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.urr-role-card:hover {
+  border-color: #cbd5e1;
+}
+
+.urr-role-card--active {
+  border: 1.5px solid #22c55e;
+  background-color: #f0fdf4;
+}
+
+.urr-role-radio {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.urr-role-card--active .urr-role-radio {
+  border-color: #22c55e;
+}
+
+.urr-role-radio__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: block;
+}
+
+.urr-role-icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 8px;
+}
+
+.urr-role-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.urr-role-sub {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+
+.urr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 16px 12px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.urr-field {
+  display: block;
+  width: 100%;
+}
+
+.urr-field input,
+.urr-field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #334155;
+  background: #ffffff;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.urr-field input::placeholder {
+  color: #94a3b8;
+}
+
+.urr-field input:focus,
+.urr-field select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.urr-field select {
+  padding-right: 12px;
+}
+
+.urr-agree {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #475569;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.urr-agree input {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.urr-agree a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.urr-agree a:hover {
+  text-decoration: underline;
+}
+
+.urr-submit {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.15s ease;
+}
+
+.urr-submit:hover {
+  background: #1d4ed8;
+}
+
+.urr-signin {
+  text-align: center;
+  font-size: 12px;
+  color: #475569;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.urr-signin a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.urr-signin a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .urr-container {
+    overflow-y: auto;
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .urr-info, .urr-page {
+    flex: 1 1 100%; 
+    max-width: 100%;
+  }
+  .urr-grid {
+    grid-template-columns: repeat(2, 1fr);
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 640px) {
+  .urr-grid {
+    grid-template-columns: 1fr; 
+  }
+  .urr-card {
+    padding: 16px;
+  }
+  .urr-info__checklist, .urr-role-toggle {
+    grid-template-columns: 1fr;
+  }
+}

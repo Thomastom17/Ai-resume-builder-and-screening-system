@@ -306,7 +306,8 @@
 }
 
 /* Tablet */
-@media screen and (max-width: 768px) {
+/* Tablet */
+@media screen and (max-width: 767px) {
 
   .pageContainer {
     flex-direction: column;
@@ -320,31 +321,9 @@
     overflow-y: auto;
   }
 
+  /* Image panel hide panradhu */
   .leftPanel {
-    width: 100%;
-    height: 220px;
-    min-height: 220px;
-    flex: none;
-  }
-
-  .login-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .leftTextContainer {
-    top: 25px;
-    left: 25px;
-  }
-
-  .leftTextContainer h1 {
-    font-size: 26px;
-  }
-
-  .leftTextContainer p {
-    font-size: 15px;
-    line-height: 22px;
+    display: none;
   }
 
   .rightPanel {
@@ -373,80 +352,8 @@
     max-width: 280px;
   }
 }
-
 /* Mobile */
-@media screen and (max-width: 480px) {
 
-  .leftPanel {
-    height: 160px;
-    min-height: 160px;
-  }
-
-  .leftTextContainer {
-    top: 16px;
-    left: 16px;
-  }
-
-  .leftTextContainer h1 {
-    font-size: 20px;
-    margin-bottom: 6px;
-  }
-
-  .leftTextContainer p {
-    font-size: 13px;
-    line-height: 19px;
-  }
-
-  .rightPanel {
-    padding: 18px 16px;
-  }
-
-  .formTitle {
-    font-size: 20px;
-    margin-bottom: 18px;
-  }
-
-  .fieldWrapper {
-    margin-bottom: 14px;
-  }
-
-  .fieldLabel {
-    font-size: 13px;
-    margin-bottom: 6px;
-  }
-
-  .inputField,
-  .phoneInput,
-  .submitBtn,
-  .countrySelector {
-    height: 44px;
-    font-size: 14px;
-  }
-
-  .countrySelector {
-    padding: 0 10px;
-    font-size: 13px;
-  }
-
-  .divider {
-    margin: 18px 0 14px;
-  }
-
-  .socialContainer {
-    gap: 12px;
-    margin-top: 10px;
-  }
-
-  .socialBtn {
-    width: 38px;
-    height: 38px;
-  }
-
-  .continue-text {
-    margin-top: 6px;
-    font-size: 12px;
-  }
-}
 
 /* Input Error */
 .input-error {
