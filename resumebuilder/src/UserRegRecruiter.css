@@ -14,12 +14,12 @@
 
 
 .urr-info {
-  flex: 1 1 50%; 
-  max-width: 50%;
+  flex: 1 1 40%; 
+  max-width: 40%;
   padding: 20px;
   color: #1f2937;
   background: #ffffff;
-  border: 2px solid #2563eb; 
+  border: 1px solid gray; 
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   box-sizing: border-box;
@@ -41,7 +41,7 @@
   margin: 0 0 24px;
   padding: 0;
   display: grid;
-  font-size: 30px;
+  font-size: 20px;
   grid-template-columns: 1fr 1fr;
   gap: 10px 20px;
 }
@@ -67,6 +67,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .urr-feature-card {
@@ -109,8 +111,8 @@
 
 
 .urr-page {
-  flex: 1 1 50%; 
-  max-width: 50%;
+  flex: 1 1 60%; 
+  max-width: 60%;
   height: 85vh; 
   padding: 10px;
   color: #1f2937;
@@ -121,7 +123,7 @@
 }
 
 .urr-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 16px;
@@ -174,8 +176,8 @@
   cursor: pointer;
   text-align: left;
   font-family: inherit;
-  width: 20%;
-  height: 130px;
+  width: 200px;
+  height: 140px;
   box-sizing: border-box;
   transition: all 0.2s ease;
 }
@@ -254,8 +256,8 @@
   box-sizing: border-box;
   padding: 10px 12px;
   border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 13px;
+  border-radius: 8px;
+  font-size: 12px;
   color: #334155;
   background: #ffffff;
   font-family: inherit;
@@ -342,31 +344,48 @@
   text-decoration: underline;
 }
 
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .urr-container {
     overflow-y: auto;
-    flex-wrap: wrap;
+    flex-direction: column;
     height: auto;
+    padding: 1rem;
+    align-items: center;
   }
+ 
   .urr-info, .urr-page {
-    flex: 1 1 100%; 
-    max-width: 100%;
+    flex: 1 1 100%;
+    max-width: 650px;
+    width: 100%;
   }
-  .urr-grid {
-    grid-template-columns: repeat(2, 1fr);
+ 
+  .urr-card {
+    max-height: none;
     overflow-y: visible;
   }
+ 
+  .urr-info__illustration {
+    max-height: 250px;
+  }
 }
-
+ 
 @media (max-width: 640px) {
   .urr-grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
-  .urr-card {
-    padding: 16px;
-  }
-  .urr-info__checklist, .urr-role-toggle {
+ 
+  .urr-info__checklist {
     grid-template-columns: 1fr;
   }
+ 
+  .urr-role-toggle {
+    flex-direction: column;
+  }
+ 
+  .urr-role-card {
+    max-width: 100%;
+    width: 100%;
+  }
 }
+ 
