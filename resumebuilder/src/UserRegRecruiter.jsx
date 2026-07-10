@@ -114,7 +114,7 @@ const UserRegRecruiter = () => {
         <ul className="urr-info__checklist">
           {checklistItems.map((item) => (
             <li key={item} className="urr-info__checklist-item" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <img src={tickedImg} alt="tick" style={{ width: "10px", height: "10px" }} />
+              <img src={tickedImg} alt="tick" style={{ width: "15px", height: "15px" }} />
               <span>{item}</span>
             </li>
           ))}
@@ -184,7 +184,7 @@ const UserRegRecruiter = () => {
                       ))}
                     </select>
                   ) : (
-                    <div style={{ position: "relative", width: "100%" }}>
+                    <div style={{ position: "relative", width: "100%" , }}>
                       <input
                         type={
                           field.id === "password"
@@ -243,8 +243,8 @@ const UserRegRecruiter = () => {
             Complete Registration
           </button>
 
-          <p className="urr-signin">
-            Already have an account? <a href="#signin">Sign In</a>
+          <p className="urr-login">
+            Already have an account? <a href="#signin">Login here</a>
           </p>
         </form>
       </div>

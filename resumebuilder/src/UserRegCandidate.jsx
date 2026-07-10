@@ -5,9 +5,15 @@ import candidateImg from "./assets/candidate.png";
 import recruiterImg from "./assets/recruiter.png";
 import uploadImg from "./assets/upload.png";
 import tickImg from "./assets/check.png";
+import hidePasswordIcon from "./assets/eye-hide.png";
+import showPasswordIcon from "./assets/show_password.png";
 
 const UserRegCandidate = () => {
   const [role, setRole] = useState("candidate");
+  
+  // Password Visibility States (Added from Recruiter Component)
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -24,11 +30,9 @@ const UserRegCandidate = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
-
     setFormData({
       ...formData,
-      [name]:
-        type === "checkbox" ? checked : type === "file" ? files[0] : value,
+      [name]: type === "checkbox" ? checked : type === "file" ? files[0] : value,
     });
   };
 
@@ -56,15 +60,14 @@ const UserRegCandidate = () => {
     if (!formData.terms) newErrors.terms = "Accept Terms & Conditions";
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (validate()) {
       alert("Registration Successful");
+      console.log("Submitting Candidate Context:", { role, ...formData });
     }
   };
 
@@ -72,7 +75,6 @@ const UserRegCandidate = () => {
     <div className="urc-register-page-wrapper">
       <div className="urc-register-container">
         {/* LEFT SECTION */}
-
         <div className="urc-register-left">
           <h1 className="urc-main-title">Create your account</h1>
 
@@ -98,35 +100,33 @@ const UserRegCandidate = () => {
 
           <div className="urc-feature-list">
             <div className="urc-feature-item">
-              <img src={tickImg} alt="" />
+              <img src={tickImg} alt="tick" />
               <span>Find your dream job</span>
             </div>
 
             <div className="urc-feature-item">
-              <img src={tickImg} alt="" />
+              <img src={tickImg} alt="tick" />
               <span>Get noticed by top employers</span>
             </div>
 
             <div className="urc-feature-item">
-              <img src={tickImg} alt="" />
+              <img src={tickImg} alt="tick" />
               <span>Personalized job alerts</span>
             </div>
 
             <div className="urc-feature-item">
-              <img src={tickImg} alt="" />
+              <img src={tickImg} alt="tick" />
               <span>Track your applications</span>
             </div>
           </div>
         </div>
 
         {/* RIGHT SECTION */}
-
         <div className="urc-register-right">
           <h1 className="urc-form-title">User Registration</h1>
 
           <form onSubmit={handleSubmit}>
             {/* ROLE SELECTION */}
-
             <h3 className="urc-register-label">I am Registering as</h3>
 
             <div className="urc-role-wrapper">
@@ -135,13 +135,10 @@ const UserRegCandidate = () => {
                 onClick={() => setRole("candidate")}
               >
                 <div className="urc-radio-circle">
-                  ={role === "candidate" && <div className="urc-radio-dot"></div>}
+                  {role === "candidate" && <div className="urc-radio-dot"></div>}
                 </div>
-
                 <img src={candidateImg} alt="Candidate" />
-
                 <h4>Candidate</h4>
-
                 <p>Explore jobs take next step</p>
               </div>
 
@@ -150,23 +147,18 @@ const UserRegCandidate = () => {
                 onClick={() => setRole("recruiter")}
               >
                 <div className="urc-radio-circle">
-                  ={role === "recruiter" && <div className="urc-radio-dot"></div>}
+                  {role === "recruiter" && <div className="urc-radio-dot"></div>}
                 </div>
-
                 <img src={recruiterImg} alt="Recruiter" />
-
                 <h4>Recruiter</h4>
-
                 <p>Post jobs find talent and hire</p>
               </div>
             </div>
 
             {/* NAME & MOBILE */}
-
             <div className="urc-form-row">
               <div className="urc-input-group">
                 <label>Full Name *</label>
-
                 <input
                   type="text"
                   name="fullName"
@@ -174,13 +166,11 @@ const UserRegCandidate = () => {
                   value={formData.fullName}
                   onChange={handleChange}
                 />
-
-                {errors.fullName && <small className="urc-error-small">{errors.fullName}</small>}
+                {errors.fullName && <small className="urc-error-text">{errors.fullName}</small>}
               </div>
 
               <div className="urc-input-group">
                 <label>Mobile Number *</label>
-
                 <input
                   type="text"
                   name="mobile"
@@ -188,17 +178,14 @@ const UserRegCandidate = () => {
                   value={formData.mobile}
                   onChange={handleChange}
                 />
-
-                {errors.mobile && <small className="urc-error-small">{errors.mobile}</small>}
+                {errors.mobile && <small className="urc-error-text">{errors.mobile}</small>}
               </div>
             </div>
 
             {/* EMAIL & DEGREE */}
-
             <div className="urc-form-row">
               <div className="urc-input-group">
                 <label>Enter Your Email Address *</label>
-
                 <input
                   type="email"
                   name="email"
@@ -206,13 +193,11 @@ const UserRegCandidate = () => {
                   value={formData.email}
                   onChange={handleChange}
                 />
-
-                {errors.email && <small className="urc-error-small">{errors.email}</small>}
+                {errors.email && <small className="urc-error-text">{errors.email}</small>}
               </div>
 
               <div className="urc-input-group">
                 <label>Degree *</label>
-
                 <input
                   type="text"
                   name="degree"
@@ -220,62 +205,66 @@ const UserRegCandidate = () => {
                   value={formData.degree}
                   onChange={handleChange}
                 />
-
-                {errors.degree && <small className="urc-error-small">{errors.degree}</small>}
+                {errors.degree && <small className="urc-error-text">{errors.degree}</small>}
               </div>
             </div>
-            {/* PASSWORD & CONFIRM PASSWORD  */}
 
+            {/* PASSWORD & CONFIRM PASSWORD WITH TOGGLE LOGIC */}
             <div className="urc-form-row">
-              <div className="urc-input-group">
+              <div className="urc-input-group urc-password-wrapper">
                 <label>Password *</label>
-
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter Password"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-
-                {errors.password && (
-                  <small className="urc-error-text">{errors.password}</small>
-                )}
+                <div className="urc-input-with-icon">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Enter Password"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                  {formData.password && (
+                    <img
+                      src={showPassword ? showPasswordIcon : hidePasswordIcon}
+                      alt="toggle password"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="urc-password-toggle-icon"
+                    />
+                  )}
+                </div>
+                {errors.password && <small className="urc-error-text">{errors.password}</small>}
               </div>
 
-              <div className="urc-input-group">
+              <div className="urc-input-group urc-password-wrapper">
                 <label>Confirm Password *</label>
-
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                />
-
-                {errors.confirmPassword && (
-                  <small className="urc-error-text">{errors.confirmPassword}</small>
-                )}
+                <div className="urc-input-with-icon">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                  />
+                  {formData.confirmPassword && (
+                    <img
+                      src={showConfirmPassword ? showPasswordIcon : hidePasswordIcon}
+                      alt="toggle confirm password"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="urc-password-toggle-icon"
+                    />
+                  )}
+                </div>
+                {errors.confirmPassword && <small className="urc-error-text">{errors.confirmPassword}</small>}
               </div>
             </div>
 
             {/* RESUME UPLOAD */}
-
             <div className="urc-input-group urc-full-width">
               <label>Upload Resume *</label>
-
               <label className="urc-upload-box">
                 <img src={uploadImg} alt="Upload" className="urc-upload-icon" />
-
                 <div className="urc-upload-content">
-                  <h4>
-                    {" "}
-                    {formData.resume ? formData.resume.name : "Click to Upload"}
-                  </h4>
-                  <p>or drag and drop PDF,DOC or DOCX(Max 2 MB)</p>
+                  <h4>{formData.resume ? formData.resume.name : "Click to Upload"}</h4>
+                  <p>or drag and drop PDF, DOC or DOCX (Max 2 MB)</p>
                 </div>
-
                 <input
                   type="file"
                   name="resume"
@@ -284,50 +273,38 @@ const UserRegCandidate = () => {
                   onChange={handleChange}
                 />
               </label>
-
-              {errors.resume && (
-                <small className="urc-error-text">{errors.resume}</small>
-              )}
+              {errors.resume && <small className="urc-error-text">{errors.resume}</small>}
             </div>
 
             {/* TERMS */}
-
-            <div className="urc-terms-container">
-              <input
-                type="checkbox"
-                name="terms"
-                checked={formData.terms}
-                onChange={handleChange}
-              />
-
-              <p>
-                I agree to the
-                <span> Terms & Service </span>
-                and
-                <span> Privacy Policy </span>
-                regarding my administrative access
-              </p>
+            <div className="urc-terms-wrapper-block">
+              <div className="urc-terms-container">
+                <input
+                  type="checkbox"
+                  name="terms"
+                  checked={formData.terms}
+                  onChange={handleChange}
+                />
+                <p>
+                  I agree to the <span>Terms & Service</span> and <span>Privacy Policy</span> regarding my administrative access
+                </p>
+              </div>
+              {errors.terms && <small className="urc-error-text">{errors.terms}</small>}
             </div>
 
-            {errors.terms && (
-              <small className="urc-error-text">{errors.terms}</small>
-            )}
-
             {/* REGISTER BUTTON */}
-
             <button type="submit" className="urc-register-btn">
               Complete Registration
             </button>
 
             <p className="urc-login-text">
-              Already have an account?
-              <span> Sign In here</span>
+              Already have an account? <span>Log in here</span>
             </p>
           </form>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default UserRegCandidate;
