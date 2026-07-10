@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./UserRegCandidate.css";
-import registerImage from "./assets/register-left.png";
+import registerImage from "./assets/reg-c-image.png";
 import candidateImg from "./assets/candidate.png";
 import recruiterImg from "./assets/recruiter.png";
 import uploadImg from "./assets/upload.png";
@@ -69,256 +69,262 @@ const UserRegCandidate = () => {
   };
 
   return (
-    <div className="register-container">
-      {/* LEFT SECTION */}
+    <div className="urc-register-page-wrapper">
+      <div className="urc-register-container">
+        {/* LEFT SECTION */}
 
-      <div className="register-left">
-        <h1>Create your account</h1>
+        <div className="urc-register-left">
+          <h1 className="urc-main-title">Create your account</h1>
 
-        <p className="top-text">
-          Register and join our platform to connect, collaborate and grow
-          together.
-        </p>
-
-        <div className="left-image">
-          <img src={registerImage} alt="Register" />
-        </div>
-
-        <h2>Land your dream career.</h2>
-
-        <p className="career-text">
-          Join the most active talent network and get discovered by top-tier
-          employers globally.
-        </p>
-
-        <div className="feature-list">
-          <div className="feature-item">
-            <img src={tickImg} alt="" />
-            <span>Find your dream job</span>
-          </div>
-
-          <div className="feature-item">
-            <img src={tickImg} alt="" />
-            <span>Get noticed by top employers</span>
-          </div>
-
-          <div className="feature-item">
-            <img src={tickImg} alt="" />
-            <span>Personalized job alerts</span>
-          </div>
-
-          <div className="feature-item">
-            <img src={tickImg} alt="" />
-            <span>Track your applications</span>
-          </div>
-        </div>
-      </div>
-
-      {/* RIGHT SECTION */}
-
-      <div className="register-right">
-        <h1 className="form-title">User Registration</h1>
-
-        <form onSubmit={handleSubmit}>
-          {/* ROLE SELECTION */}
-
-          <h3 className="register-label">I am Registering as</h3>
-
-          <div className="role-wrapper">
-            <div
-              className={`role-card ${role === "candidate" ? "active" : ""}`}
-              onClick={() => setRole("candidate")}
-            >
-              <div className="radio-circle">
-                {role === "candidate" && <div className="radio-dot"></div>}
-              </div>
-
-              <img src={candidateImg} alt="Candidate" />
-
-              <h4>Candidate</h4>
-
-              <p>Explore jobs take next step</p>
-            </div>
-
-            <div
-              className={`role-card ${role === "recruiter" ? "active" : ""}`}
-              onClick={() => setRole("recruiter")}
-            >
-              <div className="radio-circle">
-                {role === "recruiter" && <div className="radio-dot"></div>}
-              </div>
-
-              <img src={recruiterImg} alt="Recruiter" />
-
-              <h4>Recruiter</h4>
-
-              <p>Post jobs find talent and hire</p>
-            </div>
-          </div>
-
-          {/* NAME & MOBILE */}
-
-          <div className="form-row">
-            <div className="input-group">
-              <label>Full Name *</label>
-
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Thilak"
-                value={formData.fullName}
-                onChange={handleChange}
-              />
-
-              {errors.fullName && <small>{errors.fullName}</small>}
-            </div>
-
-            <div className="input-group">
-              <label>Mobile Number *</label>
-
-              <input
-                type="text"
-                name="mobile"
-                placeholder="123467890"
-                value={formData.mobile}
-                onChange={handleChange}
-              />
-
-              {errors.mobile && <small>{errors.mobile}</small>}
-            </div>
-          </div>
-
-          {/* EMAIL & DEGREE */}
-
-          <div className="form-row">
-            <div className="input-group">
-              <label>Enter Your Email Address *</label>
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Thilak1@gmail.com"
-                value={formData.email}
-                onChange={handleChange}
-              />
-
-              {errors.email && <small>{errors.email}</small>}
-            </div>
-
-            <div className="input-group">
-              <label>Degree *</label>
-
-              <input
-                type="text"
-                name="degree"
-                placeholder="B.E Civil Engineer"
-                value={formData.degree}
-                onChange={handleChange}
-              />
-
-              {errors.degree && <small>{errors.degree}</small>}
-            </div>
-          </div>
-          {/* PASSWORD & CONFIRM PASSWORD  */}
-
-          <div className="form-row">
-            <div className="input-group">
-              <label>Password *</label>
-
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter Password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-
-              {errors.password && (
-                <small className="error-text">{errors.password}</small>
-              )}
-            </div>
-
-            <div className="input-group">
-              <label>Confirm Password *</label>
-
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-              />
-
-              {errors.confirmPassword && (
-                <small className="error-text">{errors.confirmPassword}</small>
-              )}
-            </div>
-          </div>
-
-          {/* RESUME UPLOAD */}
-
-          <div className="input-group full-width">
-            <label>Upload Resume *</label>
-
-            <label className="upload-box">
-              <img src={uploadImg} alt="Upload" />
-
-              <div>
-                <h4>
-                  {formData.resume
-                    ? formData.resume.name
-                    : "Upload your Resume"}
-                </h4>
-
-                <p>PDF, DOC or DOCX (Max 2 MB)</p>
-              </div>
-
-              <input
-                type="file"
-                name="resume"
-                accept=".pdf,.doc,.docx"
-                hidden
-                onChange={handleChange}
-              />
-            </label>
-
-            {errors.resume && (
-              <small className="error-text">{errors.resume}</small>
-            )}
-          </div>
-
-          {/* TERMS */}
-
-          <div className="terms-container">
-            <input
-              type="checkbox"
-              name="terms"
-              checked={formData.terms}
-              onChange={handleChange}
-            />
-
-            <p>
-              I agree to the
-              <span> Terms & Service </span>
-              and
-              <span> Privacy Policy </span>
-              regarding my administrative access
-            </p>
-          </div>
-
-          {errors.terms && <small className="error-text">{errors.terms}</small>}
-
-          {/* REGISTER BUTTON */}
-
-          <button type="submit" className="register-btn">
-            Complete Registration
-          </button>
-
-          <p className="login-text">
-            Already have an account?
-            <span> Sign In here</span>
+          <p className="urc-top-text">
+            Register and join our platform to connect, collaborate <br />
+            and grow together.
           </p>
-        </form>
+
+          <div className="urc-left-image">
+            <img src={registerImage} alt="Register" />
+          </div>
+
+          <h2 className="urc-sub-title">
+            Land your dream <br />
+            career.
+          </h2>
+
+          <p className="urc-career-text">
+            Join the most active talent network and get discovered by
+            <br />
+            top-tier employers globally.
+          </p>
+
+          <div className="urc-feature-list">
+            <div className="urc-feature-item">
+              <img src={tickImg} alt="" />
+              <span>Find your dream job</span>
+            </div>
+
+            <div className="urc-feature-item">
+              <img src={tickImg} alt="" />
+              <span>Get noticed by top employers</span>
+            </div>
+
+            <div className="urc-feature-item">
+              <img src={tickImg} alt="" />
+              <span>Personalized job alerts</span>
+            </div>
+
+            <div className="urc-feature-item">
+              <img src={tickImg} alt="" />
+              <span>Track your applications</span>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT SECTION */}
+
+        <div className="urc-register-right">
+          <h1 className="urc-form-title">User Registration</h1>
+
+          <form onSubmit={handleSubmit}>
+            {/* ROLE SELECTION */}
+
+            <h3 className="urc-register-label">I am Registering as</h3>
+
+            <div className="urc-role-wrapper">
+              <div
+                className={`urc-role-card ${role === "candidate" ? "urc-active" : ""}`}
+                onClick={() => setRole("candidate")}
+              >
+                <div className="urc-radio-circle">
+                  ={role === "candidate" && <div className="urc-radio-dot"></div>}
+                </div>
+
+                <img src={candidateImg} alt="Candidate" />
+
+                <h4>Candidate</h4>
+
+                <p>Explore jobs take next step</p>
+              </div>
+
+              <div
+                className={`urc-role-card ${role === "recruiter" ? "urc-active" : ""}`}
+                onClick={() => setRole("recruiter")}
+              >
+                <div className="urc-radio-circle">
+                  ={role === "recruiter" && <div className="urc-radio-dot"></div>}
+                </div>
+
+                <img src={recruiterImg} alt="Recruiter" />
+
+                <h4>Recruiter</h4>
+
+                <p>Post jobs find talent and hire</p>
+              </div>
+            </div>
+
+            {/* NAME & MOBILE */}
+
+            <div className="urc-form-row">
+              <div className="urc-input-group">
+                <label>Full Name *</label>
+
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Thilak"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                />
+
+                {errors.fullName && <small className="urc-error-small">{errors.fullName}</small>}
+              </div>
+
+              <div className="urc-input-group">
+                <label>Mobile Number *</label>
+
+                <input
+                  type="text"
+                  name="mobile"
+                  placeholder="123467890"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                />
+
+                {errors.mobile && <small className="urc-error-small">{errors.mobile}</small>}
+              </div>
+            </div>
+
+            {/* EMAIL & DEGREE */}
+
+            <div className="urc-form-row">
+              <div className="urc-input-group">
+                <label>Enter Your Email Address *</label>
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Thilak1@gmail.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+
+                {errors.email && <small className="urc-error-small">{errors.email}</small>}
+              </div>
+
+              <div className="urc-input-group">
+                <label>Degree *</label>
+
+                <input
+                  type="text"
+                  name="degree"
+                  placeholder="B.E Civil Engineer"
+                  value={formData.degree}
+                  onChange={handleChange}
+                />
+
+                {errors.degree && <small className="urc-error-small">{errors.degree}</small>}
+              </div>
+            </div>
+            {/* PASSWORD & CONFIRM PASSWORD  */}
+
+            <div className="urc-form-row">
+              <div className="urc-input-group">
+                <label>Password *</label>
+
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+
+                {errors.password && (
+                  <small className="urc-error-text">{errors.password}</small>
+                )}
+              </div>
+
+              <div className="urc-input-group">
+                <label>Confirm Password *</label>
+
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                />
+
+                {errors.confirmPassword && (
+                  <small className="urc-error-text">{errors.confirmPassword}</small>
+                )}
+              </div>
+            </div>
+
+            {/* RESUME UPLOAD */}
+
+            <div className="urc-input-group urc-full-width">
+              <label>Upload Resume *</label>
+
+              <label className="urc-upload-box">
+                <img src={uploadImg} alt="Upload" className="urc-upload-icon" />
+
+                <div className="urc-upload-content">
+                  <h4>
+                    {" "}
+                    {formData.resume ? formData.resume.name : "Click to Upload"}
+                  </h4>
+                  <p>or drag and drop PDF,DOC or DOCX(Max 2 MB)</p>
+                </div>
+
+                <input
+                  type="file"
+                  name="resume"
+                  accept=".pdf,.doc,.docx"
+                  hidden
+                  onChange={handleChange}
+                />
+              </label>
+
+              {errors.resume && (
+                <small className="urc-error-text">{errors.resume}</small>
+              )}
+            </div>
+
+            {/* TERMS */}
+
+            <div className="urc-terms-container">
+              <input
+                type="checkbox"
+                name="terms"
+                checked={formData.terms}
+                onChange={handleChange}
+              />
+
+              <p>
+                I agree to the
+                <span> Terms & Service </span>
+                and
+                <span> Privacy Policy </span>
+                regarding my administrative access
+              </p>
+            </div>
+
+            {errors.terms && (
+              <small className="urc-error-text">{errors.terms}</small>
+            )}
+
+            {/* REGISTER BUTTON */}
+
+            <button type="submit" className="urc-register-btn">
+              Complete Registration
+            </button>
+
+            <p className="urc-login-text">
+              Already have an account?
+              <span> Sign In here</span>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import postJobsIcon from "./assets/p-job.png";
 import findCandidatesIcon from "./assets/fi-can.png";
 import interviewIcon from "./assets/int-mang.png";
 import analyticsIcon from "./assets/rec-anal.png";
-import regIcon from "./assets/reg-image.png";
+import regIcon from "./assets/reg-r-image.png";
 import tickedImg from "./assets/tickbl.png";
 import hidePasswordIcon from "./assets/eye-hide.png";
 import showPasswordIcon from "./assets/show_password.png";
