@@ -16,6 +16,7 @@ body {
   overflow: hidden;
 }
  
+/* ================= LEFT ================= */
  
 .lc-left-section {
   flex: 1;
@@ -46,7 +47,7 @@ body {
   line-height: 1.5;
 }
  
-
+/* ================= RIGHT ================= */
  
 .lc-right-section {
   flex: 1;
@@ -63,7 +64,7 @@ body {
 .lc-login-form {
   width: min(70%, 520px);
   max-height: 100%;
-  padding: 20px;
+
 }
  
 .lc-login-form h2 {
@@ -73,7 +74,7 @@ body {
   font-weight: 700;
 }
  
-
+/* ================= INPUT ================= */
  
 .lc-input-group {
   margin-bottom: clamp(12px, 3vh, 40px);
@@ -99,7 +100,10 @@ lc.password-box {
   display: flex;
   align-items: center;
 }
- 
+ .lc-password-box input {
+  width: 100%;
+  padding-right: 40px; /* icon space */
+}
 .lc-eye-right {
   position: absolute;
   right: 14px;
@@ -172,7 +176,7 @@ lc.password-box {
   user-select: none;
 }
  
-
+/* ================= ERROR ================= */
  
 .lc-error-input {
   border: 1px solid #ff4d4f !important;
@@ -195,7 +199,7 @@ lc.password-box {
   align-items:stretch;
 }
  
-
+/* ================= OPTIONS ================= */
  
 .lc-options {
   display: flex;
@@ -238,7 +242,7 @@ lc.password-box {
   color: #3366ff;
 }
  
-
+/* ================= BUTTON ================= */
  
 .lc-continue-btn {
   width: 100%;
@@ -258,7 +262,7 @@ lc.password-box {
   background: #2958e6;
 }
  
-
+/* ================= DIVIDER ================= */
  
 .lc-divider {
   display: flex;
@@ -277,7 +281,7 @@ lc.password-box {
   font-size: 14px;
 }
  
-
+/* ================= SOCIAL ================= */
  
 .lc-continue-text {
   text-align: center;
@@ -312,7 +316,7 @@ lc.password-box {
   height: 22px;
   object-fit: contain;
 }
-
+/* ================= CONTACT ================= */
  
 .lc-contact-admin {
   margin-top: clamp(10px, 2vh, 30px);
@@ -332,7 +336,7 @@ lc.password-box {
   }
 }
  
-
+/* ================= BELOW 768px ================= */
 @media screen and (max-width: 767px) {
  
   .lc-login-container {
@@ -347,7 +351,7 @@ lc.password-box {
   }
  
   .lc-left-section {
-    display: none; 
+    display: none; /* Hides image strictly below 768px */
   }
  
   .lc-right-section {
@@ -394,6 +398,7 @@ lc.password-box {
 }
  
  
+/* ================= MOBILE ================= */
 @media screen and (max-width: 480px) {
  
   .lc-right-section {
@@ -458,21 +463,25 @@ lc.password-box {
   margin: 25px 0 35px;
 }
  
-
+/* Common Button Style */
 .lc-login-type button {
-  width: 150px;  
-  height: 32px; 
-  border: 1px solid #c5c3e4;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 500;
+  min-width: 110px;
+  padding: 8px 22px;
+  border: 1px solid #d8deea;
+  border-radius: 6px;
+  background: #ecf2ff;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
  
-
+/* Candidate Active */
+/* Candidate Button */
 .lc-candidate-btn {
-  width: 220px;
-  height: 48px;
+  /* width: 220px;
+  height: 48px; */
   background: linear-gradient(180deg, #94b3ff 0%, #4479f5 100%);
   border: 1px solid #2f69e7;
   border-radius: 8px;
@@ -483,26 +492,29 @@ lc.password-box {
   transition: all 0.3s ease;
 }
 
+/* Hover செய்தாலும் இதே style இருக்க */
 .lc-candidate-btn:hover {
-  background: linear-gradient(180deg, #94b3ff 0%, #4479f5 100%);
-  border-color: #2f69e7;
-  color: #1f2a44;
+ background: #e0eaff;
+  border-color: #abc4ff;
 }
-
+.lc-candidate-btn.active {
+background: linear-gradient(180deg, #abc4ff 0%, #5589ff 100%);
+  border: 1px solid #779ad9;
+  color: #000;
+}
 /* Recruiter Button */
 .lc-recruiter-btn {
-  width: 220px;
-  height: 48px;
+  
   background: #ECF0F9;
   border: 1px solid #C9D2E3;
   border-radius: 8px;
   color: #000;
   font-size: 18px;
   font-weight: 500;
-  cursor: default; 
+  cursor: default; /* pointer வேண்டும்னா pointer வைக்கலாம் */
 }
 
-
+/* Recruiterக்கு Hover இல்லை */
 .lc-recruiter-btn:hover {
   background: #ECF0F9;
   color: #000;

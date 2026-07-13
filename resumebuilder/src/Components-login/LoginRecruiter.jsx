@@ -58,7 +58,7 @@ const LoginRecruiter = () => {
     const usernameRegex = /^[a-zA-Z0-9._]{4,20}$/;
 
     if (email.trim() === "") {
-      setEmailError("Enter your User Name");
+      setEmailError("Enter Your User Name");
       valid = false;
     } else if (!usernameRegex.test(email.trim())) {
       setEmailError("User Name must be 4-20 characters (letters, numbers, . or _ only)");
