@@ -50,7 +50,6 @@ const UserRegRecruiter = () => {
     { icon: analyticsIcon, title: "Recruitment Analytics", description: "Data-driven insights into your hiring funnel." },
   ];
 
-  // Input value changes handler
   const handleChange = (fieldId, type) => (e) => {
     if (type === "file") {
       setForm((prev) => ({ ...prev, [fieldId]: e.target.files[0] }));
@@ -59,7 +58,6 @@ const UserRegRecruiter = () => {
     }
   };
 
-  // Validations package
   const validate = () => {
     let newErrors = {};
 
@@ -199,7 +197,6 @@ const UserRegRecruiter = () => {
                         style={{ paddingRight: (field.id === "password" || field.id === "confirmPassword") ? "40px" : "10px" }}
                       />
                       
-                      {/* Character logic: active check if characters typed */}
                       {field.id === "password" && form[field.id] && (
                         <img
                           src={showPassword ? showPasswordIcon : hidePasswordIcon}
