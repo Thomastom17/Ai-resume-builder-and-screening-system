@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import candidateIcon from "./assets/candidate.png";
-import recruiterIcon from "./assets/recruiter.png";
-import postJobsIcon from "./assets/p-job.png";
-import findCandidatesIcon from "./assets/fi-can.png";
-import interviewIcon from "./assets/int-mang.png";
-import analyticsIcon from "./assets/rec-anal.png";
-import regIcon from "./assets/reg-r-image.png";
-import tickedImg from "./assets/tickbl.png";
-import hidePasswordIcon from "./assets/eye-hide.png";
-import showPasswordIcon from "./assets/show_password.png";
+import candidateIcon from "../assets/candidate.png";
+import recruiterIcon from "../assets/recruiter.png";
+import postJobsIcon from "../assets/p-job.png";
+import findCandidatesIcon from "../assets/fi-can.png";
+import interviewIcon from "../assets/int-mang.png";
+import analyticsIcon from "../assets/rec-anal.png";
+import regIcon from "../assets/reg-r-image.png";
+import tickedImg from "../assets/tickbl.png";
+import hidePasswordIcon from "../assets/eye-hide.png";
+import showPasswordIcon from "../assets/show_password.png";
 import "./UserRegRecruiter.css";
 
 const UserRegRecruiter = () => {

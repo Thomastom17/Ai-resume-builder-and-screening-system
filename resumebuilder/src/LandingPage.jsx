@@ -14,7 +14,7 @@ const LandingPage = () => {
         <div className="lp-landing-btn-group">
           <button
             className="lp-landing-button lp-landing-btn-login"
-            onClick={() => navigate('/Resume-builder/login')} 
+            onClick={() => navigate('/Resume-builder/login/candidate')} 
           >
             Log In
           </button>

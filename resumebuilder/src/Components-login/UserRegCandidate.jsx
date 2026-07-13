@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./UserRegCandidate.css";
-import registerImage from "./assets/reg-c-image.png";
-import candidateImg from "./assets/candidate.png";
-import recruiterImg from "./assets/recruiter.png";
-import uploadImg from "./assets/upload.png";
-import tickImg from "./assets/check.png";
-import hidePasswordIcon from "./assets/eye-hide.png";
-import showPasswordIcon from "./assets/show_password.png";
+import registerImage from "../assets/reg-c-image.png";
+import candidateImg from "../assets/candidate.png";
+import recruiterImg from "../assets/recruiter.png";
+import uploadImg from "../assets/upload.png";
+import tickImg from "../assets/check.png";
+import hidePasswordIcon from "../assets/eye-hide.png";
+import showPasswordIcon from "../assets/show_password.png";
 
 const UserRegCandidate = () => {
   const [role, setRole] = useState("candidate");

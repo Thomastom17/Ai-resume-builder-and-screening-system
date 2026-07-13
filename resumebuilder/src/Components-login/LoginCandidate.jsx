@@ -196,7 +196,7 @@ const LoginCandidate = () => {
                   <input type="checkbox" id="lc-remember" />
                   <label htmlFor="lc-remember">Remember me</label>
                 </div>
-                <Link to="/Resume-builder/logincandidate/forgotpassword" className='lc-forgot-password'>Forgot Password?</Link>
+                <Link to="/Resume-builder/login/forgotpassword" className='lc-forgot-password'>Forgot Password?</Link>
               </div>
  
               <button type="submit" className="lc-continue-btn">Continue</button>
