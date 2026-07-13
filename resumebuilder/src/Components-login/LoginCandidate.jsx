@@ -64,7 +64,7 @@ const LoginCandidate = () => {
  
     if (!valid) return;
  
-    navigate("/Resume-builder/logincandidate/emailverification");
+    navigate("/Resume-builder/login/emailverification");
   };
  
  
