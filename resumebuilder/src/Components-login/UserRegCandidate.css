@@ -5,105 +5,115 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.urc-register-page-wrapper {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: nowrap;
-  padding: 1.25rem;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: #f8fafc;
-  height: 100vh;         
-  box-sizing: border-box;
-  overflow: hidden;            
-}
-
-.urc-register-container {
-  display: flex;
-  width: 100%;
+html, body {
   height: 100%;
-  background: transparent;
-  justify-content: center;
-  gap: 1.5rem;
-  align-items: flex-start;
-  box-sizing: border-box;
 }
 
+.urc-register-page-wrapper{
+  height:100vh;
+  width:100%;
+  background:#ffffff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:15px;
+  overflow:hidden;
+  position: relative;
+}
+
+.urc-register-container{
+  width:100%;
+  max-width:1200px;
+  height:100%;
+  max-height:96vh;
+  display:flex;
+  gap:60px;
+  align-items:stretch;
+  overflow: visible;
+}
+
+/* LEFT - matches image: slightly wider than right panel */
 .urc-register-left {
-  flex: 1 1 50%;
-  max-width: 50%;
-  padding: 18px 20px;
-  color: #1f2937;
-  background: #ffffff;
-  border: 1px solid #cbd5e1; 
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  box-sizing: border-box;
+  flex: 0 0 42%;
+  max-width: 42%;
+  background: #fff;
+  border: 1px solid #c7d2fe;
+  border-radius: 16px;
+  padding: 24px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  
-  gap: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
   height: 100%;
-  overflow: hidden;
-  text-align: center;
+  overflow: visible;
+  gap: 10px;
+}
+.urc-main-title{
+    font-size:22px;
+    font-weight:700;
+    color:#2563eb;
+    margin-bottom:6px;
 }
 
-.urc-register-left .urc-main-title {
-  font-size: 30px;
-  font-weight: 700;
-  color: #2563eb;
-  margin: 0;
+.urc-sub-title{
+    font-size:20px;
+    font-weight:700;
+    color:#0f172a;
+    margin:10px 0 4px;
+    line-height:1.3;
 }
 
-.urc-register-left .urc-sub-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #031b4e;
-  margin: 0;
+.urc-top-text{
+    font-size:13px;
+    color:#64748b;
+    line-height:1.55;
 }
 
-.urc-top-text, .urc-career-text {
-  font-size: 14px;
-  color: #475569;
-  line-height: 1.5;
-  margin: 0;
+.urc-career-text{
+    font-size:13px;
+    color:#2563eb;
+    line-height:1.55;
+    font-weight:500;
 }
 
+/* IMAGE - bigger to match reference, pushed down and centered */
 .urc-left-image {
   width: 100%;
-  max-width: 100%;
-  height: 280px;
-  min-height: 0;
-  flex: 0 0 auto;
-  display: block;
-  margin: 0 auto;
+  max-width: 260px;
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin: 20px auto 16px;
+  flex-shrink: 0;
 }
 
-.urc-left-image img {
-  width: 100%;
-  height: 100%;
+.urc-left-image img{
+  width: auto;
+  height: 160%;
+  max-width: 100%;
+  max-height: 190%;
   object-fit: contain;
 }
 
-.urc-feature-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr; 
-  gap: 8px;
-  text-align: center;
-  align-items: center;
+.urc-feature-list{
+  list-style:none;
+  padding:0;
+  margin-top:8px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
 }
 
-.urc-feature-item {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #374151;
+.urc-feature-item{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:9px;
+  font-size:13px;
+  color:#374151;
+  font-weight:500;
 }
 
 .urc-feature-item img {
@@ -111,99 +121,110 @@
   height: 16px;
 }
 
-
-.urc-register-right {
-  flex: 1 1 50%;
-  max-width: 50%;
-  height: 100%;
-  padding: 4px;
-  color: #1f2937;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  overflow: hidden;
+/* RIGHT - narrower than left, no border */
+.urc-register-right{
+  flex: 1 1 0%;
+  max-width: none;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  overflow:hidden;
 }
 
 .urc-form-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   margin-top: 0;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   color: #111827;
   text-align: center;
 }
 
-.urc-register-right form {
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 18px 24px;
-  background: #ffffff;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  overflow: hidden;
+.urc-register-right form{
+  background:transparent;
+  border:none;
+  padding: 0;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  height:auto;
+  justify-content:flex-start;
+  overflow-y:auto;
 }
 
 .urc-register-label {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
   color: #111827;
 }
 
-/* ROLE CARDS */
+/* ROLE CARDS - enlarged */
 .urc-role-wrapper {
   display: flex;
-  gap: 20px;
-  margin-bottom: 15px;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
 .urc-role-card {
   position: relative;
+
+  width: 160px;
+  height: 105px;
+
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  align-items: flex-start;
+
   padding: 14px 16px;
-  background: #ffffff;
+  border: 1px solid #dbe3f0;
+  border-radius: 10px;
+  background: #fff;
   cursor: pointer;
-  text-align: left;
-  font-family: inherit;
-  flex: 0 0 270px;
-  width: 200px;
-  height: 150px;              
+  transition: 0.2s;
   box-sizing: border-box;
-  transition: all 0.2s ease;
 }
 
-.urc-role-card:hover {
-  border-color: #cbd5e1;
+.urc-role-card img {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  background: #e8f1ff;
+  margin-bottom: 8px;
+}
+
+.urc-role-card h4 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.urc-role-card p {
+  font-size: 11px;
+  margin-top: 5px;
+  color: #6b7280;
+  line-height: 1.3;
 }
 
 .urc-role-card.urc-active {
-  border: 1.5px solid #22c55e;
-  background-color: #f0fdf4;
+  border: 2px solid #4f7cff;
+  box-shadow: 0 0 0 2px rgba(79, 124, 255, 0.1);
 }
 
 .urc-radio-circle {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
+  top: 10px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
   border: 2px solid #cbd5e1;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
 }
 
 .urc-role-card.urc-active .urc-radio-circle {
@@ -211,37 +232,20 @@
 }
 
 .urc-radio-dot {
-  width: 9px;
-  height: 9px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
+}
+
+.urc-role-card.urc-active .urc-radio-dot {
   background: #22c55e;
-  display: block;
-}
-
-.urc-role-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 6px;
-}
-
-.urc-role-card h4 {
-  font-weight: 700;
-  font-size: 16px;
-  color: #111827;
-  margin-bottom: 2px;
-}
-
-.urc-role-card p {
-  font-size: 12px;
-  color: #6b7280;
-  line-height: 1.9;
 }
 
 /* INPUT GRID & FIELDS */
 .urc-form-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 20px;
   margin-bottom: 0;
   overflow: visible;
   flex: 0 0 auto;
@@ -254,15 +258,15 @@
 }
 
 .urc-input-group.urc-full-width {
-  grid-column: span 3; 
+  grid-column: span 2; 
 }
 
 .urc-input-group label {
   display: block;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 600;
   color: #111827;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
 
 .urc-input-group input,
@@ -270,8 +274,8 @@
   width: 100%;
   box-sizing: border-box;
   padding: 9px 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
   font-size: 12px;
   color: #334155;
   background: #ffffff;
@@ -279,11 +283,15 @@
   transition: all 0.15s ease;
 }
 
+.urc-input-group input::placeholder{
+  color:#94a3b8;
+}
+
 .urc-input-group input:focus,
 .urc-input-group select:focus {
   outline: none;
   border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
 }
 
 /* PASSWORD WRAPPER */
@@ -294,23 +302,90 @@
 
 .urc-password-toggle-icon {
   position: absolute;
-  right: 12px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
-/* RESUME UPLOAD BOX */
+/* RESUME UPLOAD BOX - forced single line, overrides any nested wrapper */
 .urc-upload-box {
   border: 1px dashed #cbd5e1;
-  border-radius: 8px;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  border-radius: 6px;
+  padding: 8px 12px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
   background: #ffffff;
   cursor: pointer;
+  min-height: 38px;
+  height: auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Any direct child wrapper inside the upload box must also lay out in a row */
+.urc-upload-box > * {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 4px;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+.urc-upload-box img,
+.urc-upload-box svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.urc-upload-box p,
+.urc-upload-box span {
+  font-size: 11px;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0 !important;
+  line-height: 1.3;
+  white-space: nowrap !important;
+  display: inline !important;
+}
+
+.urc-upload-box p:first-of-type{
+  font-weight:600;
+  color:#374151;
+}
+
+.urc-upload-box p:first-of-type::after {
+  content: " ";
+  white-space: pre;
+}
+
+/* Hide native file input UI ("Choose File" text/button) completely.
+   The input stays clickable/functional but visually invisible,
+   so only our custom "Click to Upload..." text is shown. */
+.urc-upload-box input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 0;
+  color: transparent;
+}
+
+.urc-upload-box input[type="file"]::-webkit-file-upload-button,
+.urc-upload-box input[type="file"]::file-selector-button {
+  display: none;
+}
+
+.urc-upload-box {
+  position: relative;
 }
 
 /* TERMS BLOCK */
@@ -321,17 +396,20 @@
 .urc-terms-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 13px;
+  gap: 8px;
+  font-size: 11px;
   color: #475569;
   cursor: pointer;
+  line-height: 1.4;
 }
 
 .urc-terms-container input {
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   border: 1px solid #cbd5e1;
-  border-radius: 4px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .urc-terms-container span {
@@ -342,12 +420,12 @@
 /* ACTIONS */
 .urc-register-btn {
   width: 100%;
-  padding: 13px;
+  padding: 11px;
   background: #2563eb;
   color: #ffffff;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
@@ -360,8 +438,9 @@
 
 .urc-login-text {
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   color: #475569;
+  margin-top: 4px;
 }
 
 .urc-login-text span {
@@ -370,152 +449,208 @@
   cursor: pointer;
 }
 
+/* hide stray error/bullet marker completely */
 .urc-error-text {
-  color: #dc2626;
-  font-size: 11px;
-  margin-top: 4px;
-  display: block;
+  display: none !important;
 }
 
+/* ===== LARGE DESKTOP (1440px and above): fill page, no scroll, right side content bigger ===== */
+@media screen and (min-width: 1440px) {
+  .urc-register-page-wrapper {
+    padding: 20px 40px;
+    overflow: hidden;
+  }
+  .urc-register-container {
+    max-width: 1300px;
+    max-height: 96vh;
+    gap: 32px;
+  }
+  .urc-register-left {
+    padding: 28px 28px;
+  }
+  .urc-left-image {
+    max-width: 290px;
+    height: 210px;
+  }
+  .urc-role-card {
+    width: 175px;
+    height: 112px;
+  }
+
+  /* right side content - small safe increase, no overflow */
+  .urc-form-title {
+    font-size: 17px;
+  }
+  .urc-register-label {
+    font-size: 14px;
+  }
+  .urc-input-group label {
+    font-size: 13px;
+  }
+  .urc-input-group input,
+  .urc-input-group select {
+    padding: 10px 13px;
+    font-size: 13px;
+  }
+  .urc-register-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* ===== MID DESKTOP (around 1204px): fill page, no scroll, right side content bigger ===== */
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .urc-register-page-wrapper {
+    padding: 16px 24px;
+    overflow: hidden;
+  }
+  .urc-register-container {
+    max-width: 100%;
+    max-height: 96vh;
+    gap: 30px;
+  }
+  .urc-register-left {
+    padding: 20px 20px;
+  }
+  .urc-left-image {
+    max-width: 230px;
+    height: 170px;
+  }
+  .urc-role-card {
+    width: 150px;
+    height: 100px;
+  }
+}
+
+/* ===== TABLET: allow scrolling ===== */
 @media screen and (min-width: 769px) and (max-width: 1023px) {
   .urc-register-page-wrapper {
     height: auto;
     min-height: 100vh;
     overflow-y: auto;
+    align-items: flex-start;
     padding: 20px;
   }
   .urc-register-container {
-    flex-direction: column;
+    flex-direction: row;
     height: auto;
-    gap: 20px;
+    max-height: none;
   }
-  .urc-register-left, .urc-register-right {
-    width: 100%;
-    max-width: 100%;
-    flex: 100%;
+  .urc-register-left,
+  .urc-register-right {
     height: auto;
-  }
-  .urc-register-left {
-    padding: 24px;
-    gap: 18px;
-  }
-  .urc-main-title {
-    text-align: center;
-  }
-  .urc-left-image {
-    max-width: 380px;
-    margin: auto;
-  }
-  .urc-register-right form {
-    height: auto;
-    padding: 24px;
-  }
-  .urc-role-wrapper {
-    gap: 20px;
-  }
-  .urc-role-card {
-    flex: 1;
-    width: auto;
-    height: 120px;
-  }
-  .urc-form-row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
   }
 }
 
+/* ===== MOBILE: allow scrolling ===== */
 @media screen and (max-width: 768px) {
   .urc-register-page-wrapper {
     height: auto;
     min-height: 100vh;
     overflow-y: auto;
-    padding: 16px;
+    align-items: flex-start;
+    padding: 14px;
   }
   .urc-register-container {
     flex-direction: column;
     height: auto;
-    gap: 20px;
-  }
-  .urc-register-left, .urc-register-right {
+    max-height: none;
+    gap: 16px;
     width: 100%;
+  }
+  .urc-register-left,
+  .urc-register-right {
     max-width: 100%;
-    flex: 100%;
+    width: 100%;
+    flex: 1 1 100%;
     height: auto;
-  }
-  .urc-register-left {
-    padding: 20px;
-    gap: 18px;
-  }
-  .urc-main-title {
-    font-size: 20px;
-    text-align: center;
+    padding: 16px 18px;
+    box-sizing: border-box;
   }
   .urc-left-image {
-    max-width: 320px;
-    margin: 15px auto;
-  }
-  .urc-form-title {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  .urc-register-right form {
-    padding: 20px;
-    height: auto;
+    max-width: 200px;
+    height: 130px;
   }
   .urc-role-wrapper {
-    gap: 15px;
+    gap: 12px;
   }
   .urc-role-card {
-    flex: 1;
-    width: auto;
-    height: 115px;
-    padding: 14px;
+    width: 155px;
+    height: 100px;
   }
   .urc-form-row {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  .urc-input-group.urc-full-width {
-    grid-column: span 1;
-  }
-  .urc-input-group input, .urc-input-group select {
-    height: 46px;
-    font-size: 14px;
-  }
-  .urc-register-btn {
-    height: 48px;
-    margin-top: 15px;
+    gap: 10px 12px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .urc-register-page-wrapper {
-    padding: 12px;
+    padding: 10px;
   }
-  .urc-register-left {
-    padding: 16px;
+  .urc-register-left,
+  .urc-register-right {
+    padding: 14px 16px;
   }
-  .urc-register-right form {
-    padding: 16px;
-  }
-  .urc-form-title {
-    font-size: 24px;
+  .urc-left-image {
+    max-width: 190px;
+    height: 125px;
   }
   .urc-role-wrapper {
-    flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
   .urc-role-card {
-    width: 100%;
-    height: auto;
+    width: 130px;
+    height: 88px;
+    padding: 10px 12px;
   }
-  .urc-main-title {
-    font-size: 18px;
+  .urc-role-card img {
+    width: 22px;
+    height: 22px;
+    padding: 4px;
+    margin-bottom: 4px;
   }
-  .urc-input-group label {
+  .urc-role-card h4 {
     font-size: 13px;
   }
-  .urc-input-group input, .urc-input-group select {
-    font-size: 13px;
+  .urc-role-card p {
+    font-size: 9px;
+    margin-top: 3px;
+  }
+  .urc-form-row {
+    grid-template-columns: 1fr;
+  }
+  .urc-input-group.urc-full-width {
+    grid-column: span 1;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .urc-role-wrapper {
+    gap: 6px;
+  }
+  .urc-role-card {
+    width: 110px;
+    height: 80px;
+    padding: 8px 10px;
+  }
+  .urc-role-card img {
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+    margin-bottom: 3px;
+  }
+  .urc-role-card h4 {
+    font-size: 12px;
+  }
+  .urc-role-card p {
+    font-size: 8px;
+    margin-top: 2px;
+    line-height: 1.15;
+  }
+  .urc-radio-circle {
+    width: 11px;
+    height: 11px;
+    top: 6px;
+    right: 6px;
   }
 }
