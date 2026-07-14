@@ -9,16 +9,16 @@ import CreatePassword from './Components-login/CreatePassword';
 import EmailVerification from './Components-login/EmailVerification';
 import OtpVerification from './Components-login/OtpVerification';
 import LoginSuccess from './Components-login/LoginSuccess';
-import LandingPage from './LandingPage';
+import LandingPage from './Components-landingpage/LandingPage';
 import UserRegRecruiter from './Components-login/UserRegRecruiter';
 import UserRegCandidate from './Components-login/UserRegCandidate';
-import LoginCandidate from './Components-login/LoginCandidate';
+import LoginCandidate from './Components-landingpage/LandingPage';
 
 
 const router = createBrowserRouter(
   [
     {
-      path: '/Resume-builder',
+      path: '/Resume-builder/',
       element: <LandingPage />,
     },
      {
