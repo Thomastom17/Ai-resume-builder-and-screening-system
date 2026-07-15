@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'; 
-import LoginCanditate from './Components-login/LoginCandidate';
-import LoginRecruiter from './Components-login/LoginRecruiter';
-import ForgotPassword from './Components-login/Forgotpassword';
-import Signup from './Components-login/Signup';
-import CreatePassword from './Components-login/CreatePassword';
-import EmailVerification from './Components-login/EmailVerification';
-import OtpVerification from './Components-login/OtpVerification';
-import LoginSuccess from './Components-login/LoginSuccess';
+import LoginCanditate from './Components-login-candidate/LoginCandidate';
+import LoginRecruiter from './Components-login-recruiter/LoginRecruiter';
+import ForgotPassword from './Components-login-candidate/Forgotpassword';
+import Signup from './Components-login-candidate/Signup';
+import CreatePassword from './Components-login-candidate/CreatePassword';
+import EmailVerification from './Components-login-candidate/EmailVerification';
+import OtpVerification from './Components-login-candidate/OtpVerification';
+import LoginSuccess from './Components-login-candidate/LoginSuccess';
 import LandingPage from './Components-landingpage/LandingPage';
-import UserRegRecruiter from './Components-login/UserRegRecruiter';
-import UserRegCandidate from './Components-login/UserRegCandidate';
+import UserRegRecruiter from './Components-login-recruiter/UserRegRecruiter';
+import UserRegCandidate from './Components-login-candidate/UserRegCandidate';
 import Landingpage from './Components-landingpage/LandingPage';
 
 
