@@ -4,7 +4,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import LoginCanditate from './Components-login-candidate/LoginCandidate';
 import LoginRecruiter from './Components-login-recruiter/LoginRecruiter';
 import ForgotPassword from './Components-login-candidate/Forgotpassword';
-import Signup from './Components-login-candidate/Signup';
 import CreatePassword from './Components-login-candidate/CreatePassword';
 import EmailVerification from './Components-login-candidate/EmailVerification';
 import OtpVerification from './Components-login-candidate/OtpVerification';
@@ -20,10 +19,6 @@ const router = createBrowserRouter(
     {
       path: '/Resume-builder/',
       element: <LandingPage />,
-    },
-     {
-      path: '/Resume-builder/signup',
-      element: <Signup />,
     },
     {
       path: '/Resume-builder/login/candidate',
