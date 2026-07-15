@@ -12,7 +12,7 @@ import companiesImg from "../assets/landingpage/stat-companies.png";
 import satisfactionImg from "../assets/landingpage/stat-satisfaction.png";
 
 const FeatuersGrid = () => {
-  // Linear Data Node Tree Hierarchy for 6 Feature Cards
+
   const features = [
     {
       img: builderImg,
@@ -108,4 +108,4 @@ const FeatuersGrid = () => {
   );
 }
 
-export default FeaturesGrid;
+export default FeatuersGrid;
