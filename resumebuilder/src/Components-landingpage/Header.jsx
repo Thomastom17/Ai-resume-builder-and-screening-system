@@ -1,94 +1,64 @@
 import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../Components-landingpage/Header.css";
-import heroImage from "../assets/landingpage/header-image.png";
-import resumeIcon from "../assets/landingpage/resume-icon.png";
-import recruiterIcon from "../assets/landingpage/recruiter-icon.png";
-import aiImage from "../assets/landingpage/ai-powered.png";
-import atsImage from "../assets/landingpage/ats-friendly.png";
-import secureImage from "../assets/landingpage/secure-private.png";
-
+import logo from "../assets/landingpage/logo.png";
+ 
 const Header = () => {
-  const [selectedRole, setSelectedRole] = useState("resume");
-
-  const handleContinue = () => {
-    if (selectedRole === "resume") {
-      alert("Resume Builder Selected");
-    } else {
-      alert("Recruiter Selected");
-    }
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+ 
+  const handleNavigation = (path) => {
+    setMenuOpen(false);
+    navigate(path);
   };
-
+ 
   return (
-    <section className="hero-section">
-      {/* Left Side */}
-      <div className="hero-left">
-        <h1>
-          AI Resume Builder &
-          <br />
-          <span>Screening system</span>
-        </h1>
-
-        <p>
-          Create job-winning resumes in minutes and help recruiters find the
-          perfect talent with AI-powered screening.
-        </p>
-
-        {/* Buttons */}
-        <div className="hero-buttons">
-          <button
-            className={`hero-btn ${
-              selectedRole === "resume" ? "active-btn" : ""
-            }`}
-            onClick={() => setSelectedRole("resume")}
-          >
-            <img src={resumeIcon} alt="resume" />
-            <span>Create My Resume</span>
-          </button>
-
-          <button
-            className={`hero-btn ${
-              selectedRole === "recruiter" ? "active-btn" : ""
-            }`}
-            onClick={() => setSelectedRole("recruiter")}
-          >
-            <img src={recruiterIcon} alt="recruiter" />
-            <span>I'm a Recruiter</span>
-          </button>
-        </div>
-        {/* Feature Cards */}
-        <div className="features">
-          <div className="feature-card">
-            <img src={aiImage} alt="AI Powered" />
-            <div>
-              <h4>AI Powered</h4>
-              <p>Smart suggestions that stand out</p>
-            </div>
-          </div>
-
-          <div className="feature-card">
-            <img src={atsImage} alt="ATS Friendly" />
-            <div>
-              <h4>ATS Friendly</h4>
-              <p>Resumes optimized for ATS systems</p>
-            </div>
-          </div>
-
-          <div className="feature-card">
-            <img src={secureImage} alt="Secure" />
-            <div>
-              <h4>Secure & Private</h4>
-              <p>Your data is safe with us</p>
-            </div>
-          </div>
-        </div>
+    <header className="lp-header">
+      {/* Logo */}
+      <div className="lp-header-logo-section">
+        <img src={logo} alt="logo" />
+        <h2>AI RB & SS</h2>
       </div>
-
-      {/* Right Side */}
-      <div className="hero-right">
-        <img src={heroImage} alt="Hero" />
+ 
+      {/* Hamburger */}
+      <div className="lp-header-menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+        ≡
       </div>
-    </section>
+ 
+      {/* Nav Links */}
+      <div className={`lp-header-nav-links ${menuOpen ? "lp-header-active" : ""}`}>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "lp-header-active-link" : "")}
+          onClick={() => setMenuOpen(false)}
+        >
+          Home
+        </NavLink>
+ 
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? "lp-header-active-link" : "")}
+          onClick={() => setMenuOpen(false)}
+        >
+          About Us
+        </NavLink>
+ 
+        <button
+          className="lp-header-login-btn"
+          onClick={() => handleNavigation("/Resume-builder/login/candidate")}
+        >
+          Login
+        </button>
+ 
+        <button
+          className="lp-header-register-btn"
+          onClick={() => handleNavigation("/Resume-builder/signup/userregcandidate")}
+        >
+          Registration
+        </button>
+      </div>
+    </header>
   );
-}
-
+};
+ 
 export default Header;
