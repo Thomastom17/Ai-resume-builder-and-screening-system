@@ -14,26 +14,28 @@ import "./UserRegRecruiter.css";
 const UserRegRecruiter = () => {
   const [role, setRole] = useState("recruiter");
   const [agreed, setAgreed] = useState(false);
-  
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
+
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
 
   const registrationData = [
-  { id: "fullName", label: "Full Name", placeholder: "Thomas", type: "text" },
-  { id: "recruiterName", label: "Recruiter Name", placeholder: "Tom", type: "text" },
-  { id: "email", label: "Email Address", placeholder: "thomas54594@gmail.com", type: "email" },
-  { id: "phone", label: "Phone Number", placeholder: "8940854594", type: "text" },
-  { id: "designation", label: "Designation / Job Title", placeholder: "UI/UX Designer", type: "text" },
-  { id: "companyName", label: "Company Name", placeholder: "Adhway Creation", type: "text" },
-  { id: "companyWebsite", label: "Company Website", placeholder: "www.adway.com", type: "text" },
-  { id: "companyLocation", label: "Company Location", placeholder: "Coimbatore", type: "text" },
-  { id: "industryType", label: "Industry Type", type: "select", options: ["Designer", "Engineering", "Marketing", "Sales", "Other"] },
-  { id: "password", label: "Password", placeholder: ".........", type: "password" },
-  { id: "confirmPassword", label: "Confirm Password", placeholder: "........", type: "password" },
-]
+    { id: "fullName", label: "Full Name", placeholder: "Thomas", type: "text" },
+    { id: "userName", label: "User Name", placeholder: "thomas54", type: "text" },
+    { id: "recruiterName", label: "Recruiter Name", placeholder: "Tom", type: "text" },
+    { id: "email", label: "Email Address", placeholder: "thomas54594@gmail.com", type: "email" },
+    { id: "phone", label: "Phone Number", placeholder: "8940854594", type: "text" },
+    { id: "designation", label: "Designation / Job Title", placeholder: "UI/UX Designer", type: "text" },
+    { id: "companyName", label: "Company Name", placeholder: "Adhway Creation", type: "text" },
+    { id: "companyWebsite", label: "Company Website", placeholder: "www.adway.com", type: "text" },
+    { id: "companyLocation", label: "Company Location", placeholder: "Coimbatore", type: "text" },
+    { id: "industryType", label: "Industry Type", type: "select", options: ["Designer", "Engineering", "Marketing", "Sales", "Other"] },
+    { id: "password", label: "Password", placeholder: ".........", type: "password" },
+    { id: "confirmPassword", label: "Confirm Password", placeholder: "........", type: "password" },
+  ];
+
   const checklistItems = [
     "Post job openings",
     "Track hiring progress",
@@ -96,7 +98,7 @@ const UserRegRecruiter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (validate()) {
       alert("Registration Successful!");
       console.log("Submitting Package context:", { role, ...form });
@@ -173,7 +175,7 @@ const UserRegRecruiter = () => {
               <div className="urr-field-wrapper" key={field.id} style={{ display: "flex", flexDirection: "column" }}>
                 <label className="urr-field" style={{ position: "relative" }}>
                   <span className="urr-label">{field.label}</span>
-                  
+
                   {field.type === "select" ? (
                     <select value={form[field.id] || ""} onChange={handleChange(field.id, field.type)}>
                       <option value="" disabled hidden>Select {field.label}</option>
@@ -182,7 +184,7 @@ const UserRegRecruiter = () => {
                       ))}
                     </select>
                   ) : (
-                    <div style={{ position: "relative", width: "100%" , }}>
+                    <div style={{ position: "relative", width: "100%" }}>
                       <input
                         type={
                           field.id === "password"
@@ -196,7 +198,7 @@ const UserRegRecruiter = () => {
                         placeholder={field.placeholder}
                         style={{ paddingRight: (field.id === "password" || field.id === "confirmPassword") ? "40px" : "10px" }}
                       />
-                      
+
                       {field.id === "password" && form[field.id] && (
                         <img
                           src={showPassword ? showPasswordIcon : hidePasswordIcon}
@@ -217,7 +219,7 @@ const UserRegRecruiter = () => {
                     </div>
                   )}
                 </label>
-                
+
                 {errors[field.id] && <small className="error-text" style={{ color: "red", fontSize: "12px", marginTop: "4px" }}>{errors[field.id]}</small>}
               </div>
             ))}
@@ -233,7 +235,7 @@ const UserRegRecruiter = () => {
               I agree to the <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a> regarding my administrative access.
             </span>
           </label>
-          
+
           {errors.terms && <div className="error-text" style={{ color: "red", fontSize: "12px", marginTop: "4px" }}>{errors.terms}</div>}
 
           <button type="submit" className="urr-submit">

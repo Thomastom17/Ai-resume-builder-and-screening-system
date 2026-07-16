@@ -128,7 +128,7 @@ html, body {
   display:flex;
   flex-direction:column;
   height:100%;
-  overflow:hidden;
+  overflow:visible;
 }
 
 .urc-form-title {
@@ -149,7 +149,7 @@ html, body {
   gap:14px;
   height:auto;
   justify-content:flex-start;
-  overflow-y:auto;
+  overflow-y:visible;
 }
 
 .urc-register-label {
@@ -241,11 +241,11 @@ html, body {
   background: #22c55e;
 }
 
-/* INPUT GRID & FIELDS */
+/* INPUT GRID & FIELDS - 3 columns per row to match reference image */
 .urc-form-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 16px;
   margin-bottom: 0;
   overflow: visible;
   flex: 0 0 auto;
@@ -258,7 +258,7 @@ html, body {
 }
 
 .urc-input-group.urc-full-width {
-  grid-column: span 2; 
+  grid-column: span 3;
 }
 
 .urc-input-group label {
@@ -522,7 +522,7 @@ html, body {
   }
 }
 
-/* ===== TABLET: allow scrolling ===== */
+/* ===== TABLET: allow scrolling, drop to 2 columns for readability ===== */
 @media screen and (min-width: 769px) and (max-width: 1023px) {
   .urc-register-page-wrapper {
     height: auto;
@@ -540,9 +540,15 @@ html, body {
   .urc-register-right {
     height: auto;
   }
+  .urc-form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .urc-input-group.urc-full-width {
+    grid-column: span 2;
+  }
 }
 
-/* ===== MOBILE: allow scrolling ===== */
+/* ===== MOBILE: allow scrolling, drop to 2 columns ===== */
 @media screen and (max-width: 768px) {
   .urc-register-page-wrapper {
     height: auto;
@@ -579,7 +585,11 @@ html, body {
     height: 100px;
   }
   .urc-form-row {
+    grid-template-columns: repeat(1, 1fr);
     gap: 10px 12px;
+  }
+  .urc-input-group.urc-full-width {
+    grid-column: span 2;
   }
 }
 
@@ -623,6 +633,7 @@ html, body {
     grid-column: span 1;
   }
 }
+/*  */
 
 @media screen and (max-width: 360px) {
   .urc-role-wrapper {

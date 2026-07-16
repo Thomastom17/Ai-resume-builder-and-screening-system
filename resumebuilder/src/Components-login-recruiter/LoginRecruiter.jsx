@@ -80,7 +80,7 @@ const LoginRecruiter = () => {
 
     if (!valid) return;
 
-    navigate("/Resume-builder/login/emailverification");
+    navigate("/Resume-builder/login/emailrecruiter");
   };
 
 
@@ -230,7 +230,6 @@ const LoginRecruiter = () => {
           <p className="lr-continue-text">Or Continue with</p>
 
           <div className="lr-social-login">
-            {/* Default Social logins available only on default view */}
             {view === 'default' && (
               <>
                 <a href="https://accounts.google.com/" target="_blank" rel="noopener noreferrer">
@@ -244,7 +243,7 @@ const LoginRecruiter = () => {
           </div>
 
           <p className="lr-contact-admin">
-            Do not have an account? <Link to="/Resume-builder/signup/userregrecruiter">Create Account</Link>
+            Do not have an account? <Link to="/Resume-builder/userregrecruiter">Create Account</Link>
           </p>
         </form>
       </div>

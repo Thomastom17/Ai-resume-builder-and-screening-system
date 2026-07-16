@@ -21,17 +21,13 @@ const ForgotPassword = () => {
     e.preventDefault();
     setEmailError("");
 
-    // 1. Empty Check
     if (!email.trim()) {
       setEmailError("Please enter your email.");
       return;
     }
 
-    // 2. Format Check
     if (!validateEmail(email)) {
-      setEmailError(
-        "Please enter a valid email address (e.g., name@example.com).",
-      );
+      setEmailError("Please enter a valid email address (e.g., name@example.com).");
       return;
     }
 
@@ -48,8 +44,22 @@ const ForgotPassword = () => {
 
       {/* Right Side */}
       <div className="forgot-card">
+       
         <div className="back-btn">
-          <span onClick={() => navigate("/Resume-builder/login")}>
+          <button 
+            type="button" 
+            onClick={() => navigate(-1)} 
+            style={{ 
+              background: 'none', 
+              border: 'none', 
+              cursor: 'pointer', 
+              display: 'flex', 
+              alignItems: 'center',
+              gap: '8px',
+              font: 'inherit',
+              padding: 0
+            }}
+          >
             <img
               src={backIcon}
               alt="back"
@@ -57,7 +67,7 @@ const ForgotPassword = () => {
               style={{ width: "18px", height: "18px", objectFit: "contain" }}
             />{" "}
             Back to login
-          </span>
+          </button>
         </div>
 
         <div className="forgot-logo">

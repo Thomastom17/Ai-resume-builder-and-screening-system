@@ -86,7 +86,7 @@ const OtpVerification = () => {
 
       {/* Right Section */}
       <div className="otp-right">
-        <div className="back-btn" onClick={() => navigate("/Resume-builder/login")} style={{ cursor: 'pointer' }}>
+        <div className="back-btn" onClick={() => navigate("/Resume-builder/login/candidate")} style={{ cursor: 'pointer' }}>
             <span><img src={backIcon} alt="back" className="btn-icon-img" style={{ width: "18px", height: "18px",  }} /> Back to login
            </span>
         </div>

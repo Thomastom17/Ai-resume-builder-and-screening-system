@@ -10,13 +10,14 @@ import showPasswordIcon from "../assets/show_password.png";
 
 const UserRegCandidate = () => {
   const [role, setRole] = useState("candidate");
-  
+
   // Password Visibility States (Added from Recruiter Component)
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
+    userName: "",
     mobile: "",
     email: "",
     degree: "",
@@ -40,6 +41,8 @@ const UserRegCandidate = () => {
     let newErrors = {};
 
     if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required";
+
+    if (!formData.userName.trim()) newErrors.userName = "User Name is required";
 
     if (!/^[6-9]\d{9}$/.test(formData.mobile))
       newErrors.mobile = "Enter valid mobile number";
@@ -155,7 +158,7 @@ const UserRegCandidate = () => {
               </div>
             </div>
 
-            {/* NAME & MOBILE */}
+            {/* ROW 1: FULL NAME, USER NAME, MOBILE */}
             <div className="urc-form-row">
               <div className="urc-input-group">
                 <label>Full Name *</label>
@@ -167,6 +170,18 @@ const UserRegCandidate = () => {
                   onChange={handleChange}
                 />
                 {errors.fullName && <small className="urc-error-text">{errors.fullName}</small>}
+              </div>
+
+              <div className="urc-input-group">
+                <label>User Name *</label>
+                <input
+                  type="text"
+                  name="userName"
+                  placeholder="Thilak0201"
+                  value={formData.userName}
+                  onChange={handleChange}
+                />
+                {errors.userName && <small className="urc-error-text">{errors.userName}</small>}
               </div>
 
               <div className="urc-input-group">
@@ -182,20 +197,8 @@ const UserRegCandidate = () => {
               </div>
             </div>
 
-            {/* EMAIL & DEGREE */}
+            {/* ROW 2: DEGREE, EMAIL, PASSWORD */}
             <div className="urc-form-row">
-              <div className="urc-input-group">
-                <label>Enter Your Email Address *</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Thilak1@gmail.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.email && <small className="urc-error-text">{errors.email}</small>}
-              </div>
-
               <div className="urc-input-group">
                 <label>Degree *</label>
                 <input
@@ -207,10 +210,19 @@ const UserRegCandidate = () => {
                 />
                 {errors.degree && <small className="urc-error-text">{errors.degree}</small>}
               </div>
-            </div>
 
-            {/* PASSWORD & CONFIRM PASSWORD WITH TOGGLE LOGIC */}
-            <div className="urc-form-row">
+              <div className="urc-input-group">
+                <label>Enter your Email Address *</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Thilak1@gmail.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && <small className="urc-error-text">{errors.email}</small>}
+              </div>
+
               <div className="urc-input-group urc-password-wrapper">
                 <label>Password *</label>
                 <div className="urc-input-with-icon">
@@ -232,8 +244,11 @@ const UserRegCandidate = () => {
                 </div>
                 {errors.password && <small className="urc-error-text">{errors.password}</small>}
               </div>
+            </div>
 
-              <div className="urc-input-group urc-password-wrapper">
+            {/* ROW 3: CONFIRM PASSWORD */}
+            <div className="urc-form-row">
+              <div className="urc-input-group urc-full-width urc-password-wrapper">
                 <label>Confirm Password *</label>
                 <div className="urc-input-with-icon">
                   <input
@@ -261,10 +276,7 @@ const UserRegCandidate = () => {
               <label>Upload Resume *</label>
               <label className="urc-upload-box">
                 <img src={uploadImg} alt="Upload" className="urc-upload-icon" />
-                <div className="urc-upload-content">
-                  <h4>{formData.resume ? formData.resume.name : "Click to Upload"}</h4>
-                  <p>or drag and drop PDF, DOC or DOCX (Max 2 MB)</p>
-                </div>
+                <p>{formData.resume ? formData.resume.name : "Click to upload or drag and drop (PDF, DOCX)"}</p>
                 <input
                   type="file"
                   name="resume"
@@ -286,7 +298,7 @@ const UserRegCandidate = () => {
                   onChange={handleChange}
                 />
                 <p>
-                  I agree to the <span>Terms & Service</span> and <span>Privacy Policy</span> regarding my administrative access
+                  I agree to the <span>Terms of Service</span> and <span>Privacy Policy</span> regarding my administrative access.
                 </p>
               </div>
               {errors.terms && <small className="urc-error-text">{errors.terms}</small>}
@@ -298,7 +310,7 @@ const UserRegCandidate = () => {
             </button>
 
             <p className="urc-login-text">
-              Already have an account? <span>Log in here</span>
+              Already have an admin account? <span>Login</span>
             </p>
           </form>
         </div>

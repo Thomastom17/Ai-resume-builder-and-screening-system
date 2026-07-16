@@ -12,6 +12,8 @@ import LandingPage from './Components-landingpage/LandingPage';
 import UserRegRecruiter from './Components-login-recruiter/UserRegRecruiter';
 import UserRegCandidate from './Components-login-candidate/UserRegCandidate';
 import Landingpage from './Components-landingpage/LandingPage';
+import EmailRecruiter from './Components-login-recruiter/EmailRecruiter';
+import OtpRecruiter from './Components-login-recruiter/OtpRecruiter';
 
 
 const router = createBrowserRouter(
@@ -50,13 +52,21 @@ const router = createBrowserRouter(
       element: <LoginSuccess /> 
     },
     {
-      path: '/Resume-builder/signup/userregrecruiter',
+      path: '/Resume-builder/userregrecruiter',
       element: <UserRegRecruiter /> 
     },
     {
-      path: '/Resume-builder/signup/userregcandidate',
+      path: '/Resume-builder/userregcandidate',
       element: <UserRegCandidate /> 
-    } 
+    },
+    {
+      path: '/Resume-builder/login/emailrecruiter',
+      element: <EmailRecruiter /> 
+    },
+    {
+      path: '/Resume-builder/login/emailrecruiter/otprecruiter',
+      element: <OtpRecruiter /> 
+    },
   ],
 );
 

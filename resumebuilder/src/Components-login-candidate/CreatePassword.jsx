@@ -16,7 +16,7 @@ const CreatePassword = () => {
   const initialValues = { newPassword: "", confirmPassword: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
-  const [showPopup, setShowPopup] = useState(false); // Popup-க்கான State
+  const [showPopup, setShowPopup] = useState(false); 
 
   const togglePasswordView = () => { setPasswordShow((prev) => !prev); };
   const toggleConfirmPasswordView = () => { setconfirmPasswordShow((prev) => !prev); };
@@ -53,7 +53,7 @@ const CreatePassword = () => {
     setTimeout(() => {
       setShowPopup(false);
       setFormValues(initialValues); 
-      navigate("/Ai-resume/login");
+      navigate(-2);
     }, 3000);
   };
 

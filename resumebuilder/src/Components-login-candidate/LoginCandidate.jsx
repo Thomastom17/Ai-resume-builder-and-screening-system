@@ -11,22 +11,27 @@ import hidePasswordIcon from "../assets/eye-hide.png";
 const LoginCandidate = () => {
   const navigate = useNavigate();
  
-  // View States: 'default'
   const [view, setView] = useState('default');
- 
-  // Form Field States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
  
-  // Error States
   const [emailError, setEmailError] = useState("");  
   const [passwordError, setPasswordError] = useState("");
   const [phoneError, setPhoneError] = useState("");
  
   const [showPassword, setShowPassword] = useState(false);
- 
-  // Phone input handling (only numbers up to 10 digits)
+  
+  const [userType, setUserType] = useState('candidate');
+
+  const handleUserTypeChange = (type) => {
+    if (type === userType) return;
+    setUserType(type);
+    if (type === 'recruiter') {
+      navigate("/Resume-builder/login/recruiter"); 
+    }
+  };
+
   const handlePhoneChange = (e) => {
     const value = e.target.value;
     const onlyNums = value.replace(/[^0-9]/g, '');
@@ -43,19 +48,16 @@ const LoginCandidate = () => {
  
     let valid = true;
  
-    // 1. Email Empty Check
     if (email.trim() === "") {
       setEmailError("Enter your email address");
       valid = false;
     }
  
-    // 2. Password Validation Rules
     if (password.trim() === "") {
       setPasswordError("Enter your password");
       valid = false;
     } else {
       const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d{@$!%*?&}]{8,}$/;
-     
       if (!passwordRegex.test(password)) {
         setPasswordError("Password must be at least 8 characters long, include 1 uppercase letter, 1 number, and 1 special character.");
         valid = false;
@@ -63,10 +65,8 @@ const LoginCandidate = () => {
     }
  
     if (!valid) return;
- 
     navigate("/Resume-builder/login/emailverification");
   };
- 
  
   return (
     <div className="lc-login-container">
@@ -74,30 +74,19 @@ const LoginCandidate = () => {
       <div className="lc-left-section">
         <div className="lc-welcome-content">
           <h1>Welcome back!</h1>
-          <p>
-            Access your account
-            <br />
-            and continue where
-            <br />
-            you left off.
-          </p>
+          <p>Access your account<br />and continue where<br />you left off.</p>
         </div>
- 
         <img src={loginImage} alt="Logincandidate" className="lc-login-image" />
       </div>
  
       {/* Right Section */}
       <div className="lc-right-section">
         <form className="lc-login-form" onSubmit={handleLogin}>
-         
-          {/* Back button for OTP views */}
           {view !== 'default' && (
             <button
               type="button"
               className="lc-back-to-login-btn"
-              onClick={() => {
-                setView('default');
-              }}
+              onClick={() => setView('default')}
             >
                Back
             </button>
@@ -106,25 +95,25 @@ const LoginCandidate = () => {
           <h2>
             {view === 'default' && (passwordError ? "Invalid Password Format" : "Login in to your Account")}
           </h2>
-               <div className="lc-login-type">
+
+          <div className="lc-login-type">
+            {/* ENHANCEMENT: Integrated user logic dynamically dynamically */}
             <button
-                type="button"
-                 className="lc-candidate-btn active"
-                 >
-                Candidate
+              type="button"
+              className={`lc-candidate-btn ${userType === 'candidate' ? 'active' : ''}`}
+              onClick={() => handleUserTypeChange('candidate')}
+            >
+              Candidate
             </button>
  
-           <button
-             type="button"
-               className="lc-recruiter-btn"
-               onClick={() => {
-                console.log("Recruiter Clicked");
-                navigate("/Resume-builder/login/recruiter");
-              }}
-               >
-               Recruiter
-           </button>
-              </div>
+            <button
+              type="button"
+              className={`lc-recruiter-btn ${userType === 'recruiter' ? 'active' : ''}`}
+              onClick={() => handleUserTypeChange('recruiter')}
+            >
+              Recruiter
+            </button>
+          </div>
  
           {/* VIEW 1: DEFAULT LOGIN */}
           {view === 'default' && (
@@ -133,13 +122,7 @@ const LoginCandidate = () => {
               <div className="lc-input-group">
                 <label>Email Address</label>
                 <div className="lc-input-box">
-                  {email === "" && (
-                    <img
-                      src={emailIcon}
-                      alt="Email"
-                      className="lc-input-icon"
-                    />
-                  )}
+                  {email === "" && <img src={emailIcon} alt="Email" className="lc-input-icon" />}
                   <input
                     type="email"
                     placeholder="Enter your email address"
@@ -160,11 +143,7 @@ const LoginCandidate = () => {
                 <div className="lc-password-box">
                   {password === "" && (
                     <span className="lc-eye-left" onClick={() => setShowPassword(!showPassword)}>
-                      <img
-                        src={showPassword ? hidePasswordIcon : showPasswordIcon}
-                        alt="Toggle Password"
-                        className="lc-password-toggle-icon"
-                      />
+                      <img src={showPassword ? hidePasswordIcon : showPasswordIcon} alt="Toggle Password" className="lc-password-toggle-icon" />
                     </span>
                   )}
                   <input
@@ -179,18 +158,13 @@ const LoginCandidate = () => {
                   />
                   {password !== "" && (
                     <span className="lc-eye-right" onClick={() => setShowPassword(!showPassword)}>
-                      <img
-                        src={showPassword ? hidePasswordIcon : showPasswordIcon}
-                        alt="Toggle Password"
-                        className="lc-password-toggle-icon"
-                      />
+                      <img src={showPassword ? hidePasswordIcon : showPasswordIcon} alt="Toggle Password" className="lc-password-toggle-icon" />
                     </span>
                   )}
                 </div>
                 {passwordError && <span className="lc-error-text password-error-msg">{passwordError}</span>}
               </div>
  
-              {/* Options & Remember me */}
               <div className="lc-options">
                 <div className="lc-remember">
                   <input type="checkbox" id="lc-remember" />
@@ -203,18 +177,13 @@ const LoginCandidate = () => {
             </>
           )}
  
- 
-          {/* Dynamic Footer / Alternate Login Methods */}
           <div className="lc-divider">
-            <span></span>
-            <p>OR</p>
-            <span></span>
+            <span></span><p>OR</p><span></span>
           </div>
  
           <p className="lc-continue-text">Or Continue with</p>
  
           <div className="lc-social-login">
-            {/* Default Social logins available only on default view */}
             {view === 'default' && (
               <>
                 <a href="https://accounts.google.com/" target="_blank" rel="noopener noreferrer">
@@ -227,9 +196,9 @@ const LoginCandidate = () => {
             )}
           </div>
  
-        <p className="lc-contact-admin">
-          Do you have account! <a href="/Resume-builder/signup/UserRegCandidate">Create Account</a>
-            </p>
+          <p className="lc-contact-admin">
+            Do you have account! <Link to="/Resume-builder/UserRegCandidate">Create Account</Link>
+          </p>
         </form>
       </div>
     </div>
@@ -237,4 +206,3 @@ const LoginCandidate = () => {
 };
  
 export default LoginCandidate;
- 
