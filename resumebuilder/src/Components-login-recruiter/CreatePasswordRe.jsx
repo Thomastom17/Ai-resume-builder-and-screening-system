@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./CreatePassword.css";
-import ResetImage from "../assets/reset-password.png";
+import "./CreatePasswordRe.css";
+import ResetImage from "../assets/PasswordRe.png";
 import linkedinIcon from '../assets/linkedin.png';
 import googleIcon from '../assets/google.png';
 import eye from '../assets/show_password.png';    
 import eyeHide from '../assets/eye-hide.png';    
  
-const CreatePassword = () => {
+const CreatePasswordRe = () => {
   const navigate = useNavigate();
  
   const [passwordShow, setPasswordShow] = useState(false);
@@ -16,7 +16,7 @@ const CreatePassword = () => {
   const initialValues = { newPassword: "", confirmPassword: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
-  const [showPopup, setShowPopup] = useState(false); // Popup-க்கான State
+  const [showPopup, setShowPopup] = useState(false); 
  
   const togglePasswordView = () => { setPasswordShow((prev) => !prev); };
   const toggleConfirmPasswordView = () => { setconfirmPasswordShow((prev) => !prev); };
@@ -53,82 +53,82 @@ const CreatePassword = () => {
     setTimeout(() => {
       setShowPopup(false);
       setFormValues(initialValues);
-      navigate("/Ai-resume/login");
+      navigate("/Ai-resume/login/recruiter");
     }, 3000);
   };
  
   return (
-    <div className="cr-password-container">
-      <div className="cr-left-section">
+    <div className="re-password-container">
+      <div className="re-left-section">
         <img src={ResetImage} alt="Reset Password" />
       </div>
  
-      <div className="cr-right-section">
+      <div className="re-right-section">
         <h2>Create a New Password</h2>
         <p>Please Enter and Confirm New Password Below</p>
  
         <form onSubmit={handleSubmit}>
           <label>New Password</label>
-          <div className="cr-password-wrapper">
+          <div className="re-password-wrapper">
             <input
               type={passwordShow ? "text" : "password"}
               placeholder="Enter new password"
               name="newPassword"
               value={formValues.newPassword}
               onChange={handleForm}
-              className={errors.newPassword ? "cr-input-error" : ""}
+              className={errors.newPassword ? "re-input-error" : ""}
             />
-            <span className="cr-eye-icon" onClick={togglePasswordView}>
-              <img src={passwordShow ? eye : eyeHide} className="cr-show-icon" alt="toggle view" />
+            <span className="re-eye-icon" onClick={togglePasswordView}>
+              <img src={passwordShow ? eye : eyeHide} className="re-show-icon" alt="toggle view" />
             </span>
           </div>
-          {errors.newPassword && <span className="cr-error-msg">{errors.newPassword}</span>}
+          {errors.newPassword && <span className="re-error-msg">{errors.newPassword}</span>}
  
           <label>Confirm Password</label>
-          <div className="cr-password-wrapper">
+          <div className="re-password-wrapper">
             <input
               type={confirmPasswordShow ? "text" : "password"}
               placeholder="Confirm your Password"
               name="confirmPassword"
               value={formValues.confirmPassword}
               onChange={handleForm}
-              className={errors.confirmPassword ? "cr-input-error" : ""}
+              className={errors.confirmPassword ? "re-input-error" : ""}
             />
-            <span className="cr-eye-icon" onClick={toggleConfirmPasswordView}>
-              <img src={confirmPasswordShow ? eye : eyeHide} className="cr-show-icon" alt="toggle view" />
+            <span className="re-eye-icon" onClick={toggleConfirmPasswordView}>
+              <img src={confirmPasswordShow ? eye : eyeHide} className="re-show-icon" alt="toggle view" />
             </span>
           </div>
-          {errors.confirmPassword && <span className="cr-error-msg">{errors.confirmPassword}</span>}
+          {errors.confirmPassword && <span className="re-error-msg">{errors.confirmPassword}</span>}
  
           <button type="submit">Reset Password</button>
         </form>
  
-        <div className="cr-login-text">
+        <div className="re-login-text">
           Remember your password?
-          <span onClick={() => navigate("/Resume-builder/login/candidate")}> Login</span>
+          <span onClick={() => navigate("/Resume-builder/login/recruiter")}> Login</span>
         </div>
  
-        <div className="cr-divider">
+        <div className="re-divider">
           <span></span>
           <p>OR</p>
           <span></span>
         </div>
  
-        <p className="cr-continue">Or Continue with</p>
+        <p className="re-continue">Or Continue with</p>
  
-        <div className="cr-socialContainer">
-          <button type="button" className="cr-socialBtn"><img src={googleIcon} alt="Google" /></button>
-          <button type="button" className="cr-socialBtn"><img src={linkedinIcon} alt="LinkedIn" /></button>
+        <div className="re-socialContainer">
+          <button type="button" className="re-socialBtn"><img src={googleIcon} alt="Google" /></button>
+          <button type="button" className="re-socialBtn"><img src={linkedinIcon} alt="LinkedIn" /></button>
         </div>
  
-        <p className="cr-contact">Need help & <span>Contact admin</span></p>
+        <p className="re-contact">Need help & <span>Contact admin</span></p>
       </div>
  
      
       {showPopup && (
-        <div className="cr-popup-overlay">
-          <div className="cr-popup-box">
-            {/* <div className="cr-success-icon">✓</div> */}
+        <div className="re-popup-overlay">
+          <div className="re-popup-box">
+            {/* <div className="re-success-icon">✓</div> */}
             <h3>Success!</h3>
             <p>Password reset successfully.</p>
           </div>
@@ -138,6 +138,4 @@ const CreatePassword = () => {
   );
 };
  
-export default CreatePassword;
- 
- 
+export default CreatePasswordRe;

@@ -351,7 +351,7 @@ lc.password-box {
   }
  
   .lc-left-section {
-    display: none; /* Hides image strictly below 768px */
+    display: none; 
   }
  
   .lc-right-section {
@@ -492,7 +492,6 @@ lc.password-box {
   transition: all 0.3s ease;
 }
 
-/* Hover செய்தாலும் இதே style இருக்க */
 .lc-candidate-btn:hover {
  background: #e0eaff;
   border-color: #abc4ff;
@@ -511,7 +510,7 @@ background: linear-gradient(180deg, #abc4ff 0%, #5589ff 100%);
   color: #000;
   font-size: 18px;
   font-weight: 500;
-  cursor: default; /* pointer வேண்டும்னா pointer வைக்கலாம் */
+  cursor: default; 
 }
 
 /* Recruiterக்கு Hover இல்லை */

@@ -14,6 +14,9 @@ import UserRegCandidate from './Components-login-candidate/UserRegCandidate';
 import Landingpage from './Components-landingpage/LandingPage';
 import EmailRecruiter from './Components-login-recruiter/EmailRecruiter';
 import OtpRecruiter from './Components-login-recruiter/OtpRecruiter';
+import ForgotPasswordRe from './Components-login-recruiter/ForgotpasswordRe';
+import CreatePasswordRe from './Components-login-recruiter/CreatepasswordRe';
+
 
 
 const router = createBrowserRouter(
@@ -34,7 +37,6 @@ const router = createBrowserRouter(
       path: '/Resume-builder/login/forgotpassword',
       element: <ForgotPassword />,  
     },
-   
     {
       path: '/Resume-builder/login/createpassword',
       element: <CreatePassword />
@@ -66,6 +68,14 @@ const router = createBrowserRouter(
     {
       path: '/Resume-builder/login/emailrecruiter/otprecruiter',
       element: <OtpRecruiter /> 
+    },
+    {
+      path: '/Resume-builder/login/forgotpasswordre',
+      element: <ForgotPasswordRe />,  
+    },
+    {
+      path: '/Resume-builder/login/createpasswordre',
+      element: <CreatePasswordRe />
     },
   ],
 );

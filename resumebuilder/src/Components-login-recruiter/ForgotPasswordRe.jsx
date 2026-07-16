@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import forgotLock from "../assets/forgot-lock.png";
-import forgotImage from "../assets/forgot-image.png";
-import "./ForgotPassword.css";
+import forgotReImage from "../assets/forgot-re.png";
+import "./forgotPasswordRe.css";
 import linkedinIcon from "../assets/linkedin.png";
 import googleIcon from "../assets/google.png";
 import backIcon from "../assets/arrw.png";
 
-const ForgotPassword = () => {
+const ForgotPasswordRe = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -32,20 +32,20 @@ const ForgotPassword = () => {
     }
 
     setEmail("");
-    navigate("/Resume-builder/login/createpassword");
+    navigate("/Resume-builder/login/createpasswordre");
   };
 
   return (
-    <div className="forgot-container">
+    <div className="re-forgot-container">
       {/* Left Side */}
-      <div className="forgot-left">
-        <img src={forgotImage} alt="Forgot Password" />
+      <div className="re-forgot-left">
+        <img src={forgotReImage} alt="re-forgot Password" />
       </div>
 
       {/* Right Side */}
-      <div className="forgot-card">
+      <div className="re-forgot-card">
         
-        {/* Back Button Wrapper */}
+        {/* Back Button */}
         <div className="back-btn">
           <button 
             type="button" 
@@ -60,24 +60,24 @@ const ForgotPassword = () => {
           </button>
         </div>
 
-        {/* Dynamic Class Sync with CSS Icon Circle */}
+        {/* Lock Logo Wrapper */}
         <div className="icon-circle">
-          <img src={forgotLock} alt="Lock" className="forgot-lock-img" />
+          <img src={forgotLock} alt="Lock" className="re-forgot-lock-img" />
         </div>
 
         <h2>Forgot Password?</h2>
 
         <p className="description">
           Enter the email address associated with your account
-          <br />
+          <br />  
           and we'll send you a link to reset your password.
         </p>
 
         <form onSubmit={handleSubmit} noValidate>
-          <label htmlFor="forgot-email">Email Address</label>
+          <label htmlFor="email-input">Email Address</label>
 
           <input
-            id="forgot-email"
+            id="email-input"
             type="email"
             placeholder="example@gmail.com"
             value={email}
@@ -107,7 +107,6 @@ const ForgotPassword = () => {
 
         <p className="continue-text"> Or Continue with</p>
 
-        {/* HTML & CSS Class Synced Links */}
         <div className="social-login">
           <a href="https://accounts.google.com/" target="_blank" rel="noopener noreferrer">
             <img src={googleIcon} alt="Google" />
@@ -125,4 +124,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPasswordRe;

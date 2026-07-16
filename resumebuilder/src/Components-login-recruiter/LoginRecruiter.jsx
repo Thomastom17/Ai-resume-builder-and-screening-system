@@ -212,7 +212,7 @@ const LoginRecruiter = () => {
                   <input type="checkbox" id="remember" />
                   <label htmlFor="remember">Remember me</label>
                 </div>
-                <Link to="/Resume-builder/login/forgotpassword" className='lr-forgot-password'>Forgot Password?</Link>
+                <Link to="/Resume-builder/login/forgotpasswordre" className='lr-forgot-password'>Forgot Password?</Link>
               </div>
 
               <button type="submit" className="lr-continue-btn">Continue</button>
