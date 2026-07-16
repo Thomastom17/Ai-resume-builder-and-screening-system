@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import candidateIcon from "../assets/candidate.png";
 import recruiterIcon from "../assets/recruiter.png";
 import postJobsIcon from "../assets/p-job.png";
@@ -12,6 +13,8 @@ import showPasswordIcon from "../assets/show_password.png";
 import "./UserRegRecruiter.css";
 
 const UserRegRecruiter = () => {
+  const navigate = useNavigate();
+
   const [role, setRole] = useState("recruiter");
   const [agreed, setAgreed] = useState(false);
 
@@ -75,7 +78,7 @@ const UserRegRecruiter = () => {
         newErrors[field.id] = "Enter valid email";
       }
 
-      if (field.id === "mobile" && !/^[6-9]\d{9}$/.test(value)) {
+      if (field.id === "phone" && !/^[6-9]\d{9}$/.test(value)) {
         newErrors[field.id] = "Enter valid 10-digit mobile number";
       }
 
@@ -98,7 +101,6 @@ const UserRegRecruiter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (validate()) {
       alert("Registration Successful!");
       console.log("Submitting Package context:", { role, ...form });
@@ -143,10 +145,14 @@ const UserRegRecruiter = () => {
           <p className="urr-label urr-label--top">I am Registering as</p>
 
           <div className="urr-role-toggle">
+            {/* CANDIDATE BUTTON */}
             <button
               type="button"
               className={`urr-role-card ${role === "candidate" ? "urr-role-card--active" : ""}`}
-              onClick={() => setRole("candidate")}
+              onClick={() => {
+                setRole("candidate");
+                navigate("/Resume-builder/userregcandidate"); 
+              }}
             >
               <span className="urr-role-radio">
                 {role === "candidate" && <span className="urr-role-radio__dot" />}
@@ -156,6 +162,7 @@ const UserRegRecruiter = () => {
               <span className="urr-role-sub">Explore jobs take next step</span>
             </button>
 
+            {/* RECRUITER BUTTON */}
             <button
               type="button"
               className={`urr-role-card ${role === "recruiter" ? "urr-role-card--active" : ""}`}

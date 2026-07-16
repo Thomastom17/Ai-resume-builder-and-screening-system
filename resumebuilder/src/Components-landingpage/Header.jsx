@@ -52,7 +52,7 @@ const Header = () => {
  
         <button
           className="lp-header-register-btn"
-          onClick={() => handleNavigation("/Resume-builder/signup/userregcandidate")}
+          onClick={() => handleNavigation("/Resume-builder/userregcandidate")}
         >
           Registration
         </button>

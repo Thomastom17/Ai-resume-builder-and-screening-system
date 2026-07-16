@@ -1,3 +1,7 @@
+/* ==========================================================================
+   CANDIDATE REGISTER BASE STYLES (Aligned with Recruiter Layout)
+   ========================================================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,222 +13,251 @@ html, body {
   height: 100%;
 }
 
-.urc-register-page-wrapper{
-  height:100vh;
-  width:100%;
-  background:#ffffff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:15px;
-  overflow:hidden;
-  position: relative;
+/* Page wrapper matches urr-container style */
+.urc-register-page-wrapper {
+  background-color: #f8fafc;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.urc-register-container{
-  width:100%;
-  max-width:1200px;
-  height:100%;
-  max-height:96vh;
-  display:flex;
-  gap:60px;
-  align-items:stretch;
-  overflow: visible;
+
+.urc-register-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+  padding: 1.25rem;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* LEFT - matches image: slightly wider than right panel */
+/* ==========================================================================
+   LEFT INFO PANEL (Matches .urr-info 34% width layout)
+   ========================================================================== */
 .urc-register-left {
-  flex: 0 0 42%;
-  max-width: 42%;
-  background: #fff;
-  border: 1px solid #c7d2fe;
-  border-radius: 16px;
-  padding: 24px 24px;
+  flex: 1 1 34%;
+  max-width: 34%;
+  padding: 18px 20px;
+  color: #1f2937;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  gap: 12px;
   height: 100%;
-  overflow: visible;
-  gap: 10px;
-}
-.urc-main-title{
-    font-size:22px;
-    font-weight:700;
-    color:#2563eb;
-    margin-bottom:6px;
+  overflow: hidden;
 }
 
-.urc-sub-title{
-    font-size:20px;
-    font-weight:700;
-    color:#0f172a;
-    margin:10px 0 4px;
-    line-height:1.3;
+.urc-main-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0;
 }
 
-.urc-top-text{
-    font-size:13px;
-    color:#64748b;
-    line-height:1.55;
+.urc-top-text {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.urc-career-text{
-    font-size:13px;
-    color:#2563eb;
-    line-height:1.55;
-    font-weight:500;
-}
-
-/* IMAGE - bigger to match reference, pushed down and centered */
+/* Image Illustration container positioned beautifully at the bottom */
 .urc-left-image {
   width: 100%;
-  max-width: 260px;
-  height: 190px;
+  max-width: 100%;
+  height: 240px;
+  min-height: 0;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: center;
-  margin: 20px auto 16px;
-  flex-shrink: 0;
+  margin: 10px auto;
 }
 
-.urc-left-image img{
+.urc-left-image img {
   width: auto;
-  height: 160%;
+  height: 100%;
   max-width: 100%;
-  max-height: 190%;
   object-fit: contain;
+  display: block;
 }
 
-.urc-feature-list{
-  list-style:none;
-  padding:0;
-  margin-top:8px;
-  display:flex;
-  flex-direction:column;
-  gap:9px;
+.urc-sub-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.3;
 }
 
-.urc-feature-item{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:9px;
-  font-size:13px;
-  color:#374151;
-  font-weight:500;
+.urc-career-text {
+  font-size: 13px;
+  color: #2563eb;
+  line-height: 1.4;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Feature Checklists style matching .urr-info__checklist */
+.urc-feature-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+
+.urc-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
 }
 
 .urc-feature-item img {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
 }
 
-/* RIGHT - narrower than left, no border */
-.urc-register-right{
-  flex: 1 1 0%;
-  max-width: none;
-  display:flex;
-  flex-direction:column;
-  height:100%;
-  overflow:visible;
+/* ==========================================================================
+   RIGHT FORM PANEL (Matches .urr-page 66% width layout)
+   ========================================================================== */
+.urc-register-right {
+  flex: 1 1 66%;
+  max-width: 66%;
+  height: 100%;
+  padding: 4px;
+  color: #1f2937;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  overflow: hidden;
 }
 
 .urc-form-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   color: #111827;
   text-align: center;
 }
 
-.urc-register-right form{
-  background:transparent;
-  border:none;
-  padding: 0;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  height:auto;
-  justify-content:flex-start;
-  overflow-y:visible;
+/* Candidate Form Element styling matches .urr-card */
+.urc-register-right form {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 18px 24px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: 12px;
 }
 
 .urc-register-label {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   margin-bottom: 8px;
   color: #111827;
 }
 
-/* ROLE CARDS - enlarged */
+/* Role Selector wrapper matches .urr-role-toggle */
 .urc-role-wrapper {
   display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 60px;
 }
 
+/* Role Selector Cards matches .urr-role-card */
 .urc-role-card {
   position: relative;
-
-  width: 160px;
-  height: 105px;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
   padding: 14px 16px;
-  border: 1px solid #dbe3f0;
-  border-radius: 10px;
-  background: #fff;
+  background: #ffffff;
   cursor: pointer;
-  transition: 0.2s;
+  text-align: left;
+  font-family: inherit;
+  flex: 0 0 270px;
+  width: 200px;
+  height: 150px;              
   box-sizing: border-box;
+  transition: all 0.2s ease;
 }
 
-.urc-role-card img {
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  border-radius: 50%;
-  background: #e8f1ff;
-  margin-bottom: 8px;
-}
-
-.urc-role-card h4 {
-  font-size: 16px;
-  margin: 0;
-  font-weight: 600;
-}
-
-.urc-role-card p {
-  font-size: 11px;
-  margin-top: 5px;
-  color: #6b7280;
-  line-height: 1.3;
+.urc-role-card:hover {
+  border-color: #cbd5e1;
 }
 
 .urc-role-card.urc-active {
-  border: 2px solid #4f7cff;
-  box-shadow: 0 0 0 2px rgba(79, 124, 255, 0.1);
+  border: 1.5px solid #22c55e;
+  background-color: #f0fdf4;
 }
 
+.urc-role-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.urc-role-card h4 {
+  font-weight: 700;
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.urc-role-card p {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.9;
+  margin-top: 0;
+}
+
+/* Radio selectors inside role card */
 .urc-radio-circle {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 14px;
-  height: 14px;
-  border: 2px solid #cbd5e1;
+  top: 12px;
+  right: 12px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
+  border: 2px solid #cbd5e1;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .urc-role-card.urc-active .urc-radio-circle {
@@ -232,20 +265,20 @@ html, body {
 }
 
 .urc-radio-dot {
-  width: 7px;
-  height: 7px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-}
-
-.urc-role-card.urc-active .urc-radio-dot {
   background: #22c55e;
+  display: block;
 }
 
-/* INPUT GRID & FIELDS - 3 columns per row to match reference image */
+/* ==========================================================================
+   INPUT GRIDS & FIELD WRAPPERS (Matches .urr-grid)
+   ========================================================================== */
 .urc-form-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px 16px;
+  gap: 18px 16px;
   margin-bottom: 0;
   overflow: visible;
   flex: 0 0 auto;
@@ -253,7 +286,8 @@ html, body {
 }
 
 .urc-input-group {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -263,10 +297,10 @@ html, body {
 
 .urc-input-group label {
   display: block;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   color: #111827;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 .urc-input-group input,
@@ -274,8 +308,8 @@ html, body {
   width: 100%;
   box-sizing: border-box;
   padding: 9px 12px;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
   font-size: 12px;
   color: #334155;
   background: #ffffff;
@@ -283,91 +317,75 @@ html, body {
   transition: all 0.15s ease;
 }
 
-.urc-input-group input::placeholder{
-  color:#94a3b8;
+.urc-input-group input::placeholder {
+  color: #94a3b8;
 }
 
 .urc-input-group input:focus,
 .urc-input-group select:focus {
   outline: none;
   border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
-/* PASSWORD WRAPPER */
-.urc-password-wrapper, .urc-input-with-icon {
-  width: 100%;
+/* Password View Toggles alignment style */
+.urc-password-wrapper {
   position: relative;
+}
+
+.urc-input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+.urc-input-with-icon input {
+  padding-right: 40px;
 }
 
 .urc-password-toggle-icon {
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
 }
 
-/* RESUME UPLOAD BOX - forced single line, overrides any nested wrapper */
+/* ==========================================================================
+   RESUME UPLOAD & TERMS & ACTIONS (Aligned)
+   ========================================================================== */
 .urc-upload-box {
   border: 1px dashed #cbd5e1;
-  border-radius: 6px;
-  padding: 8px 12px !important;
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 6px !important;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   background: #ffffff;
   cursor: pointer;
-  min-height: 38px;
-  height: auto;
-  text-align: center;
+  min-height: 40px;
+  position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* Any direct child wrapper inside the upload box must also lay out in a row */
-.urc-upload-box > * {
-  display: inline-flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 4px;
-  white-space: nowrap !important;
-  width: auto !important;
-}
-
-.urc-upload-box img,
-.urc-upload-box svg {
-  width: 15px;
-  height: 15px;
+.urc-upload-box img {
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
-.urc-upload-box p,
-.urc-upload-box span {
-  font-size: 11px;
-  font-weight: 400;
-  color: #64748b;
-  margin: 0 !important;
-  line-height: 1.3;
-  white-space: nowrap !important;
-  display: inline !important;
+.urc-upload-box p {
+  font-size: 12px;
+  color: #475569;
+  margin: 0;
 }
 
-.urc-upload-box p:first-of-type{
-  font-weight:600;
-  color:#374151;
-}
-
-.urc-upload-box p:first-of-type::after {
-  content: " ";
-  white-space: pre;
-}
-
-/* Hide native file input UI ("Choose File" text/button) completely.
-   The input stays clickable/functional but visually invisible,
-   so only our custom "Click to Upload..." text is shown. */
+/* Hide Native input safely */
 .urc-upload-box input[type="file"] {
   position: absolute;
   inset: 0;
@@ -375,20 +393,9 @@ html, body {
   height: 100%;
   opacity: 0;
   cursor: pointer;
-  font-size: 0;
-  color: transparent;
 }
 
-.urc-upload-box input[type="file"]::-webkit-file-upload-button,
-.urc-upload-box input[type="file"]::file-selector-button {
-  display: none;
-}
-
-.urc-upload-box {
-  position: relative;
-}
-
-/* TERMS BLOCK */
+/* Terms Container */
 .urc-terms-wrapper-block {
   margin-bottom: 0;
 }
@@ -396,36 +403,41 @@ html, body {
 .urc-terms-container {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 11px;
+  gap: 10px;
+  font-size: 13px;
   color: #475569;
   cursor: pointer;
-  line-height: 1.4;
 }
 
 .urc-terms-container input {
-  width: 13px;
-  height: 13px;
+  width: 15px;
+  height: 15px;
   border: 1px solid #cbd5e1;
-  border-radius: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
 .urc-terms-container span {
   color: #2563eb;
   font-weight: 600;
+  text-decoration: none;
 }
 
-/* ACTIONS */
+.urc-terms-container span:hover {
+  text-decoration: underline;
+}
+
+/* Complete Registration Button style */
 .urc-register-btn {
   width: 100%;
-  padding: 11px;
+  padding: 13px;
   background: #2563eb;
   color: #ffffff;
   border: none;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
@@ -436,11 +448,12 @@ html, body {
   background: #1d4ed8;
 }
 
+/* Already have an account login block */
 .urc-login-text {
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
   color: #475569;
-  margin-top: 4px;
+  margin-top: 0;
 }
 
 .urc-login-text span {
@@ -449,219 +462,207 @@ html, body {
   cursor: pointer;
 }
 
-/* hide stray error/bullet marker completely */
-.urc-error-text {
-  display: none !important;
+.urc-login-text span:hover {
+  text-decoration: underline;
 }
 
-/* ===== LARGE DESKTOP (1440px and above): fill page, no scroll, right side content bigger ===== */
-@media screen and (min-width: 1440px) {
-  .urc-register-page-wrapper {
-    padding: 20px 40px;
-    overflow: hidden;
-  }
-  .urc-register-container {
-    max-width: 1300px;
-    max-height: 96vh;
-    gap: 32px;
-  }
-  .urc-register-left {
-    padding: 28px 28px;
-  }
-  .urc-left-image {
-    max-width: 290px;
-    height: 210px;
+/* Error text fallback hide */
+.urc-error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block !important; /* Visible when triggered */
+}
+
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (Exact duplicates of Recruiter responsive states)
+   ========================================================================== */
+
+/* 1024px to 1100px: Prevent Role Card Overflow */
+@media screen and (min-width: 1024px) and (max-width: 1100px) {
+  .urc-role-wrapper {
+    gap: 24px;
   }
   .urc-role-card {
-    width: 175px;
-    height: 112px;
+    flex: 1 1 0;
+    width: auto;
+    max-width: 220px;
   }
+}
 
-  /* right side content - small safe increase, no overflow */
-  .urc-form-title {
-    font-size: 17px;
+/* 769px to 1023px: Desktop & Tablet medium screens */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .urc-register-page-wrapper {
+    height: auto;
+    min-height: 100vh;
   }
-  .urc-register-label {
+  .urc-register-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding: 20px;
+    gap: 20px;
+  }
+  .urc-register-left,
+  .urc-register-right {
+    width: 100%;
+    max-width: 100%;
+    flex: 100%;
+    height: auto;
+  }
+  .urc-register-left {
+    padding: 24px;
+    gap: 18px;
+  }
+  .urc-main-title {
+    text-align: center;
+  }
+  .urc-left-image {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+  .urc-register-right {
+    padding: 0;
+  }
+  .urc-register-right form {
+    height: auto;
+    padding: 24px;
+    overflow: visible;
+  }
+  .urc-role-wrapper {
+    gap: 20px;
+  }
+  .urc-role-card {
+    flex: 1;
+    width: auto;
+    height: 120px;
+  }
+  .urc-form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .urc-input-group.urc-full-width {
+    grid-column: span 2;
+  }
+}
+
+/* Max 768px: Mobile & Tablets styling */
+@media screen and (max-width: 768px) {
+  .urc-register-page-wrapper {
+    height: auto;
+    min-height: 100vh;
+  }
+  .urc-register-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px;
+    gap: 20px;
+  }
+  .urc-register-left,
+  .urc-register-right {
+    width: 100%;
+    max-width: 100%;
+    flex: 100%;
+    height: auto;
+  }
+  .urc-register-left {
+    padding: 20px;
+    gap: 18px;
+    overflow: visible;
+  }
+  .urc-main-title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .urc-feature-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .urc-left-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+  }
+  .urc-register-right {
+    padding: 0;
+  }
+  .urc-form-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .urc-register-right form {
+    padding: 20px;
+    height: auto;
+    overflow: visible;
+  }
+  .urc-role-wrapper {
+    display: flex;
+    gap: 15px;
+  }
+  .urc-role-card {
+    flex: 1;
+    width: auto;
+    height: 115px;
+    padding: 14px;
+  }
+  .urc-form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .urc-input-group.urc-full-width {
+    grid-column: span 1;
+  }
+  .urc-input-group input,
+  .urc-input-group select {
+    height: 46px;
     font-size: 14px;
+  }
+  .urc-register-btn {
+    height: 48px;
+    margin-top: 15px;
+  }
+}
+
+/* Max 480px: Small Screen Mobiles */
+@media screen and (max-width: 480px) {
+  .urc-register-container {
+    padding: 12px;
+  }
+  .urc-register-left {
+    padding: 16px;
+  }
+  .urc-register-right form {
+    padding: 16px;
+  }
+  .urc-form-title {
+    font-size: 24px;
+  }
+  .urc-role-wrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .urc-role-card {
+    width: 100%;
+    height: auto;
+  }
+  .urc-main-title {
+    font-size: 18px;
   }
   .urc-input-group label {
     font-size: 13px;
   }
   .urc-input-group input,
   .urc-input-group select {
-    padding: 10px 13px;
     font-size: 13px;
-  }
-  .urc-register-btn {
-    padding: 12px;
-    font-size: 14px;
-  }
-}
-
-/* ===== MID DESKTOP (around 1204px): fill page, no scroll, right side content bigger ===== */
-@media screen and (min-width: 1024px) and (max-width: 1439px) {
-  .urc-register-page-wrapper {
-    padding: 16px 24px;
-    overflow: hidden;
-  }
-  .urc-register-container {
-    max-width: 100%;
-    max-height: 96vh;
-    gap: 30px;
-  }
-  .urc-register-left {
-    padding: 20px 20px;
-  }
-  .urc-left-image {
-    max-width: 230px;
-    height: 170px;
-  }
-  .urc-role-card {
-    width: 150px;
-    height: 100px;
-  }
-}
-
-/* ===== TABLET: allow scrolling, drop to 2 columns for readability ===== */
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .urc-register-page-wrapper {
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-    align-items: flex-start;
-    padding: 20px;
-  }
-  .urc-register-container {
-    flex-direction: row;
-    height: auto;
-    max-height: none;
-  }
-  .urc-register-left,
-  .urc-register-right {
-    height: auto;
-  }
-  .urc-form-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .urc-input-group.urc-full-width {
-    grid-column: span 2;
-  }
-}
-
-/* ===== MOBILE: allow scrolling, drop to 2 columns ===== */
-@media screen and (max-width: 768px) {
-  .urc-register-page-wrapper {
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-    align-items: flex-start;
-    padding: 14px;
-  }
-  .urc-register-container {
-    flex-direction: column;
-    height: auto;
-    max-height: none;
-    gap: 16px;
-    width: 100%;
-  }
-  .urc-register-left,
-  .urc-register-right {
-    max-width: 100%;
-    width: 100%;
-    flex: 1 1 100%;
-    height: auto;
-    padding: 16px 18px;
-    box-sizing: border-box;
-  }
-  .urc-left-image {
-    max-width: 200px;
-    height: 130px;
-  }
-  .urc-role-wrapper {
-    gap: 12px;
-  }
-  .urc-role-card {
-    width: 155px;
-    height: 100px;
-  }
-  .urc-form-row {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px 12px;
-  }
-  .urc-input-group.urc-full-width {
-    grid-column: span 2;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .urc-register-page-wrapper {
-    padding: 10px;
-  }
-  .urc-register-left,
-  .urc-register-right {
-    padding: 14px 16px;
-  }
-  .urc-left-image {
-    max-width: 190px;
-    height: 125px;
-  }
-  .urc-role-wrapper {
-    gap: 8px;
-  }
-  .urc-role-card {
-    width: 130px;
-    height: 88px;
-    padding: 10px 12px;
-  }
-  .urc-role-card img {
-    width: 22px;
-    height: 22px;
-    padding: 4px;
-    margin-bottom: 4px;
-  }
-  .urc-role-card h4 {
-    font-size: 13px;
-  }
-  .urc-role-card p {
-    font-size: 9px;
-    margin-top: 3px;
-  }
-  .urc-form-row {
-    grid-template-columns: 1fr;
-  }
-  .urc-input-group.urc-full-width {
-    grid-column: span 1;
-  }
-}
-/*  */
-
-@media screen and (max-width: 360px) {
-  .urc-role-wrapper {
-    gap: 6px;
-  }
-  .urc-role-card {
-    width: 110px;
-    height: 80px;
-    padding: 8px 10px;
-  }
-  .urc-role-card img {
-    width: 18px;
-    height: 18px;
-    padding: 3px;
-    margin-bottom: 3px;
-  }
-  .urc-role-card h4 {
-    font-size: 12px;
-  }
-  .urc-role-card p {
-    font-size: 8px;
-    margin-top: 2px;
-    line-height: 1.15;
-  }
-  .urc-radio-circle {
-    width: 11px;
-    height: 11px;
-    top: 6px;
-    right: 6px;
   }
 }
