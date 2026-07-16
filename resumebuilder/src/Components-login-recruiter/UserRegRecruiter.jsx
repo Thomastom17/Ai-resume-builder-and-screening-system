@@ -243,7 +243,7 @@ const UserRegRecruiter = () => {
           </button>
 
           <p className="urr-login">
-            Already have an account? <a href="#signin">Login here</a>
+            Already have an account? <span onClick={() => navigate("/Resume-builder/login/recruiter")}>Login</span>
           </p>
         </form>
       </div>

@@ -310,7 +310,7 @@ const UserRegCandidate = () => {
             </button>
 
             <p className="urc-login-text">
-              Already have an admin account? <span>Login</span>
+              Already have an account? <span onClick={() => navigate("/Resume-builder/login/candidate")}>Login</span>
             </p>
           </form>
         </div>
