@@ -121,17 +121,17 @@ const UserRegCandidate = () => {
             {/* ROW 1: FULL NAME, USER NAME, MOBILE */}
             <div className="urc-form-row">
               <div className="urc-input-group">
-                <label>Full Name *</label>
+                <label>Full Name </label>
                 <input type="text" name="fullName" placeholder="Thilak" value={formData.fullName} onChange={handleChange} />
                 {errors.fullName && <small className="urc-error-text">{errors.fullName}</small>}
               </div>
               <div className="urc-input-group">
-                <label>User Name *</label>
+                <label>User Name </label>
                 <input type="text" name="userName" placeholder="Thilak0201" value={formData.userName} onChange={handleChange} />
                 {errors.userName && <small className="urc-error-text">{errors.userName}</small>}
               </div>
               <div className="urc-input-group">
-                <label>Mobile Number *</label>
+                <label>Mobile Number </label>
                 <input type="text" name="mobile" placeholder="123467890" value={formData.mobile} onChange={handleChange} />
                 {errors.mobile && <small className="urc-error-text">{errors.mobile}</small>}
               </div>
@@ -140,17 +140,17 @@ const UserRegCandidate = () => {
             {/* ROW 2: DEGREE, EMAIL, PASSWORD */}
             <div className="urc-form-row">
               <div className="urc-input-group">
-                <label>Degree *</label>
+                <label>Degree </label>
                 <input type="text" name="degree" placeholder="B.E Civil Engineer" value={formData.degree} onChange={handleChange} />
                 {errors.degree && <small className="urc-error-text">{errors.degree}</small>}
               </div>
               <div className="urc-input-group">
-                <label>Enter your Email Address *</label>
+                <label>Enter your Email Address </label>
                 <input type="email" name="email" placeholder="Thilak1@gmail.com" value={formData.email} onChange={handleChange} />
                 {errors.email && <small className="urc-error-text">{errors.email}</small>}
               </div>
               <div className="urc-input-group urc-password-wrapper">
-                <label>Password *</label>
+                <label>Password </label>
                 <div className="urc-input-with-icon">
                   <input type={showPassword ? "text" : "password"} name="password" placeholder="Enter Password" value={formData.password} onChange={handleChange} />
                   {formData.password && (
@@ -164,7 +164,7 @@ const UserRegCandidate = () => {
             {/* ROW 3: CONFIRM PASSWORD */}
             <div className="urc-form-row">
               <div className="urc-input-group urc-full-width urc-password-wrapper">
-                <label>Confirm Password *</label>
+                <label>Confirm Password </label>
                 <div className="urc-input-with-icon">
                   <input type={showConfirmPassword ? "text" : "password"} name="confirmPassword" placeholder="Confirm Password" value={formData.confirmPassword} onChange={handleChange} />
                   {formData.confirmPassword && (
@@ -177,7 +177,7 @@ const UserRegCandidate = () => {
 
             {/* RESUME UPLOAD */}
             <div className="urc-input-group urc-full-width">
-              <label>Upload Resume *</label>
+              <label>Upload Resume </label>
               <label className="urc-upload-box">
                 <img src={uploadImg} alt="Upload" className="urc-upload-icon" />
                 <p>{formData.resume ? formData.resume.name : "Click to upload or drag and drop (PDF, DOCX)"}</p>
