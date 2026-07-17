@@ -7,7 +7,7 @@
   position: relative;
   z-index: 10;
   text-align: center;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 .trusted-title {
@@ -25,7 +25,7 @@
   text-align: center;
 }
 
-.logos-container {
+.tc-logos-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,13 +37,13 @@
   margin: 0 auto;
 }
 
-.logo-wrapper {
+.tc-logo-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.logo-wrapper img {
+.tc-logo-wrapper img {
   height: 26px;
   max-width: 100%;
   object-fit: contain;
@@ -51,7 +51,7 @@
   transition: all 0.2s ease;
 }
 
-.logo-wrapper img:hover {
+.tc-logo-wrapper img:hover {
   filter: grayscale(0%);
   transform: scale(1.02);
 }
@@ -62,11 +62,11 @@
     padding: 20px 24px 35px 24px !important;
     margin-top: 0px !important;
   }
-  .logos-container {
+  .tc-logos-container {
     gap: 35px !important;
     max-width: 100% !important;
   }
-  .logo-wrapper img {
+  .tc-logo-wrapper img {
     height: 20px;
   }
 }

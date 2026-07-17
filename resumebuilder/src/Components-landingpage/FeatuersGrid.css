@@ -5,7 +5,7 @@
   margin: 0 auto;
   padding: 5px 40px 0px 40px !important;
   margin-top: -10px !important;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
  
 .features-inner-container {
@@ -94,7 +94,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 5px 40px 10px 40px !important;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
  
 .stats-row-container {

@@ -249,9 +249,10 @@ const UserRegRecruiter = () => {
             Complete Registration
           </button>
 
-          <p className="urr-login">
-            Already have an account? <span onClick={() => navigate("/Resume-builder/login/recruiter")}>Login</span>
-          </p>
+          <p className="urr-login">Already have an account?{" "}<span onClick={() => navigate("/Resume-builder/login/recruiter")}style={{ color: "#007bff", cursor: "pointer", textDecoration: "underline" }}>
+    Login
+  </span>
+</p>
         </form>
       </div>
     </div>

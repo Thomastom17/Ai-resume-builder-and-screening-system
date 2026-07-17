@@ -14,9 +14,9 @@ const TrustedCompanies = () => {
       <p className="trusted-title">
         TRUSTED BY PROFESSIONALS & RECRUITERS FROM TOP COMPANIES
       </p>
-      <div className="logos-container">
+      <div className="tc-logos-container">
         {logos.map((logo, index) => (
-          <div key={index} className="logo-wrapper">
+          <div key={index} className="tc-logo-wrapper">
             <img src={logo} alt={`Company Logo ${index}`} />
           </div>
         ))}

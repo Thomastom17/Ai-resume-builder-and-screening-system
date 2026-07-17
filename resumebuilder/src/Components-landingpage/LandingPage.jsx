@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <>
       <Header/>
-     <MainSection/>
+      <MainSection/>
       <TrustedCompanies />
       <FeatuersGrid />
       <CallToAction />
