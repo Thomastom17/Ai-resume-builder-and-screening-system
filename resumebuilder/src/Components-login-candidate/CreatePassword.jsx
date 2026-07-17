@@ -129,7 +129,7 @@ const CreatePassword = () => {
       {showPopup && (
         <div className="cr-popup-overlay">
           <div className="cr-popup-box">
-            <div className="cr-success-icon" style={{color: 'green', fontSize: '24px'}}>✓</div>
+            {/* <div className="cr-success-icon" style={{color: 'green', fontSize: '24px'}}>✓</div> */}
             <h3>Success!</h3>
             <p>Password reset successfully.</p>
           </div>

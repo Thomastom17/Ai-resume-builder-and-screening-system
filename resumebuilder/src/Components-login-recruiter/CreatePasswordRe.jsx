@@ -129,7 +129,7 @@ const CreatePasswordRe = () => {
       {showPopup && (
         <div className="re-popup-overlay">
           <div className="re-popup-box">
-            <div className="re-success-icon" style={{color: 'green', fontSize: '24px', marginBottom: '8px'}}>✓</div>
+            {/* <div className="re-success-icon" style={{color: 'green', fontSize: '24px', marginBottom: '8px'}}>✓</div> */}
             <h3>Success!</h3>
             <p>Password reset successfully.</p>
           </div>
