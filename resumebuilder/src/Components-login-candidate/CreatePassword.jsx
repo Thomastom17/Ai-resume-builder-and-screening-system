@@ -16,7 +16,7 @@ const CreatePassword = () => {
   const initialValues = { newPassword: "", confirmPassword: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
-  const [showPopup, setShowPopup] = useState(false); // Popup-க்கான State
+  const [showPopup, setShowPopup] = useState(false); 
  
   const togglePasswordView = () => { setPasswordShow((prev) => !prev); };
   const toggleConfirmPasswordView = () => { setconfirmPasswordShow((prev) => !prev); };
@@ -45,16 +45,17 @@ const CreatePassword = () => {
     if (!validateForm()) return false;
  
     console.log("Password reset successfully", formValues);
-   
- 
+    
     setShowPopup(true);
  
    
     setTimeout(() => {
       setShowPopup(false);
       setFormValues(initialValues);
-      navigate("/Ai-resume/login");
-    }, 3000);
+      
+      
+      navigate("/Resume-builder/login/candidate");
+    }, 2000); 
   };
  
   return (
@@ -124,11 +125,11 @@ const CreatePassword = () => {
         <p className="cr-contact">Need help & <span>Contact admin</span></p>
       </div>
  
-     
+      {/* Success Popup */}
       {showPopup && (
         <div className="cr-popup-overlay">
           <div className="cr-popup-box">
-            {/* <div className="cr-success-icon">✓</div> */}
+            <div className="cr-success-icon" style={{color: 'green', fontSize: '24px'}}>✓</div>
             <h3>Success!</h3>
             <p>Password reset successfully.</p>
           </div>
@@ -139,5 +140,3 @@ const CreatePassword = () => {
 };
  
 export default CreatePassword;
- 
- 

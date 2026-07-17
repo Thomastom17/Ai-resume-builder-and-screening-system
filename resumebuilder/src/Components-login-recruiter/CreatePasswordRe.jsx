@@ -45,16 +45,17 @@ const CreatePasswordRe = () => {
     if (!validateForm()) return false;
  
     console.log("Password reset successfully", formValues);
-   
- 
+    
+
     setShowPopup(true);
  
-   
     setTimeout(() => {
       setShowPopup(false);
       setFormValues(initialValues);
-      navigate("/Ai-resume/login/recruiter");
-    }, 3000);
+      
+  
+      navigate("/Resume-builder/login/recruiter");
+    }, 3000); 
   };
  
   return (
@@ -124,11 +125,11 @@ const CreatePasswordRe = () => {
         <p className="re-contact">Need help & <span>Contact admin</span></p>
       </div>
  
-     
+      {/* Success Popup */}
       {showPopup && (
         <div className="re-popup-overlay">
           <div className="re-popup-box">
-            {/* <div className="re-success-icon">✓</div> */}
+            <div className="re-success-icon" style={{color: 'green', fontSize: '24px', marginBottom: '8px'}}>✓</div>
             <h3>Success!</h3>
             <p>Password reset successfully.</p>
           </div>
