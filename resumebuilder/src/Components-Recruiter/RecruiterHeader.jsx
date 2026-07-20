@@ -38,7 +38,6 @@ const RecruiterHeader = () => {
 
   return (
     <>
-      {/* ================= Navbar ================= */}
 <header className="navbar">
 
   <div className="navbar-left">
@@ -104,7 +103,7 @@ const RecruiterHeader = () => {
 
 </header>
 
-      {/* ================= Dashboard ================= */}
+
 
       <div className="rd-dashboard">
         <div className="rd-header">
@@ -156,7 +155,6 @@ const RecruiterHeader = () => {
           </div>
         </div>
 
-     <DashboardCards /> 
      
       </div>
     </>

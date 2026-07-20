@@ -65,7 +65,7 @@ const EmailRecruiter = () => {
 
     if (enteredOtp === DEFAULT_OTP) {
       setError("");
-      navigate("/Resume-builder/login/loginsuccess"); 
+      navigate("/Resume-builder/dashboard/recruiter"); 
     } else {
       setError("❗ Invalid OTP. Please check and try again.");
       navigate("/Resume-builder/login/emailrecruiter/otprecruiter");
