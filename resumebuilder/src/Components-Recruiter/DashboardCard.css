@@ -1,0 +1,775 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===========================
+   Dashboard Layout
+=========================== */
+
+.RM-dashboard-cards {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 18px;
+  padding: 0;
+  margin-top: 20px;
+  background: #ffffff;
+  align-items: stretch;
+}
+
+.RM-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.RM-card h3 {
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+.RM-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.RM-card-header select {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===========================
+   Candidate Pipeline
+=========================== */
+
+/* pipeline div has no "card" class in the JSX, so we style it here
+   the same as .RM-card so all 3 columns look and behave identically */
+.RM-pipeline{
+    display:flex;
+    flex-direction:column;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    padding: 18px;
+    overflow: hidden; /* keep funnel from spilling out of the card */
+}
+
+.RM-pipeline-left{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+    justify-content:center;
+}
+
+.RM-pipeline-row{
+    display:flex;
+    align-items:center;
+}
+
+/* Funnel Blocks */
+
+.RM-stage{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-weight:600;
+    font-size:16px;
+    height:44px;
+
+    clip-path:polygon(8% 0%,92% 0%,84% 100%,16% 100%);
+}
+
+.RM-stage1{
+    width:180px;
+    background:#3364dd;
+}
+
+.RM-stage2{
+    width:156px;
+    margin-left:12px;
+    background:#4ac05c;
+}
+
+.RM-stage3{
+    width:132px;
+    margin-left:22px;
+    background:#ffa20a;
+}
+
+.RM-stage4{
+    width:112px;
+    margin-left:32px;
+    background:#7d68f2;
+}
+
+.RM-stage5{
+    width:90px;
+    margin-left:42px;
+    background:#ff3d44;
+}
+
+/* Connector */
+
+.RM-connector{
+    display:flex;
+    align-items:center;
+}
+
+.RM-connector .RM-line{
+    width:44px;
+    height:2px;
+}
+
+.RM-connector .RM-circle{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+}
+
+/* Blue */
+
+.RM-blue-line .RM-line{
+    background:#3364dd;
+}
+
+.RM-blue-line .RM-circle{
+    background:#3364dd;
+}
+
+/* Green */
+
+.RM-green-line .RM-line{
+    background:#4ac05c;
+}
+
+.RM-green-line .RM-circle{
+    background:#4ac05c;
+}
+
+/* Orange */
+
+.RM-orange-line .RM-line{
+    background:#ffa20a;
+}
+
+.RM-orange-line .RM-circle{
+    background:#ffa20a;
+}
+
+/* Purple */
+
+.RM-purple-line .RM-line{
+    background:#7d68f2;
+}
+
+.RM-purple-line .RM-circle{
+    background:#7d68f2;
+}
+
+/* Red */
+
+.RM-red-line .RM-line{
+    background:#ff3d44;
+}
+
+.RM-red-line .RM-circle{
+    background:#ff3d44;
+}
+
+.RM-label{
+    margin-left:10px;
+    font-size:14px;
+    color:#111;
+    font-weight:500;
+}
+
+/* ===========================
+   AI Screening Overview
+=========================== */
+
+.RM-screening-body {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.RM-ats-score-section {
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.RM-progress-circle {
+  width: 170px;
+  height: 170px;
+  position: relative;
+}
+
+.RM-progress-circle svg {
+  width: 170px;
+  height: 170px;
+}
+
+.RM-circle-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.RM-circle-content h2 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.RM-circle-content p {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.RM-match-badge {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ecfdf5;
+  color: #16a34a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.RM-badge-icon {
+  width: 16px;
+  height: 16px;
+  background: #16a34a;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
+.RM-progress-list {
+  flex: 1;
+}
+
+.RM-progress-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.RM-progress-item img {
+  width: 34px;
+  height: 34px;
+}
+
+.RM-progress-item>div {
+  flex: 1;
+}
+
+.RM-progress-item p {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.RM-progress-item span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.RM-bar {
+  width: 100%;
+  height: 7px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.RM-bar div {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 20px;
+}
+
+.RM-green-bar div {
+  background: #22c55e;
+}
+
+.RM-purple-bar div {
+  background: #7c3aed;
+}
+
+.RM-orange-bar div {
+  background: #f59e0b;
+}
+
+/* ===========================
+   AI Recommendation
+=========================== */
+
+.RM-recommendation-card h3{
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:14px;
+    color:#111827;
+}
+
+.RM-recommend-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.RM-recommend-icon{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    border-radius:10px;
+    background:#f7f8fc;
+    padding:6px;
+}
+
+.RM-recommend-content{
+    flex:1;
+}
+
+.RM-recommend-content h4{
+    font-size:15px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:3px;
+}
+
+.RM-recommend-content p{
+    font-size:14px;
+    color:#111827;
+    margin-bottom:3px;
+}
+
+.RM-recommend-content small{
+    font-size:12px;
+    color:#6b7280;
+}
+
+.RM-badge{
+    min-width:54px;
+    text-align:center;
+    padding:6px 14px;
+    border-radius:30px;
+    background:#dcfce7;
+    color:#16a34a;
+    font-size:15px;
+    font-weight:700;
+}
+
+.RM-skills-tags{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-top:5px;
+}
+
+.RM-skills-tags span{
+    background:#eef2ff;
+    color:#2563eb;
+    padding:3px 9px;
+    border-radius:6px;
+    font-size:12px;
+}
+
+/* ==========================================
+   1024px Fix - Prevent centering
+========================================== */
+
+@media (max-width: 1024px) and (min-width: 992px) {
+
+  .RM-dashboard-cards{
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 18px;
+    padding: 0 20px;
+    margin-left: 0;
+    margin-right: 0;
+    justify-items: stretch;
+    width: 100%;
+  }
+
+  .RM-card, .RM-pipeline{
+    margin: 0;
+  }
+
+}
+
+
+/* ==========================================
+   1024px Fix - Stack cards vertically (1 column)
+========================================== */
+
+@media (max-width: 1024px) and (min-width: 992px) {
+
+  .RM-dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 20px;
+  }
+
+  .RM-card, .RM-pipeline {
+    padding: 16px;
+    width: 100%;
+  }
+
+  .RM-card h3 {
+    font-size: 15px;
+  }
+
+  .RM-screening-body {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .RM-ats-score-section {
+    width: 100%;
+  }
+
+  .RM-progress-list {
+    width: 100%;
+  }
+
+}
+
+
+/* ==========================================
+   Tablet (991px and below)
+========================================== */
+
+@media (max-width: 991px) {
+
+  .RM-dashboard-cards{
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:12px 12px 12px 20px;
+  }
+
+  .RM-card, .RM-pipeline{
+    width:100%;
+  }
+
+  /* Candidate Pipeline */
+
+  .RM-pipeline{
+    overflow-x:auto;
+    justify-content:flex-start;
+    padding-bottom:8px;
+  }
+
+  .RM-pipeline-left{
+    min-width:480px;
+  }
+
+  /* Screening */
+
+  .RM-screening-body{
+    flex-direction:column;
+    align-items:center;
+    gap:24px;
+  }
+
+  .RM-ats-score-section{
+    width:100%;
+  }
+
+  .RM-progress-list{
+    width:100%;
+  }
+
+  /* Recommendation */
+
+  .RM-recommend-item{
+    gap:12px;
+  }
+
+}
+
+
+/* ==========================================
+   Mobile (768px and below)
+========================================== */
+
+@media (max-width:768px){
+
+  .RM-dashboard-cards{
+    padding:10px 10px 10px 16px;
+    gap:14px;
+  }
+
+  .RM-card, .RM-pipeline{
+    padding:12px;
+  }
+
+  .RM-card h3{
+    font-size:16px;
+  }
+
+  .RM-card-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .RM-card-header select{
+    width:140px;
+  }
+
+  /* Pipeline */
+
+  .RM-pipeline{
+    overflow-x:auto;
+  }
+
+  .RM-pipeline-left{
+    min-width:460px;
+  }
+
+  .RM-stage{
+    height:38px;
+    font-size:13px;
+  }
+
+  .RM-label{
+    font-size:13px;
+  }
+
+  .RM-connector .RM-line{
+    width:36px;
+  }
+
+  /* Screening */
+
+  .RM-progress-circle{
+    width:120px;
+    height:120px;
+  }
+
+  .RM-progress-circle svg{
+    width:120px;
+    height:120px;
+  }
+
+  .RM-circle-content h2{
+    font-size:26px;
+  }
+
+  .RM-progress-item{
+    gap:10px;
+  }
+
+  .RM-progress-item img{
+    width:26px;
+    height:26px;
+  }
+
+  .RM-progress-item p{
+    font-size:11px;
+  }
+
+  .RM-progress-item span{
+    font-size:11px;
+  }
+
+  /* Recommendation */
+
+  .RM-recommend-item{
+    gap:10px;
+    margin-bottom:14px;
+  }
+
+  .RM-recommend-icon{
+    width:36px;
+    height:36px;
+  }
+
+  .RM-recommend-content h4{
+    font-size:13px;
+  }
+
+  .RM-recommend-content p{
+    font-size:12px;
+  }
+
+  .RM-recommend-content small{
+    font-size:11px;
+  }
+
+  .RM-badge{
+    min-width:44px;
+    padding:5px 10px;
+    font-size:12px;
+  }
+
+  .RM-skills-tags span{
+    font-size:10px;
+    padding:3px 7px;
+  }
+
+}
+
+
+/* ==========================================
+   Small Mobile (480px and below)
+========================================== */
+
+@media (max-width:480px){
+
+  .RM-dashboard-cards{
+    padding:8px 8px 8px 14px;
+  }
+
+  .RM-card, .RM-pipeline{
+    padding:10px;
+    border-radius:10px;
+  }
+
+  .RM-card h3{
+    font-size:15px;
+  }
+
+  .RM-card-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .RM-card-header select{
+    width:120px;
+    font-size:12px;
+  }
+
+  /* Pipeline */
+
+  .RM-pipeline-left{
+    min-width:420px;
+  }
+
+  .RM-stage{
+    height:34px;
+    font-size:12px;
+  }
+
+  .RM-connector .RM-line{
+    width:26px;
+  }
+
+  .RM-label{
+    font-size:11px;
+  }
+
+  /* Screening */
+
+  .RM-screening-body{
+    gap:16px;
+  }
+
+  .RM-progress-circle{
+    width:105px;
+    height:105px;
+  }
+
+  .RM-progress-circle svg{
+    width:105px;
+    height:105px;
+  }
+
+  .RM-circle-content h2{
+    font-size:22px;
+  }
+
+  .RM-circle-content p{
+    font-size:11px;
+  }
+
+  .RM-match-badge{
+    font-size:10px;
+    padding:5px 10px;
+  }
+
+  .RM-progress-item{
+    display:grid;
+    grid-template-columns:26px 1fr auto;
+    gap:8px;
+    align-items:center;
+  }
+
+  .RM-progress-item img{
+    width:22px;
+    height:22px;
+  }
+
+  .RM-bar{
+    height:5px;
+  }
+
+  /* Recommendation */
+
+  .RM-recommend-item{
+    gap:8px;
+  }
+
+  .RM-recommend-icon{
+    width:34px;
+    height:34px;
+    padding:5px;
+  }
+
+  .RM-recommend-content h4{
+    font-size:13px;
+  }
+
+  .RM-recommend-content p{
+    font-size:12px;
+  }
+
+  .RM-recommend-content small{
+    font-size:10px;
+  }
+
+  .RM-badge{
+    min-width:40px;
+    padding:4px 9px;
+    font-size:11px;
+  }
+
+  .RM-skills-tags{
+    gap:4px;
+  }
+
+  .RM-skills-tags span{
+    font-size:10px;
+    padding:2px 6px;
+  }
+
+}
