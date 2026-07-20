@@ -76,13 +76,11 @@ const RecruiterDashboard = () => {
                 
                 {/* SIDEBAR */}
                 <aside className='rec-sidebar'>
-                    <div className='rec-logo-section'>
+                    {/* <div className='rec-logo-section'>
                         <img src={logor} alt="Logo" className="rec-logo-img" />
                         <div className='rec-logo-text'>
-                            <h3>AI Resume Builder</h3>
-                            <p>& Screening System</p>
                         </div>
-                    </div>
+                    </div> */}
 
                     <nav className='rec-nav-menu'>
                         <div className={`rec-nav-item ${activeTab === 'Dashboard' ? 'active' : ''}`} onClick={() => handleNavClick('Dashboard', 'rec-dashboard-sec')}>
