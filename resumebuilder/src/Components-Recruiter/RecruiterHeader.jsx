@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import "./RecruiterHeader.css";
+import './RecruiterHeader.css';
 import DashboardCards from "./DashboardCards";
 import RecentCandidates from "./RecentCandidates";
-import applicants from "../Assets/Applicants.png";
-import scanner from "../Assets/Scanner.png";
-import bookmark from "../Assets/Shorlisted.png";
-import ats from "../Assets/ATS-score.png";
-
-import hamburger from "../Assets/FiChevronDown.png";
-import bellIcon from "../Assets/FiBell.png";
-import mailIcon from "../Assets/FiMail.png";
-import avatar from "../Assets/FiUser.png";
-import searchIcon from "../Assets/SearchIcon.png";
+import applicants from "../assets/recruiter/Applicants.png";
+import scanner from "../assets/recruiter/Scanner.png";
+import bookmark from "../assets/recruiter/Shorlisted.png";
+import ats from "../assets/recruiter/ATS-score.png";
+import hamburger from "../assets/recruiter/FiChevronDown.png";
+import bellIcon from "../assets/recruiter/FiBell.png";
+import mailIcon from "../assets/recruiter/FiMail.png";
+import avatar from "../assets/recruiter/FiUser.png";
+import searchIcon from "../assets/recruiter/SearchIcon.png";
 
 import {
   FiMenu,

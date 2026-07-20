@@ -1,7 +1,7 @@
 import React from "react";
 import { MoreVertical } from "lucide-react";
 import { PieChart, Pie, Cell } from "recharts";
-import eyeIcon from "../assets/eye.png";
+import eyeIcon from "../assets/recruiter/eye.png";
 import "./RecentCandidates.css";
 
 const candidates = [
