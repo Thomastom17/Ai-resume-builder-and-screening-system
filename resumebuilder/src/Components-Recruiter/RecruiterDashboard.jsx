@@ -36,7 +36,7 @@ const RecruiterDashboard = () => {
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        setMobileMenuOpen(false); // close the dropdown sidebar after picking a section on mobile
+        setMobileMenuOpen(false); 
     };
 
   const chartData = [
@@ -55,13 +55,11 @@ const RecruiterDashboard = () => {
 
             <div className='rec-main-layout-wrapper'>
 
-                {/* Backdrop shown behind the sidebar when it's opened on mobile */}
                 <div
                     className={`rec-sidebar-backdrop ${mobileMenuOpen ? 'rec-sidebar-open' : ''}`}
                     onClick={() => setMobileMenuOpen(false)}
                 ></div>
 
-                {/* SIDEBAR */}
                 <aside className={`rec-sidebar ${mobileMenuOpen ? 'rec-sidebar-open' : ''}`}>
                     {/* <div className='rec-logo-section'>
                         <img src={logor} alt="Logo" className="rec-logo-img" />

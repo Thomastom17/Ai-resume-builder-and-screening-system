@@ -1,0 +1,997 @@
+/* ==========================================================================
+   Base & Layout
+   ========================================================================== */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cand-dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f8fafc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.cand-main-layout-wrapper {
+  display: flex;
+  align-items: stretch;
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   Sidebar Navigation
+   ========================================================================== */
+.cand-sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 100%;
+  align-self: stretch;
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.cand-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.cand-menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.cand-menu li:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.cand-menu li.cand-active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.cand-nav-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  transition: filter 0.2s ease;
+}
+
+.cand-menu li.cand-active .cand-nav-icon {
+  filter: brightness(0) invert(1);
+}
+
+.cand-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.cand-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cand-badge {
+  background-color: #dbeafe;
+  color: #2563eb;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.cand-menu li.cand-active .cand-badge {
+  background-color: #ffffff;
+  color: #2563eb;
+}
+
+/* ==========================================================================
+   Candidate Upgrade Pro Box
+   ========================================================================== */
+.cand-upgrade-card {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+  flex-shrink: 0;
+}
+
+.cand-upgrade-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.cand-upgrade-title img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.cand-upgrade-title span {
+  font-size: 14px;
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.cand-upgrade-card p {
+  font-size: 12px;
+  color: #1e3a8a;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.cand-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cand-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+.cand-feature-check-img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.cand-upgrade-btn {
+  width: 100%;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.cand-upgrade-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.cand-upgrade-btn img {
+  width: 12px;
+  height: 12px;
+  filter: brightness(0) invert(1);
+}
+
+/* ==========================================================================
+   Main Content Area
+   ========================================================================== */
+.cand-dashboard-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.cand-scrollable-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 24px;
+  scroll-behavior: smooth;
+}
+
+/* Welcome Banner */
+.cand-welcome-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.cand-welcome-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cand-welcome-heading h1 {
+  font-size: 22px;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 700;
+}
+
+.cand-welcome-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.cand-welcome-left p {
+  margin: 4px 0 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.cand-welcome-right {
+  display: flex;
+  gap: 12px;
+}
+
+.cand-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #2563eb;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.cand-active-highlight {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.cand-inactive-btn {
+  background: #ffffff;
+  color: #2563eb;
+}
+
+.cand-inactive-btn:hover {
+  background: #eff6ff;
+}
+
+.cand-btn-content-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cand-btn-inner-img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   Stat Cards Grid
+   ========================================================================== */
+.cand-dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cand-dashboard-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cand-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cand-card-img-wrapper {
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cand-card-top-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.cand-dashboard-card h3 {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.cand-dashboard-card h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.cand-dashboard-card h4 {
+  font-size: 12px;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.cand-card-growth-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #16a34a;
+}
+
+.cand-trend-arrow-img {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+}
+
+.cand-trend-timeline {
+  color: #64748b;
+}
+
+/* ==========================================================================
+   Middle Grid (Row One)
+   ========================================================================== */
+.cand-dashboard-row-one {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: stretch;
+}
+
+.cand-dashboard-row-one > * {
+  min-width: 0;
+}
+
+.cand-ats-card, 
+.cand-skill-card, 
+.cand-assistant-card, 
+.cand-recent-activity-card, 
+.cand-upcoming-card, 
+.cand-profile-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ATS Gauge Breakdown */
+.cand-ats-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+}
+
+.cand-ats-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cand-gauge-wrapper {
+  position: relative;
+  width: 180px;
+  margin: 0 auto;
+}
+
+.cand-gauge {
+  width: 100%;
+  height: auto;
+}
+
+.cand-gauge-bg {
+  fill: none;
+  stroke: #f1f5f9;
+  stroke-width: 16;
+}
+
+.cand-gauge-progress {
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 16;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 12;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.cand-gauge-text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  cursor: pointer;
+}
+
+.cand-gauge-text h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #1e293b;
+  font-weight: 800;
+}
+
+.cand-gauge-text span {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.cand-score-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cand-score-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #1e293b;
+}
+
+.cand-score-left {
+  display: flex;
+  align-items: center;
+}
+
+.cand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* Target Skills Progress */
+.cand-skill-card h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+}
+
+.cand-skill-box {
+  margin-bottom: 14px;
+}
+
+.cand-skill-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #1e293b;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.cand-progress-bar {
+  background: #f1f5f9;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.cand-progress-fill {
+  background: #2563eb;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* AI Career Assistant */
+.cand-assistant-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.cand-assistant-header img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.cand-assistant-header h2 {
+  margin: 0;
+  font-size: 16px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.cand-assistant-header p {
+  margin: 2px 0 0 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.cand-assistant-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cand-assistant-item:last-child {
+  border-bottom: none;
+}
+
+.cand-assistant-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cand-assistant-item h4 {
+  margin: 0;
+  font-size: 13px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.cand-assistant-item p {
+  margin: 2px 0 0 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   Bottom Grid (Row Two)
+   ========================================================================== */
+.cand-dashboard-row-two {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.cand-dashboard-row-two > * {
+  min-width: 0;
+}
+
+/* Activity Log */
+.cand-recent-activity-title {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.cand-recent-activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.cand-recent-activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cand-recent-activity-item:last-child {
+  border-bottom: none;
+}
+
+.cand-recent-activity-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cand-recent-activity-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.cand-recent-activity-content h4 {
+  margin: 0;
+  font-size: 13px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.cand-recent-activity-content p {
+  margin: 2px 0 0 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.cand-recent-activity-time {
+  font-size: 11px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* Scheduled Interviews */
+.cand-upcoming-title {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.cand-upcoming-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.cand-interview-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cand-interview-item:last-child {
+  border-bottom: none;
+}
+
+.cand-date-box {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.cand-month {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.cand-day {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cand-interview-details {
+  flex-grow: 1;
+  margin: 0 12px;
+}
+
+.cand-interview-details h4 {
+  margin: 0;
+  font-size: 13px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.cand-interview-details p {
+  margin: 2px 0 0 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.cand-interview-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.cand-calendar-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+/* Profile Visibility Section */
+.cand-profile-title {
+  margin: 0;
+  font-size: 16px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.cand-profile-subtitle {
+  font-size: 12px;
+  color: #64748b;
+  margin: 4px 0 12px 0;
+}
+
+.cand-profile-frame {
+  width: 100%;
+  max-height: 110px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.cand-profile-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 14px;
+}
+
+.cand-stat-box {
+  text-align: center;
+}
+
+.cand-stat-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.cand-stat-box h4 {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.cand-stat-box p {
+  margin: 0;
+  font-size: 10px;
+  color: #64748b;
+}
+
+.cand-divider {
+  width: 1px;
+  height: 24px;
+  background: #e2e8f0;
+}
+
+.cand-why-title {
+  font-size: 12px;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.cand-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cand-benefit-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.cand-benefit-item h5 {
+  margin: 0;
+  font-size: 12px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.cand-benefit-item p {
+  margin: 1px 0 0 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   Modals & Popups
+   ========================================================================== */
+.cand-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.cand-popup {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.cand-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.cand-popup h2 {
+  font-size: 16px;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.cand-popup-score {
+  font-size: 36px;
+  font-weight: 800;
+  color: #2563eb;
+  margin: 8px 0 2px 0;
+}
+
+.cand-status {
+  font-size: 12px;
+  color: #16a34a;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.cand-popup-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Media Queries & Responsiveness
+   ========================================================================== */
+
+/* 1. Ultra Wide Screens (Min 1921px) */
+@media screen and (min-width: 1921px) {
+  .cand-sidebar { width: 320px; padding: 32px 24px; }
+  .cand-scrollable-body { padding: 40px; }
+  .cand-dashboard-cards, .cand-dashboard-row-one, .cand-dashboard-row-two { gap: 24px; }
+  .cand-welcome-heading h1 { font-size: 28px; }
+}
+
+/* 2. Standard Laptops (Max 1440px) */
+@media screen and (max-width: 1440px) {
+  .cand-dashboard-cards { grid-template-columns: repeat(3, 1fr); }
+  .cand-dashboard-row-one, .cand-dashboard-row-two { grid-template-columns: 1fr 1fr; }
+}
+
+/* 3. Small Laptops & Tablets Landscape (Max 1024px) */
+@media screen and (max-width: 1024px) {
+  .cand-sidebar { width: 220px; }
+  .cand-dashboard-cards { grid-template-columns: repeat(2, 1fr); }
+  .cand-dashboard-row-one, .cand-dashboard-row-two { grid-template-columns: 1fr; }
+}
+
+/* 4. Smart Phones & Mobile Screens (Max 768px) */
+@media screen and (max-width: 768px) {
+  .cand-main-layout-wrapper {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .cand-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    max-width: 80vw;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 50;
+    background: #ffffff;
+    box-shadow: 4px 0 16px rgba(0,0,0,0.08);
+    transform: translateX(-100%);
+    pointer-events: none;
+  }
+
+  .cand-sidebar.cand-sidebar-open {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .cand-sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.35);
+    z-index: 40;
+  }
+
+  .cand-sidebar-backdrop.cand-sidebar-open {
+    display: block;
+  }
+
+  .cand-scrollable-body {
+    padding: 16px;
+  }
+
+  .cand-welcome-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .cand-welcome-right {
+    width: 100%;
+  }
+
+  .cand-action-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .cand-dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+}

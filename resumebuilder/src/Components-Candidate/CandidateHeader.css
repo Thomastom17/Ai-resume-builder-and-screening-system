@@ -1,0 +1,261 @@
+/* TOP FULL-WIDTH HEADER */
+.can-top-header {
+  min-height: 70px;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.can-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+/* MOBILE HAMBURGER TOGGLE (hidden on desktop) */
+.can-mobile-toggle {
+  display: none;
+  flex-dicantion: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.can-mobile-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #1e293b;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+.can-mobile-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.can-mobile-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.can-mobile-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* DASHBOARD TITLE */
+.can-dashboard-title-top {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e293b; 
+  white-space: normal;
+  max-width: 150px;
+}
+
+/* SEARCH WRAPPER */
+.can-search-wrapper {
+  position: relative;
+  width: 380px;
+}
+
+.can-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.can-search-wrapper input {
+  width: 100%;
+  padding: 8px 12px 8px 38px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background-color: #f8fafc;
+  outline: none;
+  font-size: 14px;
+}
+
+/* USER PROFILE SECTION */
+.can-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.can-header-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.can-header-icon img {
+  object-fit: contain;
+}
+
+.can-avatar-dropdown-wrapper {
+  position: relative;
+}
+
+.can-avatar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.can-avatar-wrapper:hover {
+  background-color: #f1f5f9;
+}
+
+.can-top-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.can-user-info h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.can-user-info p {
+  margin: 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.can-dropdown-arrow {
+  object-fit: contain;
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+
+.can-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* DROPDOWN MENU */
+.can-user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+  z-index: 30;
+  min-width: 160px;
+  overflow: hidden;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.can-dropdown-item {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: #1e293b;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.can-dropdown-item:hover {
+  background-color: #f8fafc;
+}
+
+.can-dropdown-icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.can-dropdown-divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 0;
+}
+
+.can-logout-btn {
+  color: #dc2626;
+}
+
+.can-logout-btn:hover {
+  background-color: #fef2f2;
+  color: #991b1b;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1024px) {
+  .can-search-wrapper {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .can-top-header {
+    padding: 8px 16px;
+    min-height: auto;
+  }
+
+  .can-header-left {
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .can-search-wrapper {
+    display: none;
+  }
+
+  .can-user-info {
+    display: none;
+  }
+
+  /* Show hamburger toggle in header */
+  .can-mobile-toggle {
+    display: flex;
+  }
+
+  /* Adjust dropdown position on mobile */
+  .can-user-dropdown-menu {
+    right: -10px;
+    left: auto;
+  }
+
+  .can-avatar-wrapper {
+    padding: 4px 8px;
+  }
+}   
