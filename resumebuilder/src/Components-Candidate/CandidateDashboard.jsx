@@ -111,8 +111,13 @@ const CandidateDashboard = () => {
       <CandidateHeader mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
 
       <div className="cand-main-layout-wrapper">
+        <div
+            className={`cand-sidebar-backdrop ${mobileMenuOpen ? 'cand-sidebar-open' : ''}`}
+            onClick={() => setMobileMenuOpen(false)}
+        ></div>
+
         {/* Sidebar */}
-        <aside className="cand-sidebar">
+        <aside className={`cand-sidebar ${mobileMenuOpen ? 'cand-sidebar-open' : ''}`}>
           <ul className="cand-menu">
             {menuItems.map((item, idx) => (
               <li

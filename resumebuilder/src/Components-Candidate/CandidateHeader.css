@@ -23,7 +23,7 @@
 /* MOBILE HAMBURGER TOGGLE (hidden on desktop) */
 .can-mobile-toggle {
   display: none;
-  flex-dicantion: column;
+  flex-direction: column;
   justify-content: space-between;
   width: 22px;
   height: 16px;
