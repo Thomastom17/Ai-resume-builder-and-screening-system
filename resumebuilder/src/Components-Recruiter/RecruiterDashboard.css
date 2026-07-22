@@ -1,13 +1,14 @@
 html, body, #root {
-  height: 100%;
-  margin: 0;
+  background: #f8fafc;
+  font-family: "Inter", sans-serif;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .rec-dashboard-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   background-color: #f8fafc;
   font-family: 'Inter', sans-serif;
   overflow: hidden;

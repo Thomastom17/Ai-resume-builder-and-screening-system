@@ -5,11 +5,11 @@ import SearchIcon from "../assets/recruiter/SearchIcon.png";
 import FiBell from "../assets/recruiter/FiBell.png";
 import settings from "../assets/recruiter/settings.png";
 import FiChevronDown from "../assets/candidate/dropdownarrow.png";
+import logor from "../assets/candidate/logor.png";
 
 const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -28,40 +28,49 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   }, [dropdownOpen]);
 
   const handleLogout = () => {
-    // Add logout logic here
     console.log('Logging out...');
     setDropdownOpen(false);
   };
 
   const handleHelp = () => {
-    // Add help logic here
     console.log('Opening help...');
     setDropdownOpen(false);
   };
 
   return (
     <header className='rec-top-header'>
-      <div className='rec-header-left'>
-       
-        <button
+       <div className='rec-header-left'>
+          <button
           className={`rec-mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}
           onClick={() => setMobileMenuOpen(prev => !prev)}
-          aria-label="Toggle sidebar menu"
-          aria-expanded={mobileMenuOpen}
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <span className='rec-dashboard-title-top'>AI Resume Builder & Screening System</span>
+        
+        {/* Logo Image */}
+        <img src={logor} alt="Logo" className="rec-logo-img" />
+      
+        {/* Title & Subtitle Container */}
+        <div className="rec-title-container">
+          <h3 className='rec-dashboard-title-top'>AI Resume Builder</h3>
+          <p className='rec-dashboard-subtitle'>& Screening System</p>
+        </div>
       </div>
+
       <div className='rec-search-wrapper'>
         <img src={SearchIcon} width={18} height={18} alt="Search" className='rec-search-icon' />
-        <input type='text' placeholder='Search roles, skills, or companies...' />
+        <input type='text' placeholder='Search roles, skills, or candidates...' />
       </div>
+
       <div className='rec-user-profile'>
-        <div className='rec-header-icon'><img src={FiBell} width={20} height={20} alt="Notifications" /></div>
-        <div className='rec-header-icon'><img src={settings} width={20} height={20} alt="Settings" /></div>
+        <div className='rec-header-icon'>
+          <img src={FiBell} width={20} height={20} alt="Notifications" />
+        </div>
+        <div className='rec-header-icon'>
+          <img src={settings} width={20} height={20} alt="Settings" />
+        </div>
         
         {/* User Avatar with Dropdown */}
         <div className='rec-avatar-dropdown-wrapper' ref={dropdownRef}>
@@ -87,12 +96,10 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           {dropdownOpen && (
             <div className='rec-user-dropdown-menu'>
               <button className='rec-dropdown-item rec-help-btn' onClick={handleHelp}>
-             
                 Help
               </button>
               <div className='rec-dropdown-divider'></div>
               <button className='rec-dropdown-item rec-logout-btn' onClick={handleLogout}>
-               
                 Logout
               </button>
             </div>
