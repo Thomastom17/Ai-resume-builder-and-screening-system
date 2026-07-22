@@ -37,8 +37,6 @@ import upArrowImg from "../assets/candidate/arrow.png";
 import welcomeImg from "../assets/candidate/ai-star.png";
 import createResumeImg from "../assets/candidate/arrow.png";
 import uploadResumeImg from "../assets/candidate/arrow.png";
-
-// Candidate Header Component Import
 import CandidateHeader from "./CandidateHeader";
 
 const CandidateDashboard = () => {

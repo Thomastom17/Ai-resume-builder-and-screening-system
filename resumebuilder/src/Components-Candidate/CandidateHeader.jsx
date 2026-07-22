@@ -4,7 +4,7 @@ import FiUser from "../assets/recruiter/FiUser.png";
 import SearchIcon from "../assets/recruiter/SearchIcon.png";
 import FiBell from "../assets/recruiter/FiBell.png";
 import settings from "../assets/recruiter/settings.png";
-import FiChevronDown from "../assets/recruiter/FiChevronDown.png";
+import FiChevronDown from "../assets/candidate/dropdownarrow.png";
 
 const CandidateHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
