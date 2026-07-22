@@ -912,28 +912,115 @@ html, body, #root {
    Media Queries & Responsiveness
    ========================================================================== */
 
-/* 1. Ultra Wide Screens (Min 1921px) */
-@media screen and (min-width: 1921px) {
-  .cand-sidebar { width: 320px; padding: 32px 24px; }
-  .cand-scrollable-body { padding: 40px; }
-  .cand-dashboard-cards, .cand-dashboard-row-one, .cand-dashboard-row-two { gap: 24px; }
-  .cand-welcome-heading h1 { font-size: 28px; }
+/* 1. Ultra Wide & 2K / 4K Monitors (2560px & Above) */
+@media screen and (min-width: 2560px) {
+  .cand-sidebar {
+    width: 380px;
+    padding: 40px 28px;
+  }
+  .cand-menu li {
+    font-size: 18px;
+    padding: 16px 20px;
+  }
+  .cand-nav-icon {
+    width: 26px;
+    height: 26px;
+  }
+  .cand-scrollable-body {
+    padding: 48px 60px;
+  }
+  .cand-welcome-heading h1 {
+    font-size: 34px;
+  }
+  .cand-welcome-left p {
+    font-size: 18px;
+  }
+  .cand-action-btn {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+  .cand-dashboard-cards {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px;
+  }
+  .cand-dashboard-card h2 {
+    font-size: 34px;
+  }
+  .cand-dashboard-card h3 {
+    font-size: 16px;
+  }
+  .cand-dashboard-row-one, 
+  .cand-dashboard-row-two {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 28px;
+  }
+  .cand-ats-title, 
+  .cand-skill-card h2, 
+  .cand-assistant-header h2, 
+  .cand-recent-activity-title, 
+  .cand-upcoming-title, 
+  .cand-profile-title {
+    font-size: 20px;
+  }
+  .cand-gauge-wrapper {
+    width: 230px;
+  }
+  .cand-gauge-text h1 {
+    font-size: 34px;
+  }
 }
 
-/* 2. Standard Laptops (Max 1440px) */
+/* 2. Full HD / Large Displays (1441px - 2559px) */
+@media screen and (min-width: 1441px) and (max-width: 2559px) {
+  .cand-sidebar {
+    width: 280px;
+    padding: 28px 20px;
+  }
+  .cand-scrollable-body {
+    padding: 32px;
+  }
+  .cand-dashboard-cards {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+  .cand-dashboard-row-one, 
+  .cand-dashboard-row-two {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 20px;
+  }
+  .cand-welcome-heading h1 {
+    font-size: 26px;
+  }
+}
+
+/* 3. Standard Laptops (Max 1440px) */
 @media screen and (max-width: 1440px) {
-  .cand-dashboard-cards { grid-template-columns: repeat(3, 1fr); }
-  .cand-dashboard-row-one, .cand-dashboard-row-two { grid-template-columns: 1fr 1fr; }
+  .cand-dashboard-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .cand-dashboard-row-one, 
+  .cand-dashboard-row-two {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
 }
 
-/* 3. Small Laptops & Tablets Landscape (Max 1024px) */
+/* 4. Small Laptops & Tablets Landscape (Max 1024px) */
 @media screen and (max-width: 1024px) {
-  .cand-sidebar { width: 220px; }
-  .cand-dashboard-cards { grid-template-columns: repeat(2, 1fr); }
-  .cand-dashboard-row-one, .cand-dashboard-row-two { grid-template-columns: 1fr; }
+  .cand-sidebar {
+    width: 220px;
+  }
+  .cand-dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cand-dashboard-row-one, 
+  .cand-dashboard-row-two {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* 4. Smart Phones & Mobile Screens (Max 768px) */
+/* 5. Smart Phones & Mobile Screens (Max 768px) */
 @media screen and (max-width: 768px) {
   .cand-main-layout-wrapper {
     flex-direction: column;

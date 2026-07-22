@@ -7,7 +7,6 @@ import ForgotPassword from './Components-login-candidate/Forgotpassword';
 import CreatePassword from './Components-login-candidate/CreatePassword';
 import EmailVerification from './Components-login-candidate/EmailVerification';
 import OtpVerification from './Components-login-candidate/OtpVerification';
-import LoginSuccess from './Components-login-candidate/LoginSuccess';
 import LandingPage from './Components-landingpage/LandingPage';
 import UserRegRecruiter from './Components-login-recruiter/Userregrecruiter';
 import UserRegCandidate from './Components-login-candidate/Userregcandidate';
@@ -50,10 +49,6 @@ const router = createBrowserRouter(
     {
       path: '/Resume-builder/login/emailverification/otpverification',
       element: <OtpVerification /> 
-    },
-    {
-      path: '/Resume-builder/login/loginsuccess',
-      element: <LoginSuccess /> 
     },
     {
       path: '/Resume-builder/userregrecruiter',
