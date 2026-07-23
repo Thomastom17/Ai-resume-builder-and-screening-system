@@ -246,10 +246,10 @@ const CandidateDashboard = () => {
   return (
     <div className="can-dashboard-page-wrapper">
       {/* Dynamic Header Component */}
-      <CandidateHeader
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />
+     <CandidateHeader
+  mobileMenuOpen={isSidebarOpen}
+  setMobileMenuOpen={setIsSidebarOpen}
+/>
 
       <div className="can-dashboard-layout">
         {/* Mobile Sidebar Overlay */}

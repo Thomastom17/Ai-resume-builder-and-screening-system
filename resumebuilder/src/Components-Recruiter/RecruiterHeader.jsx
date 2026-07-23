@@ -8,7 +8,9 @@ import FiChevronDown from "../assets/candidate/dropdownarrow.png";
 import logor from "../assets/candidate/logor.png";
 
 const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+  const [search, setSearch] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -27,6 +29,20 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
     };
   }, [dropdownOpen]);
 
+  // Search
+  const handleSearch = () => {
+    if (search.trim() === "") {
+      alert("Please enter role, skill or candidate");
+      return;
+    }
+    alert(`Searching for: ${search}`);
+  };
+
+  // Mobile Search Toggle
+  const toggleMobileSearch = () => {
+    setMobileSearchOpen((prev) => !prev);
+  };
+
   const handleLogout = () => {
     console.log('Logging out...');
     setDropdownOpen(false);
@@ -38,7 +54,7 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   };
 
   return (
-    <header className='rec-top-header'>
+    <header className={`rec-top-header ${mobileSearchOpen ? 'show-mobile-search' : ''}`}>
        <div className='rec-header-left'>
           <button
           className={`rec-mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}
@@ -60,11 +76,33 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
       </div>
 
       <div className='rec-search-wrapper'>
-        <img src={SearchIcon} width={18} height={18} alt="Search" className='rec-search-icon' />
-        <input type='text' placeholder='Search roles, skills, or candidates...' />
+        <img
+          src={SearchIcon}
+          width={18}
+          height={18}
+          alt="Search"
+          className='rec-search-icon'
+          onClick={handleSearch}
+        />
+        <input
+          type='text'
+          placeholder='Search roles, skills, or candidates...'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
       </div>
 
       <div className='rec-user-profile'>
+        {/* Mobile search trigger */}
+        <div className='rec-header-icon rec-mobile-search-trigger' onClick={toggleMobileSearch}>
+          <img src={SearchIcon} width={20} height={20} alt="Search Toggle" />
+        </div>
+
         <div className='rec-header-icon'>
           <img src={FiBell} width={20} height={20} alt="Notifications" />
         </div>
@@ -105,6 +143,29 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Expandable mobile search bar */}
+      <div className='rec-search-wrapper rec-mobile-search-section'>
+        <img
+          src={SearchIcon}
+          width={18}
+          height={18}
+          alt="Search"
+          className='rec-search-icon'
+          onClick={handleSearch}
+        />
+        <input
+          type='text'
+          placeholder='Search roles, skills, or candidates...'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
       </div>
     </header>
   );

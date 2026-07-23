@@ -9,7 +9,9 @@ import logor from "../assets/candidate/logor.png";
 
 
 const CandidateHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+  const [search, setSearch] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -28,54 +30,100 @@ const CandidateHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
     };
   }, [dropdownOpen]);
 
-  const handleLogout = () => {
-    // Add logout logic here
-    console.log('Logging out...');
+  // Search Validation
+  const handleSearch = () => {
+    if (search.trim() === "") {
+      alert("Please enter role, skill or company");
+      return;
+    }
+    alert(`Searching for: ${search}`);
+  };
+
+  // Notification
+  const handleNotification = () => {
+    alert("No New Notifications");
     setDropdownOpen(false);
   };
 
+  // Settings
+  const handleSettings = () => {
+    alert("Settings Page Coming Soon");
+    setDropdownOpen(false);
+  };
+
+  // Mobile Search Toggle
+  const toggleMobileSearch = () => {
+    setMobileSearchOpen((prev) => !prev);
+  };
+
   const handleHelp = () => {
-    // Add help logic here
     console.log('Opening help...');
     setDropdownOpen(false);
   };
 
+  const handleLogout = () => {
+    console.log('Logging out...');
+    setDropdownOpen(false);
+  };
+
   return (
-    <header className='can-top-header'>
+    <header className={`can-top-header ${mobileSearchOpen ? 'show-mobile-search' : ''}`}>
       <div className='can-header-left'>
-      <button
-       className={`can-mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}
-        onClick={() => setMobileMenuOpen(prev => !prev)}
-       >
-        <span></span>
-        <span></span>
-        <span></span>
-       </button>
-  
+        <button
+          className={`can-mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}
+          onClick={() => setMobileMenuOpen(prev => !prev)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
         <img src={logor} alt="Logo" className="can-logo-img" />
 
-       <div className="can-title-container">
-        <h3 className='can-dashboard-title-top'>AI Resume Builder</h3>
-        <p className='can-dashboard-subtitle'>& Screening System</p>
-       </div>
-     </div>
+        <div className="can-title-container">
+          <h3 className='can-dashboard-title-top'>AI Resume Builder</h3>
+          <p className='can-dashboard-subtitle'>& Screening System</p>
+        </div>
+      </div>
 
       <div className='can-search-wrapper'>
-        <img src={SearchIcon} width={18} height={18} alt="Search" className='can-search-icon' />
-        <input type='text' placeholder='Search roles, skills, or companies...' />
+        <img
+          src={SearchIcon}
+          width={18}
+          height={18}
+          alt="Search"
+          className='can-search-icon'
+          onClick={handleSearch}
+        />
+        <input
+          type='text'
+          placeholder='Search roles, skills, or companies...'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
       </div>
 
       <div className='can-user-profile'>
-        <div className='can-header-icon'>
+        {/* Mobile search trigger */}
+        <div className='can-header-icon can-mobile-search-trigger' onClick={toggleMobileSearch}>
+          <img src={SearchIcon} width={20} height={20} alt="Search Toggle" />
+        </div>
+
+        <div className='can-header-icon' onClick={handleNotification}>
           <img src={FiBell} width={20} height={20} alt="Notifications" />
         </div>
-        <div className='can-header-icon'>
+        <div className='can-header-icon' onClick={handleSettings}>
           <img src={settings} width={20} height={20} alt="Settings" />
         </div>
-        
+
         {/* User Avatar with Dropdown */}
         <div className='can-avatar-dropdown-wrapper' ref={dropdownRef}>
-          <div 
+          <div
             className='can-avatar-wrapper'
             onClick={() => setDropdownOpen(!dropdownOpen)}
           >
@@ -84,11 +132,11 @@ const CandidateHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
               <h4>Akash</h4>
               <p>candidate</p>
             </div>
-            <img 
-              src={FiChevronDown} 
-              width={14} 
-              height={14} 
-              alt="Dropdown" 
+            <img
+              src={FiChevronDown}
+              width={14}
+              height={14}
+              alt="Dropdown"
               className={`can-dropdown-arrow ${dropdownOpen ? 'open' : ''}`}
             />
           </div>
@@ -96,6 +144,16 @@ const CandidateHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           {/* Dropdown Menu */}
           {dropdownOpen && (
             <div className='can-user-dropdown-menu'>
+              {/* Mobile-only notification/settings items */}
+              <button className='can-dropdown-item can-mobile-notification-item' onClick={handleNotification}>
+                <img src={FiBell} alt="Notification" className="can-dropdown-item-icon" />
+                Notifications
+              </button>
+              <button className='can-dropdown-item can-mobile-settings-item' onClick={handleSettings}>
+                <img src={settings} alt="Settings" className="can-dropdown-item-icon" />
+                Settings
+              </button>
+
               <button className='can-dropdown-item can-help-btn' onClick={handleHelp}>
                 Help
               </button>
@@ -106,6 +164,29 @@ const CandidateHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Expandable mobile search bar */}
+      <div className='can-search-wrapper can-mobile-search-section'>
+        <img
+          src={SearchIcon}
+          width={18}
+          height={18}
+          alt="Search"
+          className='can-search-icon'
+          onClick={handleSearch}
+        />
+        <input
+          type='text'
+          placeholder='Search roles, skills, or companies...'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
       </div>
     </header>
   );
