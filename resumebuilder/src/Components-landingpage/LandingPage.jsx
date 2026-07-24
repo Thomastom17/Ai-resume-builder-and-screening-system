@@ -1,28 +1,23 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import "./LandingPage.css";
-
-/* --- ASSETS IMPORTS --- */
 import heroImage from "../assets/landingpage/header-image.png";
 import resumeIcon from "../assets/landingpage/resume-icon.png";
 import recruiterIcon from "../assets/landingpage/recruiter-icon.png";
 import aiImage from "../assets/landingpage/ai-powered.png";
 import atsImage from "../assets/landingpage/ats-friendly.png";
 import secureImage from "../assets/landingpage/secure-private.png";
-
 import googleLogo from "../assets/google.png";
 import infosysLogo from "../assets/landingpage/infosys.png";
 import microsoftLogo from "../assets/landingpage/microsoft.png";
 import hclLogo from "../assets/landingpage/hcl.png";
 import tcsLogo from "../assets/landingpage/tcs.png";
-
 import builderImg from "../assets/landingpage/f-builder.png";
 import screeningImg from "../assets/landingpage/f-screening.png";
 import matchingImg from "../assets/landingpage/f-matching.png";
 import analyticsImg from "../assets/landingpage/f-analytics.png";
 import atsImg from "../assets/landingpage/f-ats.png";
 import secureImg2 from "../assets/landingpage/f-secure.png";
-
 import happyUsersImg from "../assets/landingpage/stat-users.png";
 import resumesCreatedImg from "../assets/landingpage/stat-resumes.png";
 import companiesImg from "../assets/landingpage/stat-companies.png";
@@ -30,10 +25,6 @@ import satisfactionImg from "../assets/landingpage/stat-satisfaction.png";
 
 const LandingPage = () => {
   const [selectedRole, setSelectedRole] = useState("resume");
-
-  const handleFeatureClick = (featureName) => {
-    alert(`${featureName} feature clicked!`);
-  };
 
   const logos = [googleLogo, infosysLogo, microsoftLogo, hclLogo, tcsLogo];
 
@@ -123,10 +114,7 @@ const LandingPage = () => {
           </div>
 
           <div className="lp-main-features">
-            <div
-              className="lp-main-feature-card"
-              onClick={() => handleFeatureClick("AI Powered")}
-            >
+            <div className="lp-main-feature-card">
               <img src={aiImage} alt="AI Powered" />
               <div>
                 <h4>AI Powered</h4>
@@ -134,10 +122,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div
-              className="lp-main-feature-card"
-              onClick={() => handleFeatureClick("ATS Friendly")}
-            >
+            <div className="lp-main-feature-card">
               <img src={atsImage} alt="ATS Friendly" />
               <div>
                 <h4>ATS Friendly</h4>
@@ -145,10 +130,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div
-              className="lp-main-feature-card"
-              onClick={() => handleFeatureClick("Secure & Private")}
-            >
+            <div className="lp-main-feature-card">
               <img src={secureImage} alt="Secure" />
               <div>
                 <h4>Secure & Private</h4>

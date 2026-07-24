@@ -126,18 +126,10 @@
   align-items: flex-start;
   gap: 10px;
   width: 180px;
-  cursor: pointer;
   padding: 8px;
   border: 1px solid transparent;
   border-radius: 10px;
-  transition: all 0.2s ease;
-}
-
-.lp-main-feature-card:hover {
-  background-color: #f8fafc;
-  border-color: #e2e8f0;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  cursor: default;
 }
 
 .lp-main-feature-card img {
@@ -738,11 +730,11 @@
     font-size: 22px;
   }
 }
+
 /* ==========================================
    MOBILE & TABLET SCREENS (320px TO 768px)
 ========================================== */
 @media (max-width: 768px) {
-  /* Main section grid layout & top drop */
   .lp-main-hero-section {
     display: grid !important;
     grid-template-columns: 100% !important;
@@ -776,7 +768,7 @@
     line-height: 1.4 !important;
   }
 
-  /* 3. Hero Image  */
+  /* 3. Hero Image */
   .lp-main-hero-right {
     grid-row: 3 !important;
     display: flex !important;
@@ -792,7 +784,7 @@
     object-fit: contain !important;
   }
 
-  /* 4. Action Buttons (Create Resume & Recruiter) */
+  /* 4. Action Buttons */
   .lp-main-hero-buttons {
     grid-row: 4 !important;
     display: flex !important;
@@ -991,6 +983,7 @@
     margin-right: auto !important;
     display: table !important;
   }
+
   .lp-main-features {
     flex-direction: row !important;
     justify-content: center !important;
