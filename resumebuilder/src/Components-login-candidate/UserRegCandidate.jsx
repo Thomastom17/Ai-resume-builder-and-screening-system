@@ -43,7 +43,7 @@ const UserRegCandidate = () => {
 
   const isEmailValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email);
 
-  // Countdown Timer Logic
+
   useEffect(() => {
     let interval = null;
     if (showOtpModal && otpStep === 1 && timer > 0) {
@@ -74,7 +74,7 @@ const UserRegCandidate = () => {
     });
   };
 
-  // OTP Input Handler
+
   const handleOtpChange = (e, index) => {
     const value = e.target.value;
     if (isNaN(value)) return;
@@ -84,13 +84,13 @@ const UserRegCandidate = () => {
     setOtp(newOtp);
     setOtpError("");
 
-    // Move to next input field automatically
+   
     if (value && e.target.nextSibling) {
       e.target.nextSibling.focus();
     }
   };
 
-  // Backspace support for smooth input navigation
+ 
   const handleOtpKeyDown = (e, index) => {
     if (e.key === "Backspace" && !otp[index] && e.target.previousSibling) {
       e.target.previousSibling.focus();
@@ -122,7 +122,7 @@ const UserRegCandidate = () => {
 
   const handleResendOtp = () => {
     if (canResend) {
-      setOtp(["", "", "", "", "", ""]); // Clear inputs on resend
+      setOtp(["", "", "", "", "", ""]); 
       setOtpError("");
       setTimer(67); 
       setCanResend(false); 
@@ -277,7 +277,7 @@ const UserRegCandidate = () => {
               <div className="urc-input-group urc-password-wrapper">
                 <label>Password </label>
                 <div className="urc-input-with-icon">
-                  <input type={showPassword ? "text" : "password"} name="password" placeholder="Enter Password" value={formData.password} onChange={handleChange} />
+                  <input type={showPassword ? "text" : "password"} name="password" placeholder="" value={formData.password} onChange={handleChange} />
                   {formData.password && (
                     <img src={showPassword ? showPasswordIcon : hidePasswordIcon} alt="toggle" onClick={() => setShowPassword(!showPassword)} className="urc-password-toggle-icon" />
                   )}
@@ -291,7 +291,7 @@ const UserRegCandidate = () => {
               <div className="urc-input-group urc-full-width urc-password-wrapper">
                 <label>Confirm Password </label>
                 <div className="urc-input-with-icon">
-                  <input type={showConfirmPassword ? "text" : "password"} name="confirmPassword" placeholder="Confirm Password" value={formData.confirmPassword} onChange={handleChange} />
+                  <input type={showConfirmPassword ? "text" : "password"} name="confirmPassword" placeholder="" value={formData.confirmPassword} onChange={handleChange} />
                   {formData.confirmPassword && (
                     <img src={showConfirmPassword ? showPasswordIcon : hidePasswordIcon} alt="toggle" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="urc-password-toggle-icon" />
                   )}
