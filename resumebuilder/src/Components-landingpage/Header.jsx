@@ -42,7 +42,7 @@ const Header = () => {
         className={`lp-header-nav-links ${menuOpen ? "lp-header-active" : ""}`}
       >
         <Link
-          to="/Resume-builder/home"
+          to="/Resume-builder"
           className={isHomeActive ? "lp-header-active-link" : ""}
           onClick={() => setMenuOpen(false)}
         >

@@ -23,7 +23,7 @@ import CandidtateDashboard from './Components-Candidate/CandidateDashboard';
 const router = createBrowserRouter(
   [
     {
-      path: '/Resume-builder/home',
+      path: '/Resume-builder/',
       element: <LandingPage />,
     },
     {

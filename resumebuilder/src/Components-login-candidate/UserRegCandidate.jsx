@@ -234,17 +234,17 @@ const UserRegCandidate = () => {
             <div className="urc-form-row">
               <div className="urc-input-group">
                 <label>Full Name </label>
-                <input type="text" name="fullName" placeholder="Thilak" value={formData.fullName} onChange={handleChange} />
+                <input type="text" name="fullName" placeholder="" value={formData.fullName} onChange={handleChange} />
                 {errors.fullName && <small className="urc-error-text">{errors.fullName}</small>}
               </div>
               <div className="urc-input-group">
                 <label>User Name </label>
-                <input type="text" name="userName" placeholder="Thilak0201" value={formData.userName} onChange={handleChange} />
+                <input type="text" name="userName" placeholder="" value={formData.userName} onChange={handleChange} />
                 {errors.userName && <small className="urc-error-text">{errors.userName}</small>}
               </div>
               <div className="urc-input-group">
                 <label>Mobile Number </label>
-                <input type="text" name="mobile" placeholder="123467890" value={formData.mobile} onChange={handleChange} />
+                <input type="text" name="mobile" placeholder="" value={formData.mobile} onChange={handleChange} />
                 {errors.mobile && <small className="urc-error-text">{errors.mobile}</small>}
               </div>
             </div>
@@ -253,7 +253,7 @@ const UserRegCandidate = () => {
             <div className="urc-form-row">
               <div className="urc-input-group">
                 <label>Degree </label>
-                <input type="text" name="degree" placeholder="B.E Civil Engineer" value={formData.degree} onChange={handleChange} />
+                <input type="text" name="degree" placeholder="" value={formData.degree} onChange={handleChange} />
                 {errors.degree && <small className="urc-error-text">{errors.degree}</small>}
               </div>
 
@@ -261,7 +261,7 @@ const UserRegCandidate = () => {
               <div className="urc-input-group urc-email-wrapper">
                 <label>Enter your Email Address </label>
                 <div className="urc-input-with-action">
-                  <input type="email" name="email" placeholder="Thilak1@gmail.com" value={formData.email} onChange={handleChange} />
+                  <input type="email" name="email" placeholder="" value={formData.email} onChange={handleChange} />
                   {isEmailValid && !isEmailVerified && (
                     <button type="button" className="urc-verify-btn" onClick={handleVerifyClick}>
                       Verify
