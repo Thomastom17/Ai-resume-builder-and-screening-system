@@ -1,3 +1,6 @@
+/* ==========================================================================
+   CONTAINER & LAYOUT WRAPPERS
+   ========================================================================== */
 .urr-container {
   display: flex;
   gap: 1.5rem;
@@ -12,7 +15,9 @@
   overflow: hidden;            
 }
 
-
+/* ==========================================================================
+   LEFT INFO PANEL
+   ========================================================================== */
 .urr-info {
   flex: 1 1 34%;
   max-width: 34%;
@@ -114,6 +119,9 @@
   margin: 0 auto;
 }
 
+/* ==========================================================================
+   RIGHT FORM PANEL
+   ========================================================================== */
 .urr-page {
   flex: 1 1 66%;
   max-width: 66%;
@@ -167,7 +175,6 @@
 .urr-role-toggle {
   display: flex;
   gap: 60px;
-  /* margin-bottom: 0; */
 }
 
 .urr-role-card {
@@ -244,7 +251,9 @@
   line-height: 1.9;
 }
 
-
+/* ==========================================================================
+   INPUT GRIDS & FIELD WRAPPERS
+   ========================================================================== */
 .urr-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -254,7 +263,6 @@
   flex: 0 0 auto;
   align-content: start;
 }
-
 
 .urr-field {
   display: block;
@@ -290,6 +298,56 @@
   padding-right: 12px;
 }
 
+/* ==========================================================================
+   EMAIL FIELD WITH VERIFY ACTION & BADGE (.urr- prefix)
+   ========================================================================== */
+.urr-email-wrapper .urr-input-with-action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.urr-email-wrapper .urr-input-with-action input {
+  padding-right: 75px; /* space for button / badge */
+}
+
+.urr-verify-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.urr-verify-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.urr-verified-badge {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* ==========================================================================
+   TERMS, SUBMIT & LOGIN FOOTER
+   ========================================================================== */
 .urr-agree {
   display: flex;
   align-items: center;
@@ -342,8 +400,6 @@
   font-size: 13px;
   color: #475569;
   padding: 10px;
-  /* margin-top: 10px; */
-  /* margin-bottom: 0; */
 }
 
 .urr-login a {
@@ -359,20 +415,161 @@
 .urr-login span {
   color: #007bff; 
   cursor: pointer;
-
 }
 
 .urr-login span:hover {
   color: #0056b3; 
 }
-/* ===========================
-   Tablet & Small Laptop
-=========================== */
-/* ===========================
-   1024px specific fix (role card overflow)
-=========================== */
-@media screen and (min-width: 1024px) and (max-width: 1100px) {
 
+/* Error text style */
+.urr-error-text {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ==========================================================================
+   EMAIL VERIFICATION OTP POPUP MODAL STYLES (.urr- prefix)
+   ========================================================================== */
+.urr-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.urr-modal-content {
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  animation: urrModalFadeIn 0.2s ease-out;
+}
+
+@keyframes urrModalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.urr-modal-icon {
+  font-size: 26px;
+  background: #eff6ff;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin: 0 auto 16px;
+  color: #2563eb;
+  border: 1px solid #dbeafe;
+}
+
+.urr-success-icon {
+  background: #f0fdf4;
+  color: #22c55e;
+  border-color: #bbf7d0;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.urr-modal-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px 0;
+}
+
+.urr-modal-content p {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.urr-modal-content p strong {
+  color: #111827;
+}
+
+.urr-otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.urr-otp-inputs input {
+  width: 42px;
+  height: 48px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.urr-otp-inputs input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.urr-resend-text {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 24px !important;
+}
+
+.urr-resend-link {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.urr-modal-btn {
+  width: 100%;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.urr-modal-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media screen and (min-width: 1024px) and (max-width: 1100px) {
   .urr-role-toggle {
     gap: 24px;
   }
@@ -382,10 +579,9 @@
     width: auto;
     max-width: 220px;
   }
-
 }
-@media screen and (min-width: 769px) and (max-width: 1023px) {
 
+@media screen and (min-width: 769px) and (max-width: 1023px) {
   .urr-container {
     flex-direction: column;
     height: auto;
@@ -452,15 +648,9 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-
 }
 
-
-/* ===========================
-   Tablet (768 and below)
-=========================== */
 @media screen and (max-width: 768px) {
-
   .urr-container {
     flex-direction: column;
     height: auto;
@@ -555,14 +745,13 @@
     margin-top: 15px;
   }
 
+  .urr-modal-content {
+    width: 90%;
+    padding: 24px 18px;
+  }
 }
 
-
-/* ===========================
-   Mobile
-=========================== */
 @media screen and (max-width: 480px) {
-
   .urr-container {
     padding: 12px;
   }
@@ -610,4 +799,9 @@
     font-size: 13px;
   }
 
+  .urr-otp-inputs input {
+    width: 36px;
+    height: 42px;
+    font-size: 16px;
+  }
 }

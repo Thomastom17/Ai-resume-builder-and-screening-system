@@ -1,5 +1,7 @@
-
-.urc-register-page-wrapper .urc-register-container  {
+/* ==========================================================================
+   PAGE WRAPPER & CONTAINER
+   ========================================================================== */
+.urc-register-page-wrapper .urc-register-container {
   display: flex;
   gap: 1.5rem;
   flex-wrap: nowrap;
@@ -8,12 +10,10 @@
   align-items: flex-start;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #f8fafc;
-  /* height: 100vh;          */
   box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
 }
-
 
 /* ==========================================================================
    LEFT INFO PANEL (Matches .urr-info 34% width layout)
@@ -49,7 +49,6 @@
   padding: 10px;
 }
 
-
 .urc-left-image {
   width: 100%;
   flex: 1 1 auto; 
@@ -61,8 +60,6 @@
 .urc-left-image img {
   max-width: 400px;
   max-height: 400px;
-  /* width: auto;
-  height: auto; */
   object-fit: contain; 
   display: block;
 }
@@ -79,7 +76,6 @@
 .urc-career-text {
   font-size: 16px;
   color: #2563eb;
-  /* line-height: 1.4; */
   font-weight: 500;
   margin: 10px;
 }
@@ -143,7 +139,6 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  /* overflow: hidden; */
   gap: 12px;
 }
 
@@ -252,7 +247,6 @@
   overflow: visible;
   flex: 0 0 auto;
   align-content: start;
-  
 }
 
 .urc-input-group {
@@ -300,6 +294,53 @@
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
 }
 
+/* ==========================================================================
+   EMAIL FIELD WITH VERIFY ACTION & BADGE
+   ========================================================================== */
+.urc-email-wrapper .urc-input-with-action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.urc-email-wrapper .urc-input-with-action input {
+  padding-right: 75px; /* space for button / badge */
+}
+
+.urc-verify-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.urc-verify-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.urc-verified-badge {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
 /* Password View Toggles alignment style */
 .urc-password-wrapper {
   position: relative;
@@ -344,9 +385,9 @@
   height: auto;
   text-align: center;
   overflow: hidden;
+  position: relative;
 }
 
-/* Any direct child wrapper inside the upload box must also lay out in a row */
 .urc-upload-box > * {
   display: inline-flex !important;
   flex-direction: row !important;
@@ -386,7 +427,6 @@
   white-space: pre;
 }
 
-
 /* Hide Native input safely */
 .urc-upload-box input[type="file"] {
   position: absolute;
@@ -403,11 +443,6 @@
 .urc-upload-box input[type="file"]::file-selector-button {
   display: none;
 }
-
-.urc-upload-box {
-  position: relative;
-}
-
 
 /* Terms Container */
 .urc-terms-wrapper-block {
@@ -481,12 +516,148 @@
 
 /* Error text fallback hide */
 .urc-error-text {
-  color: red;
+  color: #ef4444;
   font-size: 12px;
   margin-top: 4px;
-  display: block !important; /* Visible when triggered */
+  display: block !important;
 }
 
+/* ==========================================================================
+   EMAIL VERIFICATION OTP POPUP MODAL STYLES (MATCHES ATTACHED SCREENSHOTS)
+   ========================================================================== */
+.urc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.urc-modal-content {
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  animation: urcModalFadeIn 0.2s ease-out;
+}
+
+@keyframes urcModalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.urc-modal-icon {
+  font-size: 26px;
+  background: #eff6ff;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin: 0 auto 16px;
+  color: #2563eb;
+  border: 1px solid #dbeafe;
+}
+
+.urc-success-icon {
+  background: #f0fdf4;
+  color: #22c55e;
+  border-color: #bbf7d0;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.urc-modal-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px 0;
+}
+
+.urc-modal-content p {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.urc-modal-content p strong {
+  color: #111827;
+}
+
+.urc-otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.urc-otp-inputs input {
+  width: 42px;
+  height: 48px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.urc-otp-inputs input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.urc-resend-text {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 24px !important;
+}
+
+.urc-resend-link {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.urc-modal-btn {
+  width: 100%;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.urc-modal-btn:hover {
+  background-color: #1d4ed8;
+}
 
 /* ==========================================================================
    RESPONSIVE MEDIA QUERIES (Exact duplicates of Recruiter responsive states)
@@ -501,7 +672,7 @@
   .urc-left-image img {
     max-width: 300px;
     max-height: 300px;
- } 
+  } 
 
   .urc-role-card {
     flex: 1 1 0;
@@ -531,7 +702,6 @@
   .urc-register-right {
     width: 100%;
     max-width: 100%;
-    /* flex: 100%; */
     height: auto;
   }
   .urc-register-left {
@@ -544,7 +714,7 @@
   .urc-left-image img {
     max-width: 200px;
     max-height: 100px;
- }
+  }
   .urc-register-right {
     padding: 0;
   }
@@ -565,9 +735,6 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-  /* .urc-input-group.urc-full-width {
-    grid-column: span 2;
-  } */
 }
 
 /* Max 768px: Mobile & Tablets styling */
@@ -619,7 +786,7 @@
   .urc-left-image img {
     max-width: 250px;
     max-height: 250px;
- }
+  }
 
   .urc-register-right {
     padding: 0;
@@ -667,6 +834,11 @@
     height: 48px;
     margin-top: 15px;
   }
+
+  .urc-modal-content {
+    width: 90%;
+    padding: 24px 18px;
+  }
 }
 
 /* ===========================
@@ -703,7 +875,6 @@
     font-size: 18px;
   }
 
-  
   .urc-feature-card__title {
     font-size: 13px;
   }
@@ -719,5 +890,11 @@
   .urc-input-group input,
   .urc-input-group select {
     font-size: 13px;
+  }
+
+  .urc-otp-inputs input {
+    width: 36px;
+    height: 42px;
+    font-size: 16px;
   }
 }

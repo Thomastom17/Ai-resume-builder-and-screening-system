@@ -85,7 +85,7 @@ const EmailVerification = () => {
       <div className="em-otp-container">
         
         {/* Back to Login Button */}
-        <div className="em-back-container" onClick={() => navigate("/Resume-builder/login")} style={{ cursor: 'pointer' }}>
+        <div className="em-back-container" onClick={() => navigate("/Resume-builder/login/candidate")} style={{ cursor: 'pointer' }}>
           <img src={backIcon} alt="back" className="em-back-icon" /> 
           <span>Back to Login</span>
         </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./UserRegCandidate.css";
 import registerImage from "../assets/reg-c-image.png";
@@ -16,6 +16,17 @@ const UserRegCandidate = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otpStep, setOtpStep] = useState(1); 
+  
+  // Standard starting state with empty 6-digit inputs
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [otpError, setOtpError] = useState("");
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
+
+  const [timer, setTimer] = useState(67);
+  const [canResend, setCanResend] = useState(false);
+
   const [formData, setFormData] = useState({
     fullName: "",
     userName: "",
@@ -30,12 +41,114 @@ const UserRegCandidate = () => {
 
   const [errors, setErrors] = useState({});
 
+  const isEmailValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email);
+
+  // Countdown Timer Logic
+  useEffect(() => {
+    let interval = null;
+    if (showOtpModal && otpStep === 1 && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0) {
+      setCanResend(true); 
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [showOtpModal, otpStep, timer]);
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = timeInSeconds % 60;
+    return `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
+    if (name === "email") {
+      setIsEmailVerified(false); 
+    }
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : type === "file" ? files[0] : value,
     });
+  };
+
+  // OTP Input Handler
+  const handleOtpChange = (e, index) => {
+    const value = e.target.value;
+    if (isNaN(value)) return;
+
+    let newOtp = [...otp];
+    newOtp[index] = value.substring(value.length - 1); 
+    setOtp(newOtp);
+    setOtpError("");
+
+    // Move to next input field automatically
+    if (value && e.target.nextSibling) {
+      e.target.nextSibling.focus();
+    }
+  };
+
+  // Backspace support for smooth input navigation
+  const handleOtpKeyDown = (e, index) => {
+    if (e.key === "Backspace" && !otp[index] && e.target.previousSibling) {
+      e.target.previousSibling.focus();
+    }
+  };
+
+  // Support pasting full 6-digit OTP
+  const handleOtpPaste = (e) => {
+    e.preventDefault();
+    const pasteData = e.clipboardData.getData("text").trim();
+    if (/^\d{6}$/.test(pasteData)) {
+      setOtp(pasteData.split(""));
+      setOtpError("");
+    }
+  };
+
+  const handleVerifyClick = () => {
+    if (isEmailValid) {
+      setOtp(["", "", "", "", "", ""]); 
+      setOtpError("");
+      setOtpStep(1);
+      setTimer(67); 
+      setCanResend(false); 
+      setShowOtpModal(true);
+    } else {
+      setErrors((prev) => ({ ...prev, email: "Enter a valid email address first" }));
+    }
+  };
+
+  const handleResendOtp = () => {
+    if (canResend) {
+      setOtp(["", "", "", "", "", ""]); // Clear inputs on resend
+      setOtpError("");
+      setTimer(67); 
+      setCanResend(false); 
+    }
+  };
+
+  const handleConfirmOtp = () => {
+    const enteredOtp = otp.join("");
+
+    if (enteredOtp.length < 6) {
+      setOtpError("Please enter complete 6-digit OTP");
+      return;
+    }
+
+    // Check against expected OTP
+    if (enteredOtp === "894085") {
+      setOtpError("");
+      setOtpStep(2);
+    } else {
+      setOtpError("Invalid OTP! Please enter correct code");
+    }
+  };
+
+  const handleFinishVerification = () => {
+    setIsEmailVerified(true);
+    setShowOtpModal(false);
   };
 
   const validate = () => {
@@ -43,7 +156,8 @@ const UserRegCandidate = () => {
     if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required";
     if (!formData.userName.trim()) newErrors.userName = "User Name is required";
     if (!/^[6-9]\d{9}$/.test(formData.mobile)) newErrors.mobile = "Enter valid mobile number";
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) newErrors.email = "Enter valid email";
+    if (!isEmailValid) newErrors.email = "Enter valid email";
+    if (!isEmailVerified) newErrors.email = "Please verify your email address";
     if (!formData.degree.trim()) newErrors.degree = "Degree is required";
     if (formData.password.length < 8) newErrors.password = "Minimum 8 characters";
     if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = "Passwords do not match";
@@ -88,7 +202,6 @@ const UserRegCandidate = () => {
             <h3 className="urc-register-label">I am Registering as</h3>
 
             <div className="urc-role-wrapper">
-              {/* CANDIDATE CARD */}
               <div
                 className={`urc-role-card ${role === "candidate" ? "urc-active" : ""}`}
                 onClick={() => setRole("candidate")}
@@ -101,7 +214,6 @@ const UserRegCandidate = () => {
                 <p>Explore jobs take next step</p>
               </div>
 
-              
               <div
                 className={`urc-role-card ${role === "recruiter" ? "urc-active" : ""}`}
                 onClick={() => {
@@ -144,11 +256,24 @@ const UserRegCandidate = () => {
                 <input type="text" name="degree" placeholder="B.E Civil Engineer" value={formData.degree} onChange={handleChange} />
                 {errors.degree && <small className="urc-error-text">{errors.degree}</small>}
               </div>
-              <div className="urc-input-group">
+
+              {/* EMAIL WITH VERIFY BUTTON */}
+              <div className="urc-input-group urc-email-wrapper">
                 <label>Enter your Email Address </label>
-                <input type="email" name="email" placeholder="Thilak1@gmail.com" value={formData.email} onChange={handleChange} />
+                <div className="urc-input-with-action">
+                  <input type="email" name="email" placeholder="Thilak1@gmail.com" value={formData.email} onChange={handleChange} />
+                  {isEmailValid && !isEmailVerified && (
+                    <button type="button" className="urc-verify-btn" onClick={handleVerifyClick}>
+                      Verify
+                    </button>
+                  )}
+                  {isEmailVerified && (
+                    <span className="urc-verified-badge">Verified</span>
+                  )}
+                </div>
                 {errors.email && <small className="urc-error-text">{errors.email}</small>}
               </div>
+
               <div className="urc-input-group urc-password-wrapper">
                 <label>Password </label>
                 <div className="urc-input-with-icon">
@@ -200,6 +325,61 @@ const UserRegCandidate = () => {
           </form>
         </div>
       </div>
+
+      {/* EMAIL VERIFICATION MODAL POPUP */}
+      {showOtpModal && (
+        <div className="urc-modal-overlay">
+          <div className="urc-modal-content">
+            {otpStep === 1 ? (
+              <>
+                <div className="urc-modal-icon">📩</div>
+                <h3>Email Verification</h3>
+                <p>We've Sent a Code To <strong>{formData.email}</strong>.<br />Please enter it below</p>
+                
+                {/* OTP INPUTS */}
+                <div className="urc-otp-inputs">
+                  {otp.map((data, index) => (
+                    <input
+                      key={index}
+                      type="text"
+                      maxLength="1"
+                      value={data}
+                      onChange={(e) => handleOtpChange(e, index)}
+                      onKeyDown={(e) => handleOtpKeyDown(e, index)}
+                      onPaste={handleOtpPaste}
+                    />
+                  ))}
+                </div>
+
+                {/* ERROR MESSAGE IF OTP IS WRONG / EMPTY */}
+                {otpError && <small className="urc-error-text" style={{ marginBottom: "12px", display: "block" }}>{otpError}</small>}
+
+                {/* TIMER / RESEND OTP DISPLAY */}
+                <p className="urc-resend-text">
+                  {!canResend ? (
+                    <>Did not receive code? Resend OTP in <strong>{formatTime(timer)}</strong></>
+                  ) : (
+                    <>
+                      Did not receive code?{" "}
+                      <span className="urc-resend-link" onClick={handleResendOtp}>
+                        Resend OTP
+                      </span>
+                    </>
+                  )}
+                </p>
+
+                <button className="urc-modal-btn" onClick={handleConfirmOtp}>Continue</button>
+              </>
+            ) : (
+              <>
+                <div className="urc-modal-icon urc-success-icon">✓</div>
+                <h3>Verification Is Confirmed</h3>
+                <button className="urc-modal-btn" onClick={handleFinishVerification}>Continue</button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

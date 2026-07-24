@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import candidateIcon from "../assets/candidate.png";
 import recruiterIcon from "../assets/recruiter.png";
@@ -20,6 +20,15 @@ const UserRegRecruiter = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // OTP Modal & Verification States
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otpStep, setOtpStep] = useState(1);
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [otpError, setOtpError] = useState("");
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [timer, setTimer] = useState(67);
+  const [canResend, setCanResend] = useState(false);
 
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
@@ -55,12 +64,111 @@ const UserRegRecruiter = () => {
     { icon: analyticsIcon, title: "Recruitment Analytics", description: "Data-driven insights into your hiring funnel." },
   ];
 
-  const handleChange = (fieldId, type) => (e) => {
-    if (type === "file") {
-      setForm((prev) => ({ ...prev, [fieldId]: e.target.files[0] }));
-    } else {
-      setForm((prev) => ({ ...prev, [fieldId]: e.target.value }));
+  const isEmailValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(form.email || "");
+
+  // Countdown Timer Logic
+  useEffect(() => {
+    let interval = null;
+    if (showOtpModal && otpStep === 1 && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0) {
+      setCanResend(true);
+      clearInterval(interval);
     }
+    return () => clearInterval(interval);
+  }, [showOtpModal, otpStep, timer]);
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = timeInSeconds % 60;
+    return `${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
+  const handleChange = (fieldId, type) => (e) => {
+    const value = type === "file" ? e.target.files[0] : e.target.value;
+
+    if (fieldId === "email") {
+      setIsEmailVerified(false);
+    }
+
+    setForm((prev) => ({ ...prev, [fieldId]: value }));
+  };
+
+  // OTP Input Handler
+  const handleOtpChange = (e, index) => {
+    const value = e.target.value;
+    if (isNaN(value)) return;
+
+    let newOtp = [...otp];
+    newOtp[index] = value.substring(value.length - 1);
+    setOtp(newOtp);
+    setOtpError("");
+
+    if (value && e.target.nextSibling) {
+      e.target.nextSibling.focus();
+    }
+  };
+
+  // Keyboard navigation (Backspace)
+  const handleOtpKeyDown = (e, index) => {
+    if (e.key === "Backspace" && !otp[index] && e.target.previousSibling) {
+      e.target.previousSibling.focus();
+    }
+  };
+
+  // Paste 6-digit code
+  const handleOtpPaste = (e) => {
+    e.preventDefault();
+    const pasteData = e.clipboardData.getData("text").trim();
+    if (/^\d{6}$/.test(pasteData)) {
+      setOtp(pasteData.split(""));
+      setOtpError("");
+    }
+  };
+
+  const handleVerifyClick = () => {
+    if (isEmailValid) {
+      setOtp(["", "", "", "", "", ""]);
+      setOtpError("");
+      setOtpStep(1);
+      setTimer(67);
+      setCanResend(false);
+      setShowOtpModal(true);
+    } else {
+      setErrors((prev) => ({ ...prev, email: "Enter a valid email address first" }));
+    }
+  };
+
+  const handleResendOtp = () => {
+    if (canResend) {
+      setOtp(["", "", "", "", "", ""]);
+      setOtpError("");
+      setTimer(67);
+      setCanResend(false);
+    }
+  };
+
+  const handleConfirmOtp = () => {
+    const enteredOtp = otp.join("");
+
+    if (enteredOtp.length < 6) {
+      setOtpError("Please enter complete 6-digit OTP");
+      return;
+    }
+
+    if (enteredOtp === "894085") {
+      setOtpError("");
+      setOtpStep(2);
+    } else {
+      setOtpError("Invalid OTP! Please enter correct code");
+    }
+  };
+
+  const handleFinishVerification = () => {
+    setIsEmailVerified(true);
+    setShowOtpModal(false);
   };
 
   const validate = () => {
@@ -86,6 +194,10 @@ const UserRegRecruiter = () => {
         newErrors[field.id] = "Minimum 8 characters required";
       }
     });
+
+    if (!isEmailVerified) {
+      newErrors.email = "Please verify your email address";
+    }
 
     if (form.password && form.confirmPassword && form.password !== form.confirmPassword) {
       newErrors.confirmPassword = "Passwords do not match";
@@ -203,8 +315,57 @@ const UserRegRecruiter = () => {
                         value={field.type === "file" ? undefined : (form[field.id] || "")}
                         onChange={handleChange(field.id, field.type)}
                         placeholder={field.placeholder}
-                        style={{ paddingRight: (field.id === "password" || field.id === "confirmPassword") ? "40px" : "10px" }}
+                        style={{
+                          paddingRight:
+                            field.id === "password" || field.id === "confirmPassword" || field.id === "email"
+                              ? "80px"
+                              : "10px",
+                        }}
                       />
+
+                      {/* EMAIL VERIFY ACTION BUTTON / BADGE */}
+                      {field.id === "email" && (
+                        <>
+                          {isEmailValid && !isEmailVerified && (
+                            <button
+                              type="button"
+                              className="urc-verify-btn"
+                              onClick={handleVerifyClick}
+                              style={{
+                                position: "absolute",
+                                right: "8px",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                background: "#007bff",
+                                color: "#fff",
+                                border: "none",
+                                borderRadius: "4px",
+                                padding: "4px 10px",
+                                cursor: "pointer",
+                                fontSize: "12px",
+                              }}
+                            >
+                              Verify
+                            </button>
+                          )}
+                          {isEmailVerified && (
+                            <span
+                              className="urc-verified-badge"
+                              style={{
+                                position: "absolute",
+                                right: "8px",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                color: "#28a745",
+                                fontWeight: "bold",
+                                fontSize: "12px",
+                              }}
+                            >
+                              Verified
+                            </span>
+                          )}
+                        </>
+                      )}
 
                       {field.id === "password" && form[field.id] && (
                         <img
@@ -249,12 +410,72 @@ const UserRegRecruiter = () => {
             Complete Registration
           </button>
 
-          <p className="urr-login">Already have an account?{" "}<span onClick={() => navigate("/Resume-builder/login/recruiter")}style={{ color: "#007bff", cursor: "pointer", textDecoration: "underline" }}>
-    Login
-  </span>
-</p>
+          <p className="urr-login">
+            Already have an account?{" "}
+            <span
+              onClick={() => navigate("/Resume-builder/login/recruiter")}
+              style={{ color: "#007bff", cursor: "pointer", textDecoration: "underline" }}
+            >
+              Login
+            </span>
+          </p>
         </form>
       </div>
+
+      {/* EMAIL VERIFICATION MODAL POPUP */}
+      {showOtpModal && (
+        <div className="urc-modal-overlay">
+          <div className="urc-modal-content">
+            {otpStep === 1 ? (
+              <>
+                <div className="urc-modal-icon">📩</div>
+                <h3>Email Verification</h3>
+                <p>We've Sent a Code To <strong>{form.email}</strong>.<br />Please enter it below</p>
+                
+                {/* OTP INPUTS */}
+                <div className="urc-otp-inputs">
+                  {otp.map((data, index) => (
+                    <input
+                      key={index}
+                      type="text"
+                      maxLength="1"
+                      value={data}
+                      onChange={(e) => handleOtpChange(e, index)}
+                      onKeyDown={(e) => handleOtpKeyDown(e, index)}
+                      onPaste={handleOtpPaste}
+                    />
+                  ))}
+                </div>
+
+                {/* ERROR MESSAGE */}
+                {otpError && <small className="urc-error-text" style={{ color: "red", display: "block", marginBottom: "12px" }}>{otpError}</small>}
+
+                {/* TIMER / RESEND OTP DISPLAY */}
+                <p className="urc-resend-text">
+                  {!canResend ? (
+                    <>Did not receive code? Resend OTP in <strong>{formatTime(timer)}</strong></>
+                  ) : (
+                    <>
+                      Did not receive code?{" "}
+                      <span className="urc-resend-link" onClick={handleResendOtp} style={{ color: "#007bff", cursor: "pointer", textDecoration: "underline" }}>
+                        Resend OTP
+                      </span>
+                    </>
+                  )}
+                </p>
+
+                <button className="urc-modal-btn" onClick={handleConfirmOtp}>Continue</button>
+              </>
+            ) : (
+              <>
+                <div className="urc-modal-icon urc-success-icon">✓</div>
+                <h3>Verification Is Confirmed</h3>
+                <button className="urc-modal-btn" onClick={handleFinishVerification}>Continue</button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
