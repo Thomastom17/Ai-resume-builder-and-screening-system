@@ -236,12 +236,11 @@ const UserRegRecruiter = () => {
       formData.append("industryType", form.industryType);
       formData.append("password", form.password);
 
-      alert("Recruiter Registration Successful!");
-
       console.log("--- Recruiter Form Data Contents ---");
       for (let [key, value] of formData.entries()) {
         console.log(`${key}:`, value);
       }
+      navigate("/Resume-builder/login/recruiter");
     }
   };
 
@@ -322,7 +321,7 @@ const UserRegRecruiter = () => {
                 <span className="urr-label">Full Name</span>
                 <input
                   type="text"
-                  placeholder="Thomas"
+                  placeholder=""
                   value={form.fullName}
                   onChange={handleChange("fullName")}
                 />
@@ -336,7 +335,7 @@ const UserRegRecruiter = () => {
                 <span className="urr-label">User Name</span>
                 <input
                   type="text"
-                  placeholder="thomas54"
+                  placeholder=""
                   value={form.userName}
                   onChange={handleChange("userName")}
                 />
@@ -365,7 +364,7 @@ const UserRegRecruiter = () => {
                 <div style={{ position: "relative", width: "100%" }}>
                   <input
                     type="email"
-                    placeholder="thomas54594@gmail.com"
+                    placeholder=""
                     value={form.email}
                     onChange={handleChange("email")}
                     style={{ paddingRight: "80px" }}
@@ -419,7 +418,7 @@ const UserRegRecruiter = () => {
                 <span className="urr-label">Phone Number</span>
                 <input
                   type="text"
-                  placeholder="8940854594"
+                  placeholder=""
                   value={form.phone}
                   onChange={handleChange("phone")}
                 />
@@ -447,7 +446,7 @@ const UserRegRecruiter = () => {
                 <span className="urr-label">Company Name</span>
                 <input
                   type="text"
-                  placeholder="Adhway Creation"
+                  placeholder=""
                   value={form.companyName}
                   onChange={handleChange("companyName")}
                 />
@@ -475,7 +474,7 @@ const UserRegRecruiter = () => {
                 <span className="urr-label">Company Location</span>
                 <input
                   type="text"
-                  placeholder="Coimbatore"
+                  placeholder=""
                   value={form.companyLocation}
                   onChange={handleChange("companyLocation")}
                 />
@@ -506,7 +505,7 @@ const UserRegRecruiter = () => {
                 <div style={{ position: "relative", width: "100%" }}>
                   <input
                     type={showPassword ? "text" : "password"}
-                    placeholder="........."
+                    placeholder=""
                     value={form.password}
                     onChange={handleChange("password")}
                   />
@@ -530,7 +529,7 @@ const UserRegRecruiter = () => {
                 <div style={{ position: "relative", width: "100%" }}>
                   <input
                     type={showConfirmPassword ? "text" : "password"}
-                    placeholder="........"
+                    placeholder=""
                     value={form.confirmPassword}
                     onChange={handleChange("confirmPassword")}
                   />
