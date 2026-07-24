@@ -52,7 +52,7 @@ const Header = () => {
         <Link
           to="/about"
           className={isAboutActive ? "lp-header-active-link" : ""}
-          onClick={() => setMenuOpen(false)}
+          onClick={() => handleNavigation("/Resume-builder/Aboutus")}
         >
           About Us
         </Link>
@@ -68,7 +68,7 @@ const Header = () => {
           className="lp-header-register-btn"
           onClick={() => handleNavigation("/Resume-builder/userregcandidate")}
         >
-          Registration
+          Get Started
         </button>
       </div>
     </header>
