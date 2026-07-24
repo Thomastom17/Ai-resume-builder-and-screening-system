@@ -66,15 +66,16 @@
   grid-template-columns: 1fr 2fr;
   gap: 25px;
   margin-bottom: 40px;
+  background: linear-gradient(135deg, #e8f0ff 0%, #f5f7ff 100%);
 }
 
 .vision-card,
 .values-section {
   border-radius: 16px;
-  border: 1px solid #e5e7eb;
+  /* border: 1px solid #e5e7eb; */
   padding: 25px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-  background: #fff;
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); */
+  
 }
 
 .vision-icon img {
