@@ -349,7 +349,7 @@ const UserRegRecruiter = () => {
                 <span className="urr-label">Recruiter Name</span>
                 <input
                   type="text"
-                  placeholder="Tom"
+                  placeholder=""
                   value={form.recruiterName}
                   onChange={handleChange("recruiterName")}
                 />
@@ -432,7 +432,7 @@ const UserRegRecruiter = () => {
                 <span className="urr-label">Designation / Job Title</span>
                 <input
                   type="text"
-                  placeholder="UI/UX Designer"
+                  placeholder=""
                   value={form.designation}
                   onChange={handleChange("designation")}
                 />
@@ -460,7 +460,7 @@ const UserRegRecruiter = () => {
                 <span className="urr-label">Company Website</span>
                 <input
                   type="text"
-                  placeholder="www.adway.com"
+                  placeholder=""
                   value={form.companyWebsite}
                   onChange={handleChange("companyWebsite")}
                 />
